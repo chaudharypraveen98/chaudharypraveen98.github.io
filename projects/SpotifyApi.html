@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>SpotifyApi</title><meta name="description" content="This contains all the projects made by Praveen chaudhary">
+        <meta name="keywords" content="chaudharypraveen98,Praveen Chaudhary,devilunknown, Praveen Chaudhary projects, spotify-api">
+        <meta name="robots" content="index, follow">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="language" content="English">
+        <meta name="revisit-after" content="2 days">
+        <meta name="author" content="@chaudharypraveen98">
+        <meta name="twitter:title" content="Praveen Chaudhary">
+        <meta name="twitter:description" content=" Personal Projects Section">
+        <meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1366311960468332546/EidYygUt_400x400.jpg">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="og:title" content="Praveen Chaudhary - a Full Stack Developer" />
+        <meta property="og:url" content="https://www.linkedin.com/in/chaudharypraveen98/" />
+        <meta property="og:description" content="This is the personal portfolio page which contains all the projects. I am a Full Stack Developer, Rest Api Developer, Data Analsyt" />
+        <meta property="og:image" content="https://media-exp1.licdn.com/dms/image/C5603AQHRamUaMrdA9g/profile-displayphoto-shrink_400_400/0/1597315489941?e=1629936000&v=beta&t=GjvQu_r0n3F2EtGkaRYSF6pH8vRdgx5lsD1-w8dc8gY" />
+        <meta property="og:type" content="Portfolio.Projects" />
+        <link rel="shortcut icon" href="./../favicon.ico" type="image/x-icon">
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="index.html">SpotifyApi</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://chaudharypraveen98.github.io/about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://chaudharypraveen98.github.io/project-preview/">Latest Works</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://chaudharypraveen98.github.io/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/img/post-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>SpotifyApi</h1>
+                            <h2 class="subheading">It is a class based client Api. It makes multiple get request with the spotify to search songs, album, artist and the tracks.</h2>
+                            <span class="meta">
+                                Posted by
+                                <a href="https://github.com/chaudharypraveen98">Praveen Chaudhary</a>
+                                on 11 June 2020
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <p><strong>How the code works :-</strong></p>
+                        <p><b>Libraries required</b></p>
+                         <pre>import base64
+import requests
+import datetime
+from urllib.parse import urlencode</pre>
+                        <p><b>Get your API credentials from Spotify developer account</b></p>
+                            <pre>client_id = ‘client id’
+client_key = “enter the key”</pre>
+                            <p><b>Initialize the client</b></p>
+                            <pre>
+class SpotifyApi(object):
+    access_token = None
+    access_token_expires = datetime.datetime.now()
+    access_token_did_expires = True
+    client_id = None
+    client_key = None
+    token_url = ‘https://accounts.spotify.com/api/token'</pre>
+                            <h2 class="section-heading">Authentication</h2>
+                            <p><pre>
+def __init__(self, client_id, client_key, *args, **kwargs):
+    super().__init__(*args, **kwargs)
+    self.client_id = client_id
+    self.client_key = client_key
+
+# Converting the credentials to base64 encoding
+
+def get_token_header(self):
+    cred_base64 = self.get_client_credentials()
+    return {
+    “Authorization”: f’Basic {cred_base64}’
+    }
+
+# Checking if credentials is supplied or not
+
+def get_client_credentials(self):
+    client_id = self.client_id
+    client_key = self.client_key
+    if client_key == None or client_key == None:
+    raise Exception(“you must set the client credentials”)
+    cred = f’{client_id}:{client_key}’
+    cred_base64 = base64.b64encode(cred.encode())
+    return cred_base64.decode()
+
+# Getting token data
+
+def get_token_data(self):
+    return {
+    “grant_type”: “client_credentials”
+    }
+
+# Performing authentication
+
+def perform_auth(self):
+    token_url = self.token_url
+    token_data = self.get_token_data()
+    token_header = self.get_token_header()
+    r = requests.post(token_url, data=token_data, headers=token_header)
+    if r.status_code not in range(200, 299):
+    return False
+    token_response_data = r.json()
+    now = datetime.datetime.now()
+    expires_in = token_response_data[‘expires_in’]
+    expires = now + datetime.timedelta(seconds=expires_in)
+    self.access_token_expires = expires
+    self.access_token_did_expires = expires < now
+    self.access_token = token_response_data[‘access_token’]
+    return True
+
+# Getting access token
+
+def get_access_token(self):
+    token = self.access_token
+    expires = self.access_token_expires
+    now = datetime.datetime.now()
+    if expires < now:
+    self.perform_auth()
+    return self.get_access_token()
+    elif token is None:
+    self.perform_auth()
+    return self.get_access_token()
+    return token</pre></p>
+                        <blockquote class="blockquote">Fun Fact - There are over 50 million tracks available to listen to on the app.</blockquote>
+                        <h2 class="section-heading">How to setup the API :-</h2>
+                        <ol>
+                            <li>First install requirements.txt by :- <pre>python3 install -r requirements.txt</pre></li>
+                            <li>Enter the <b>client id</b> and <b>secret key</b> that you have to get from the Spotify developer account in the <b>"spotify_api.py"</b>.</li>
+                            <li>Make an object of the class to use methods.
+                                Example:-
+                                <pre>spotify = SpotifyApi()<pre></li>
+                            <li>
+                                Then you have to perform authentication for getting the access token. An access token is used to make a get request. One need to understand that access token has an expiry time i.e. <b>3600</b> seconds for version 1 now. But your class automatically manages that work for you. It will regenerate the token if it expires. So you don’t need to worry about it at all. Running authentication is a one time process. For authentication simply run :-
+<pre>spotify.perform_auth()</pre>
+                            </li>
+                        </ol>
+                        <p><strong>How to use the API:</strong></p>
+                        <ol>
+                        <li>Now you can start using the methods or get requests as shown below :-
+spotify.search(query, operator=None, operator_query=None, search_type="type")
+Where :-
+                        <p><b>query </b> = It can be anything, depending on the type of search. For search type like artist, it can be Neha Kakkar, Honey Singh, Raaftar etc.
+                        </p><p><b>search_type</b> = spotify provides different type of searches like by artists, albums or tracks.
+                        </p><p><b>operator</b> = Spotify provides two type of operators, i.e "OR" and "NOT". NOT operator means exclude it. OR operator means anyone of both.
+                        </p><p><b>operator_query</b> = means anything you want to exclude or to make an option. Example :-</p>
+<pre>songs=spotify.search("Tony", operator="not" , operator_query="Kakkar", search_type="artist")</pre>
+The above code will search for tony, but it will neglect the results which contains the Kakkar in their title.
+</li><li>
+You can even search for the track in the similar way for track. Example :-
+<pre>spotify.search(Time, search_type="track")</pre></li></ol>
+                        </p>Output<p>
+                        <a href="#!"><img class="img-fluid" src="https://miro.medium.com/max/875/1*ZMxBcjKeF6cHP6QJXx-rjg.jpeg" alt="..." /></a>
+                        <span class="caption text-muted">Api response we get from the server</span>
+                        <p>
+                            Placeholder text by
+                            <a href="https://chaudharypraveen98.github.io/">Praveen Chaudhary</a>
+                            &middot; Images by
+                            <a href="hhttps://chaudharypraveen98.github.io/binarybeast/">Binary Beast</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <!-- Footer-->
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="https://twitter.com/chaudhpraveen98">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.linkedin.com/in/chaudharypraveen98/">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://github.com/chaudharypraveen98">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="small text-center text-muted fst-italic">Copyright &copy; Praveen Chaudhary 2021</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

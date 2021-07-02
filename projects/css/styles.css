@@ -10819,3 +10819,7 @@ header.masthead .site-heading .h1 {
 .post-preview .topics>a{
   margin: 4px 4px;
 }
+code {
+  display: block;
+  white-space: pre-wrap   
+}
