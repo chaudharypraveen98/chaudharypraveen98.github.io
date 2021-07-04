@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>PokeWorld</title><meta name="description" content="This contains all the projects made by Praveen chaudhary">
-        <meta name="keywords" content="chaudharypraveen98,Praveen Chaudhary,devilunknown, Praveen Chaudhary projects, pokemon">
+        <title>Calculator</title><meta name="description" content="This contains all the projects made by Praveen chaudhary">
+        <meta name="keywords" content="chaudharypraveen98,Praveen Chaudhary,devilunknown, Praveen Chaudhary projects, calculator">
         <meta name="robots" content="index, follow">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="language" content="English">
@@ -34,7 +34,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="index.html">PokeWorld</a>
+                <a class="navbar-brand" href="index.html">Calculator</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -55,12 +55,12 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="post-heading">
-                            <h1>PokeWorld</h1>
-                            <h2 class="subheading">A React project which lists all the 898 Pokemon's with their capabilities. The data is loaded using the custom services which extract data from JSON.</h2>
+                            <h1>Calculator</h1>
+                            <h2 class="subheading">It is a calculator based on react JS with some custom  styling.</h2>
                             <span class="meta">
                                 Posted by
                                 <a href="https://github.com/chaudharypraveen98">Praveen Chaudhary</a>
-                                on 22 January 2021
+                                on 31 March 2020
                             </span>
                         </div>
                     </div>
@@ -73,174 +73,90 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <h3>Topics -> ReactJS, HTML, CSS, Web development</h3>
-                        <h4>Preview Link -> <u><a href="https://chaudharypraveen98.github.io/PokeWorld/#/">PokeWorld</a></u></h4>
-                        <h4>Source Code Link -> <u><a href="https://github.com/chaudharypraveen98/PokeWorld">GitHub</a></u></h4>
+                        <h4>Preview Link -> <u><a href="https://chaudharypraveen98.github.io/calculator/">Calculator</a></u></h4>
+                        <h4>Source Code Link -> <u><a href="https://github.com/chaudharypraveen98/calculator">GitHub</a></u></h4>
                         <p><strong><iframe src="https://drive.google.com/file/d/1nh2NLGOIrWHJ0Ehnitfqe3d05Df_22z7/preview" width="640" height="480" allow="autoplay"></iframe></strong></p>
                         <p><strong>What We are going to do?</strong></p>
                         <ol>
-                            <li>Fetch the data from the json</li>
-                            <li>Displaying on the frontend using components with styling</li>
+                            <li>Creating a react component</li>
+                            <li>Adding keypads</li>
+                            <li>Adding event listeners to respond on click</li>
+                            <li>Functions to perform operations</li>
                         </ol>
-                        <h2 class="section-heading">Fetching the data</h2>
-                        <p><b>Create and write a service(PokemonServices.js) which extracts the pokemon object from the json.</b></p>
-                        <pre>import pokemon from './pokemon.json';
-
-export default class PokemonServices{
-    static getpokemons() {
-        return pokemon ? pokemon : [];
-    }
-}</pre>
-                        <h2 class="section-heading">Components</h2>
-                        <p><strong>Pokemons(Pokemons.js)</strong></p>
-                        <p>It will contain how the whole webpage look like. It contains the header, footer and main body containing the PokemonApp(fetching the data on request)</p>
-                        <pre><code>
-import React, { Component } from "react";
-import PokemonServices from "../services/PokemonServices";
-import PokemonList from "./PokemonList";
-
-export default class Pokemons extends Component{
-    constructor(props) {
+                        <h2 class="section-heading">Intialising the class</h2>
+                        <p><b>Extend a react component class.</b></p>
+                        <pre>class Calculator extends React.Component{
+    constructor(props){
         super(props);
         this.state={
-            pokemons:[]
+            display:0,
+            equation:'',
         };
     }
-
-    componentDidMount() {
-        this.setState(()=> ({pokemons:PokemonServices.getpokemons() }))
-    }
-
-    render() {
-        return(
-            <PokemonList pokemons={this.state.pokemons} />
-        )
-    }
+    ...
 }
-                        </code></pre>
-                        <p><strong>PokemonApp(PokemonApp.js)</strong></p>
-                        <p>This component is responsible of fetching the data on load and passing it as a prop to PokemonList Component</p>
-                        <pre><code>
-import React, {Component} from "react";
-import Header from './Header'
-import Pokemons from "./Pokemons";
-
-export default class PokemonApp extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            title: "Welcome to Pokemon World"
-        };
-    }
-
-    render() {
-        return(
-            &lt;div className="pokemon-web"&gt;
-                &lt;Header title={this.state.title}/&gt;
-                &lt;Pokemons/&gt;
+</pre>
+                        <h2 class="section-heading">Basic structure of Front-end</h2>
+                        <pre><code>render () {
+    return (&lt;div className="commentContainer"&gt;
+                &lt;div className="head"&gt;
+                    &lt;div&gt;Calculator&lt;/div&gt;
                 &lt;/div&gt;
-        )
+            &lt;div className="displayScreen"&gt;
+                &lt;div className="eq"&gt;{this.state.equation}&lt;/div&gt;
+                &lt;div className="disp"&gt;{this.state.display}&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div className="number1 keypad" onClick={()=&gt;this.inputNo("1")} value="1"&gt;1&lt;/div&gt;
+            &lt;div className="number2 keypad" onClick={()=&gt;this.inputNo("2")} value="2"&gt;2&lt;/div&gt;
+            &lt;div className="number3 keypad" onClick={()=&gt;this.inputNo("3")} value="3"&gt;3&lt;/div&gt;
+            &lt;div className="number4 keypad" onClick={()=&gt;this.inputNo("4")} value="4"&gt;4&lt;/div&gt;
+            &lt;div className="number5 keypad" onClick={()=&gt;this.inputNo("5")} value="5"&gt;5&lt;/div&gt;
+            &lt;div className="number6 keypad" onClick={()=&gt;this.inputNo("6")} value="6"&gt;6&lt;/div&gt;
+            &lt;div className="number7 keypad" onClick={()=&gt;this.inputNo("7")} value="7"&gt;7&lt;/div&gt;
+            &lt;div className="number8 keypad" onClick={()=&gt;this.inputNo("8")} value="8"&gt;8&lt;/div&gt;
+            &lt;div className="number9 keypad" onClick={()=&gt;this.inputNo("9")} value="9"&gt;9&lt;/div&gt;
+            &lt;div className="number0 keypad" onClick={()=&gt;this.inputNo("0")} value="0"&gt;0&lt;/div&gt;
+            &lt;div className="decimal keypad" onClick={()=&gt;this.inputNo(".")} value="."&gt;.&lt;/div&gt;
+            &lt;div className="add keypad" onClick={()=&gt;this.operator("+")} value="+"&gt;+&lt;/div&gt;
+            &lt;div className="sub keypad" onClick={()=&gt;this.operator("-")} value="-"&gt;-&lt;/div&gt;
+            &lt;div className="mul keypad" onClick={()=&gt;this.operator("*")}  value="*"&gt;*&lt;/div&gt;
+            &lt;div className="div keypad" onClick={()=&gt;this.operator("/")} value="/"&gt;/&lt;/div&gt;
+            &lt;div className="aC keypad" onClick={this.reset}&gt;AC&lt;/div&gt;
+            &lt;div className="equal keypad" onClick={this.result}&gt;=&lt;/div&gt;
+        &lt;/div&gt;
+    );
     }
-}
-</code></pre>
-                        <p><strong>PokemonList(PokemonList.js)</strong></p>
-                        <p>The data fetched is unorgainsed, this component will orgainsed in a collection(list) of pokemon.</p>
+}</code></pre>
+                        
+                        <h2 class="section-heading">Adding Function/Event Handlers</h2>
+                        <p><strong>What happens when a person click a keyword?</strong></p>
+                        <p>A event is fired and it will do the arithmetic operation and update the page.</p>
                         <pre><code>
-import React, {useEffect, useState} from "react";
-import PokemonCard from "./PokemonCard";
-import PropTypes from 'prop-types';
-const postsPerPage=6;
-let arrayForHoldingPosts = [];
-
-
-const getPokemons = (pokemons) =&gt; {
-    return(
-        &lt;div className="card-deck"&gt;
-            {
-                pokemons.map(pokemon =&gt; &lt;PokemonCard key={pokemon.pokemon_id} pokemon={pokemon} /&gt;)
-            }
-        &lt;/div&gt;
-    )
-};
-
-const PokemonList = (props) =&gt; {
-    const [postsToShow, setPostsToShow] = useState([]);
-    const [next, setNext] = useState(3);
-    const posts = props.pokemons;
-
-    const loopWithSlice = (start, end) =&gt; {
-        const slicedPosts = posts.slice(start, end);
-        arrayForHoldingPosts = [...arrayForHoldingPosts, ...slicedPosts];
-        setPostsToShow(arrayForHoldingPosts);
-    };
-
-    useEffect(() =&gt; {
-        loopWithSlice(0, postsPerPage);
-    }, []);
-
-    const handleShowMorePosts = () =&gt; {
-        loopWithSlice(next, next + postsPerPage);
-        setNext(next + postsPerPage);
-    };
-    return(
-        &lt;div className="pokemon-list"&gt;
-            &lt;div className="pokemon-container"&gt;
-            {
-                getPokemons(arrayForHoldingPosts)
-            }
-            &lt;/div&gt;
-            &lt;div&gt;
-                &lt;button onClick={handleShowMorePosts} className="load-btn" id="next-btn"&gt;↓&lt;/button&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-
-    )
-};
-
-PokemonList.defaultProps={
-    pokemon:[]
+operator(value){
+    let b = value;
+    b=this.state.equation+b;
+    this.setState({equation:b});
 }
-
-PokemonList.propTypes={
-    pokemon:PropTypes.array
+result=()=>{
+    let b = eval(this.state.equation);
+    this.setState({display:b,equation:''});
 }
-
-export default PokemonList;
+inputNo(value){
+    let b = value ;
+    this.setState({display:b});
+    b=this.state.equation+b;
+    this.setState({equation:b});
+}
+reset=()=>{
+    this.setState({display:0,equation:''});
+}
                         </code></pre>
-                        <p><strong>PokemonCard(PokemonCard.js)</strong></p>
-                        <p>It contains the basic styling and structure of the pokemon card.</p>
-                        <pre><code>
-import React from "react";
-import PropTypes from 'prop-types';
-import '../styles/card.scss'
-
-const PokemonCard = (props) =&gt; (
-    &lt;div className={ `pokemon-card ${props.pokemon.pokemon_tags[0]}` }&gt;
-        &lt;img src={props.pokemon.pokemon_image_url} alt={props.pokemon.pokemon_name} /&gt;
-        &lt;div className="pokemon-card-body"&gt;
-            &lt;h4&gt;{props.pokemon.pokemon_id}&lt;/h4&gt;
-            &lt;h5 className="pokemon-card-title"&gt;{props.pokemon.pokemon_name}&lt;/h5&gt;
-            &lt;p&gt;{props.pokemon.pokemon_tags}&lt;/p&gt;
-            &lt;a href={props.pokemon.pokemon_url} className="pokemon-card-btn"&gt;url&lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-);
-
-PokemonCard.prototype = {
-    pokemon:PropTypes.object
-};
-
-PokemonCard.defaultProps={
-    pokemon:{}
-};
-
-export default PokemonCard;
-                        </code></pre>
-                        <blockquote class="blockquote">Fun Fact - Rhydon is the first Pokemon ever to be created</blockquote>
+                        <blockquote class="blockquote">Fun Fact - Calculators were originally gear driven wheels, but now they use a chip</blockquote>
                         <p><strong>Add some stylings to make it look impressive.</strong></p>
                         <h2 class="section-heading">Deployment</h2>
-                        <p>For deployment, We are using the <strong>GitHub Pages</strong>.  <span><a href="https://github.com/gitname/react-gh-pages">For More Info</a></span></p>
+                        <p>For deployment, We are using the <strong>GitHub Pages</strong>.  <span><a href="https://pages.github.com/">For More Info</a></span></p>
                         <h2 class="section-heading">Web Preview / Output</h2>
-                        <a href="#!"><img class="img-fluid" src="https://raw.githubusercontent.com/chaudharypraveen98/PokeWorld/master/WebPreview.JPG" alt="..." /></a>
+                        <a href="#!"><img class="img-fluid" src="https://raw.githubusercontent.com/chaudharypraveen98/calculator/master/calculator.JPG" alt="web preview" /></a>
                         <span class="caption text-muted">Web preview on deployment</span>
                         <p>
                             Placeholder text by
