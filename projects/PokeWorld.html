@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>PokeWorld</title><meta name="description" content="This contains all the projects made by Praveen chaudhary">
+        <meta name="keywords" content="chaudharypraveen98,Praveen Chaudhary,devilunknown, Praveen Chaudhary projects, spotify-api">
+        <meta name="robots" content="index, follow">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="language" content="English">
+        <meta name="revisit-after" content="2 days">
+        <meta name="author" content="@chaudharypraveen98">
+        <meta name="twitter:title" content="Praveen Chaudhary">
+        <meta name="twitter:description" content=" Personal Projects Section">
+        <meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1366311960468332546/EidYygUt_400x400.jpg">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="og:title" content="Praveen Chaudhary - a Full Stack Developer" />
+        <meta property="og:url" content="https://www.linkedin.com/in/chaudharypraveen98/" />
+        <meta property="og:description" content="This is the personal portfolio page which contains all the projects. I am a Full Stack Developer, Rest Api Developer, Data Analsyt" />
+        <meta property="og:image" content="https://media-exp1.licdn.com/dms/image/C5603AQHRamUaMrdA9g/profile-displayphoto-shrink_400_400/0/1597315489941?e=1629936000&v=beta&t=GjvQu_r0n3F2EtGkaRYSF6pH8vRdgx5lsD1-w8dc8gY" />
+        <meta property="og:type" content="Portfolio.Projects" />
+        <link rel="shortcut icon" href="./../favicon.ico" type="image/x-icon">
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="index.html">PokeWorld</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://chaudharypraveen98.github.io/about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://chaudharypraveen98.github.io/project-preview/">Latest Works</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://chaudharypraveen98.github.io/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/img/post-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>PokeWorld</h1>
+                            <h2 class="subheading">A React project which lists all the 898 Pokemon's with their capabilities. The data is loaded using the custom services which extract data from JSON.</h2>
+                            <span class="meta">
+                                Posted by
+                                <a href="https://github.com/chaudharypraveen98">Praveen Chaudhary</a>
+                                on 22 January 2021
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <h3>Topics -> ReactJS, HTML, CSS, Web development</h3>
+                        <h4>Preview Link -> <u><a href="https://chaudharypraveen98.github.io/PokeWorld/#/">PokeWorld</a></u></h4>
+                        <p><strong><iframe src="https://drive.google.com/file/d/1nh2NLGOIrWHJ0Ehnitfqe3d05Df_22z7/preview" width="640" height="480" allow="autoplay"></iframe></strong></p>
+                        <p><strong>What We are going to do?</strong></p>
+                        <ol>
+                            <li>Fetch the data from the json</li>
+                            <li>Displaying on the frontend using components with styling</li>
+                        </ol>
+                        <h2 class="section-heading">Fetching the data</h2>
+                        <p><b>Create and write a service(PokemonServices.js) which extracts the pokemon object from the json.</b></p>
+                        <pre>import pokemon from './pokemon.json';
+
+export default class PokemonServices{
+    static getpokemons() {
+        return pokemon ? pokemon : [];
+    }
+}</pre>
+                        <h2 class="section-heading">Components</h2>
+                        <p><strong>Pokemons(Pokemons.js)</strong></p>
+                        <p>It will contain how the whole webpage look like. It contains the header, footer and main body containing the PokemonApp(fetching the data on request)</p>
+                        <pre><code>
+import React, { Component } from "react";
+import PokemonServices from "../services/PokemonServices";
+import PokemonList from "./PokemonList";
+
+export default class Pokemons extends Component{
+    constructor(props) {
+        super(props);
+        this.state={
+            pokemons:[]
+        };
+    }
+
+    componentDidMount() {
+        this.setState(()=> ({pokemons:PokemonServices.getpokemons() }))
+    }
+
+    render() {
+        return(
+            <PokemonList pokemons={this.state.pokemons} />
+        )
+    }
+}
+                        </code></pre>
+                        <p><strong>PokemonApp(PokemonApp.js)</strong></p>
+                        <p>This component is responsible of fetching the data on load and passing it as a prop to PokemonList Component</p>
+                        <pre><code>
+import React, {Component} from "react";
+import Header from './Header'
+import Pokemons from "./Pokemons";
+
+export default class PokemonApp extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            title: "Welcome to Pokemon World"
+        };
+    }
+
+    render() {
+        return(
+            &lt;div className="pokemon-web"&gt;
+                &lt;Header title={this.state.title}/&gt;
+                &lt;Pokemons/&gt;
+                &lt;/div&gt;
+        )
+    }
+}
+</code></pre>
+                        <p><strong>PokemonList(PokemonList.js)</strong></p>
+                        <p>The data fetched is unorgainsed, this component will orgainsed in a collection(list) of pokemon.</p>
+                        <pre><code>
+import React, {useEffect, useState} from "react";
+import PokemonCard from "./PokemonCard";
+import PropTypes from 'prop-types';
+const postsPerPage=6;
+let arrayForHoldingPosts = [];
+
+
+const getPokemons = (pokemons) =&gt; {
+    return(
+        &lt;div className="card-deck"&gt;
+            {
+                pokemons.map(pokemon =&gt; &lt;PokemonCard key={pokemon.pokemon_id} pokemon={pokemon} /&gt;)
+            }
+        &lt;/div&gt;
+    )
+};
+
+const PokemonList = (props) =&gt; {
+    const [postsToShow, setPostsToShow] = useState([]);
+    const [next, setNext] = useState(3);
+    const posts = props.pokemons;
+
+    const loopWithSlice = (start, end) =&gt; {
+        const slicedPosts = posts.slice(start, end);
+        arrayForHoldingPosts = [...arrayForHoldingPosts, ...slicedPosts];
+        setPostsToShow(arrayForHoldingPosts);
+    };
+
+    useEffect(() =&gt; {
+        loopWithSlice(0, postsPerPage);
+    }, []);
+
+    const handleShowMorePosts = () =&gt; {
+        loopWithSlice(next, next + postsPerPage);
+        setNext(next + postsPerPage);
+    };
+    return(
+        &lt;div className="pokemon-list"&gt;
+            &lt;div className="pokemon-container"&gt;
+            {
+                getPokemons(arrayForHoldingPosts)
+            }
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;button onClick={handleShowMorePosts} className="load-btn" id="next-btn"&gt;↓&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+    )
+};
+
+PokemonList.defaultProps={
+    pokemon:[]
+}
+
+PokemonList.propTypes={
+    pokemon:PropTypes.array
+}
+
+export default PokemonList;
+                        </code></pre>
+                        <p><strong>PokemonCard(PokemonCard.js)</strong></p>
+                        <p>It contains the basic styling and structure of the pokemon card.</p>
+                        <pre><code>
+import React from "react";
+import PropTypes from 'prop-types';
+import '../styles/card.scss'
+
+const PokemonCard = (props) =&gt; (
+    &lt;div className={ `pokemon-card ${props.pokemon.pokemon_tags[0]}` }&gt;
+        &lt;img src={props.pokemon.pokemon_image_url} alt={props.pokemon.pokemon_name} /&gt;
+        &lt;div className="pokemon-card-body"&gt;
+            &lt;h4&gt;{props.pokemon.pokemon_id}&lt;/h4&gt;
+            &lt;h5 className="pokemon-card-title"&gt;{props.pokemon.pokemon_name}&lt;/h5&gt;
+            &lt;p&gt;{props.pokemon.pokemon_tags}&lt;/p&gt;
+            &lt;a href={props.pokemon.pokemon_url} className="pokemon-card-btn"&gt;url&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+);
+
+PokemonCard.prototype = {
+    pokemon:PropTypes.object
+};
+
+PokemonCard.defaultProps={
+    pokemon:{}
+};
+
+export default PokemonCard;
+                        </code></pre>
+                        <blockquote class="blockquote">Fun Fact - Rhydon is the first Pokemon ever to be created</blockquote>
+                        <p><strong>Add some stylings to make it look impressive.</strong></p>
+                        <h2 class="section-heading">Deployment</h2>
+                        <p>For deployment, We are using the <strong>GitHub Pages</strong>.  <span><a href="https://github.com/gitname/react-gh-pages">For More Info</a></span></p>
+                        <h2 class="section-heading">Web Preview / Output</h2>
+                        <a href="#!"><img class="img-fluid" src="https://raw.githubusercontent.com/chaudharypraveen98/PokeWorld/master/WebPreview.JPG" alt="..." /></a>
+                        <span class="caption text-muted">Web preview on deployment</span>
+                        <p>
+                            Placeholder text by
+                            <a href="https://chaudharypraveen98.github.io/">Praveen Chaudhary</a>
+                            &middot; Images by
+                            <a href="hhttps://chaudharypraveen98.github.io/binarybeast/">Binary Beast</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <!-- Footer-->
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="https://twitter.com/chaudhpraveen98">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.linkedin.com/in/chaudharypraveen98/">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://github.com/chaudharypraveen98">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="small text-center text-muted fst-italic">Copyright &copy; Praveen Chaudhary 2021</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
