@@ -102,6 +102,8 @@ footer_element = document.select('.profile-footer')[0]
 profile_endpoint = "https://raw.githubusercontent.com/chaudharypraveen98/PortfolioWithGatsby/master/src/data/GithubProfile.json"
 </pre>
                         <h2 class="section-heading">Requesting data through Ajax</h2>
+                        <p><strong>From where data is loaded ?</strong></p>
+                        <p>You can load data from anywhere from the web,but tries to maintain the structure like <a href=https://raw.githubusercontent.com/chaudharypraveen98/PortfolioWithGatsby/master/src/data/GithubProfile.json">Sample Data</a> </p>
                         <pre>
 def get_project():
     req = ajax.ajax()
@@ -111,8 +113,7 @@ def get_project():
     req.send()
                         </pre>                        
                         <h2 class="section-heading">Loading in Json Serializer</h2>
-                        <p><strong>What happens when a person click a keyword?</strong></p>
-                        <p>A event is fired and it will do the arithmetic operation and update the page.</p>
+                        <p>It will take the response text as input and gives JSON data.</p>
                         <pre>
 def on_complete(req):
     project_list = json.loads(req.responseText)
@@ -120,8 +121,8 @@ def on_complete(req):
     add_project(project_list)
                         </pre>
                         <h2 class="section-heading">Adding Data into HTML</h2>
-                        <p><strong>What happens when a person click a keyword?</strong></p>
-                        <p>A event is fired and it will do the arithmetic operation and update the page.</p>
+                        <p><strong>How the data is loaded in frontend?</strong></p>
+                        <p>Brython has sepcial methods to put data into html tags , see how it works</p>
                         <pre>
 def add_project(project_list):
     for project in project_list:
