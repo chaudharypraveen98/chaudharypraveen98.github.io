@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Calculator</title><meta name="description" content="This contains all the projects made by Praveen chaudhary">
-        <meta name="keywords" content="chaudharypraveen98,Praveen Chaudhary,devilunknown, Praveen Chaudhary projects, calculator">
+        <title>PortfolioWithBrython</title><meta name="description" content="This contains all the projects made by Praveen chaudhary">
+        <meta name="keywords" content="chaudharypraveen98,Praveen Chaudhary,devilunknown, Praveen Chaudhary projects, PortfolioWithBrython">
         <meta name="robots" content="index, follow">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="language" content="English">
@@ -34,7 +34,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="index.html">Calculator</a>
+                <a class="navbar-brand" href="index.html">PortfolioWithBrython</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -55,12 +55,12 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="post-heading">
-                            <h1>Calculator</h1>
-                            <h2 class="subheading">It is a calculator based on react JS with some custom  styling.</h2>
+                            <h1>PortfolioWithBrython</h1>
+                            <h2 class="subheading">A portfolio based on the Brython ( designed to replace Javascript as the scripting language for the Web. As such, it is a Python 3 implementation (you can take it for a test drive through a web console), adapted to the HTML5 environment, that is to say with an interface to the DOM objects and events ).</h2>
                             <span class="meta">
                                 Posted by
                                 <a href="https://github.com/chaudharypraveen98">Praveen Chaudhary</a>
-                                on 31 March 2020
+                                on 16 March 2021
                             </span>
                         </div>
                     </div>
@@ -72,90 +72,78 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <h3>Topics -> ReactJS, HTML, CSS, Web development</h3>
-                        <h4>Preview Link -> <u><a href="https://chaudharypraveen98.github.io/calculator/">Calculator</a></u></h4>
-                        <h4>Source Code Link -> <u><a href="https://github.com/chaudharypraveen98/calculator">GitHub</a></u></h4>
+                        <h3>Topics -> brython, html, css, web-assembly, python, webdevelopment</h3>
+                        <h4>Preview Link -> <u><a href="https://chaudharypraveen98.github.io/PortfolioWithBrython/">PortfolioWithBrython</a></u></h4>
+                        <h4>Source Code Link -> <u><a href="https://github.com/chaudharypraveen98/PortfolioWithBrython">GitHub</a></u></h4>
                         <p><strong>What We are going to do?</strong></p>
                         <ol>
-                            <li>Creating a react component</li>
-                            <li>Adding keypads</li>
-                            <li>Adding event listeners to respond on click</li>
-                            <li>Functions to perform operations</li>
+                            <li>Creating a basic template using HTML</li>
+                            <li>Request the profile data using ajax request and loads it into json serailizer.</li>
+                            <li>Then inject that data into html using python snippets.</li>
                         </ol>
-                        <h2 class="section-heading">Intialising the class</h2>
-                        <p><b>Extend a react component class.</b></p>
-                        <pre>class Calculator extends React.Component{
-    constructor(props){
-        super(props);
-        this.state={
-            display:0,
-            equation:'',
-        };
-    }
-    ...
-}
+                        <h2 class="section-heading">Intialising the variables then loading the required libraries</h2>
+                        <p><b></b></p>
+                        <pre>from browser import document,ajax,console,window,html
+from browser.template import Template
+import json
+
+# Intialising the local storage
+storage = window.localStorage
+
+# Make changes Here Only
+your_name = 'Praveen Chaudhary'
+first_profession = 'Full Stack Developer'
+second_profession = 'Data Analsyt'
+company_name = 'BinaryBeast'
+web_creator = 'Praveen Chaudhary'
+project_container = document['ProjectContainer']
+footer_element = document.select('.profile-footer')[0]
+
+profile_endpoint = "https://raw.githubusercontent.com/chaudharypraveen98/PortfolioWithGatsby/master/src/data/GithubProfile.json"
 </pre>
-                        <h2 class="section-heading">Basic structure of Front-end</h2>
-                        <pre>render () {
-    return (&lt;div className="commentContainer"&gt;
-                &lt;div className="head"&gt;
-                    &lt;div&gt;Calculator&lt;/div&gt;
-                &lt;/div&gt;
-            &lt;div className="displayScreen"&gt;
-                &lt;div className="eq"&gt;{this.state.equation}&lt;/div&gt;
-                &lt;div className="disp"&gt;{this.state.display}&lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div className="number1 keypad" onClick={()=&gt;this.inputNo("1")} value="1"&gt;1&lt;/div&gt;
-            &lt;div className="number2 keypad" onClick={()=&gt;this.inputNo("2")} value="2"&gt;2&lt;/div&gt;
-            &lt;div className="number3 keypad" onClick={()=&gt;this.inputNo("3")} value="3"&gt;3&lt;/div&gt;
-            &lt;div className="number4 keypad" onClick={()=&gt;this.inputNo("4")} value="4"&gt;4&lt;/div&gt;
-            &lt;div className="number5 keypad" onClick={()=&gt;this.inputNo("5")} value="5"&gt;5&lt;/div&gt;
-            &lt;div className="number6 keypad" onClick={()=&gt;this.inputNo("6")} value="6"&gt;6&lt;/div&gt;
-            &lt;div className="number7 keypad" onClick={()=&gt;this.inputNo("7")} value="7"&gt;7&lt;/div&gt;
-            &lt;div className="number8 keypad" onClick={()=&gt;this.inputNo("8")} value="8"&gt;8&lt;/div&gt;
-            &lt;div className="number9 keypad" onClick={()=&gt;this.inputNo("9")} value="9"&gt;9&lt;/div&gt;
-            &lt;div className="number0 keypad" onClick={()=&gt;this.inputNo("0")} value="0"&gt;0&lt;/div&gt;
-            &lt;div className="decimal keypad" onClick={()=&gt;this.inputNo(".")} value="."&gt;.&lt;/div&gt;
-            &lt;div className="add keypad" onClick={()=&gt;this.operator("+")} value="+"&gt;+&lt;/div&gt;
-            &lt;div className="sub keypad" onClick={()=&gt;this.operator("-")} value="-"&gt;-&lt;/div&gt;
-            &lt;div className="mul keypad" onClick={()=&gt;this.operator("*")}  value="*"&gt;*&lt;/div&gt;
-            &lt;div className="div keypad" onClick={()=&gt;this.operator("/")} value="/"&gt;/&lt;/div&gt;
-            &lt;div className="aC keypad" onClick={this.reset}&gt;AC&lt;/div&gt;
-            &lt;div className="equal keypad" onClick={this.result}&gt;=&lt;/div&gt;
-        &lt;/div&gt;
-    );
-    }
-}</pre>
-                        
-                        <h2 class="section-heading">Adding Function/Event Handlers</h2>
+                        <h2 class="section-heading">Requesting data through Ajax</h2>
+                        <pre>
+def get_project():
+    req = ajax.ajax()
+    req.open('GET',profile_endpoint, True)
+    req.bind('complete',on_complete)
+    #document['joke'].text = 'Loading...'
+    req.send()
+                        </pre>                        
+                        <h2 class="section-heading">Loading in Json Serializer</h2>
                         <p><strong>What happens when a person click a keyword?</strong></p>
                         <p>A event is fired and it will do the arithmetic operation and update the page.</p>
                         <pre>
-operator(value){
-    let b = value;
-    b=this.state.equation+b;
-    this.setState({equation:b});
-}
-result=()=>{
-    let b = eval(this.state.equation);
-    this.setState({display:b,equation:''});
-}
-inputNo(value){
-    let b = value ;
-    this.setState({display:b});
-    b=this.state.equation+b;
-    this.setState({equation:b});
-}
-reset=()=>{
-    this.setState({display:0,equation:''});
-}
+def on_complete(req):
+    project_list = json.loads(req.responseText)
+    storage['projects']=project_list
+    add_project(project_list)
                         </pre>
-                        <blockquote class="blockquote">Fun Fact - Calculators were originally gear driven wheels, but now they use a chip</blockquote>
+                        <h2 class="section-heading">Adding Data into HTML</h2>
+                        <p><strong>What happens when a person click a keyword?</strong></p>
+                        <p>A event is fired and it will do the arithmetic operation and update the page.</p>
+                        <pre>
+def add_project(project_list):
+    for project in project_list:
+        title= html.H1(project['title'],Class="singleProjectTitle")
+        if project['desc']!=None:
+            project_desc= html.P(project['desc'],Class="project-desc")
+        else:
+            project_desc= html.P("This project is made by Praveen Chaudhary",Class="project-desc")
+        if project['programming_language'] !=None:
+            programming_language= html.H3(project['programming_language'],Class="programming-language")
+        else:
+            programming_language= html.H3("Html-Css-Js",Class="programming-language")
+
+        projectNumber= html.P(project['id'],Class="projectNumber")
+        project_container &lt;= html.DIV(title+projectNumber+project_desc+programming_language,Class="singleProject")
+                        </pre>
+                        <blockquote class="blockquote">Fun Fact - Brython is designed to replace Javascript as the scripting language for the Web.</blockquote>
                         <p><strong>Add some stylings to make it look impressive.</strong></p>
                         <h2 class="section-heading">Deployment</h2>
                         <p>For deployment, We are using the <strong>GitHub Pages</strong>.  <span><a href="https://pages.github.com/">For More Info</a></span></p>
                         <h2 class="section-heading">Web Preview / Output</h2>
-                        <a href="#!"><img class="img-fluid" src="https://raw.githubusercontent.com/chaudharypraveen98/calculator/master/calculator.JPG" alt="web preview" /></a>
+                        <a href="https://raw.githubusercontent.com/chaudharypraveen98/PortfolioWithBrython/master/brython.JPG"><img class="img-fluid" src="https://raw.githubusercontent.com/chaudharypraveen98/PortfolioWithBrython/master/brython.JPG" alt="web preview" /></a>
                         <span class="caption text-muted">Web preview on deployment</span>
                         <p>
                             Placeholder text by

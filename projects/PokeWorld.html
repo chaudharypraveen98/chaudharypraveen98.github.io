@@ -93,7 +93,7 @@ export default class PokemonServices{
                         <h2 class="section-heading">Components</h2>
                         <p><strong>Pokemons(Pokemons.js)</strong></p>
                         <p>It will contain how the whole webpage look like. It contains the header, footer and main body containing the PokemonApp(fetching the data on request)</p>
-                        <pre><code>
+                        <pre>
 import React, { Component } from "react";
 import PokemonServices from "../services/PokemonServices";
 import PokemonList from "./PokemonList";
@@ -116,10 +116,10 @@ export default class Pokemons extends Component{
         )
     }
 }
-                        </code></pre>
+                        </pre>
                         <p><strong>PokemonApp(PokemonApp.js)</strong></p>
                         <p>This component is responsible of fetching the data on load and passing it as a prop to PokemonList Component</p>
-                        <pre><code>
+                        <pre>
 import React, {Component} from "react";
 import Header from './Header'
 import Pokemons from "./Pokemons";
@@ -141,10 +141,10 @@ export default class PokemonApp extends Component {
         )
     }
 }
-</code></pre>
+</pre>
                         <p><strong>PokemonList(PokemonList.js)</strong></p>
                         <p>The data fetched is unorgainsed, this component will orgainsed in a collection(list) of pokemon.</p>
-                        <pre><code>
+                        <pre>
 import React, {useEffect, useState} from "react";
 import PokemonCard from "./PokemonCard";
 import PropTypes from 'prop-types';
@@ -205,10 +205,10 @@ PokemonList.propTypes={
 }
 
 export default PokemonList;
-                        </code></pre>
+                        </pre>
                         <p><strong>PokemonCard(PokemonCard.js)</strong></p>
                         <p>It contains the basic styling and structure of the pokemon card.</p>
-                        <pre><code>
+                        <pre>
 import React from "react";
 import PropTypes from 'prop-types';
 import '../styles/card.scss'
@@ -234,7 +234,7 @@ PokemonCard.defaultProps={
 };
 
 export default PokemonCard;
-                        </code></pre>
+                        </pre>
                         <blockquote class="blockquote">Fun Fact - Rhydon is the first Pokemon ever to be created</blockquote>
                         <p><strong>Add some stylings to make it look impressive.</strong></p>
                         <h2 class="section-heading">Deployment</h2>
