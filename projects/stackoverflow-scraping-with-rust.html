@@ -370,6 +370,14 @@ fn get_random_url() -> String {
     url.to_string()
 }
                         </pre>
+                        <h2 class="section-heading">How to run our scraper?</h2>
+                        <ol>
+                            <li>Build the executable by <code>cargo build</code>
+                                </li>
+                            <li>Run by <code>./target/debug/stackoverflow-scraping-with-rust -t &lt;tag&gt; -c &lt;count&gt;</code>
+                                &lt; tag &gt; is the topic from which you want to scrape &lt; count &gt; is the number of posts/threads to be scraped. Note the maximum limit is 16
+                                Like this <code>./target/debug/stackoverflow-scraping-with-rust -t java -c 1</code></li>
+                            </ol>
                         <h2 class="section-heading">Deployment</h2>
                         <p>You can deploy on <a href="https://www.heroku.com/">Heroku</a> with the help of <a href="https://circleci.com/">Circle CI</a></p>
                         <p>You can read more about on <a href="https://circleci.com/blog/rust-cd/">CircleCI Blog</a></p>
