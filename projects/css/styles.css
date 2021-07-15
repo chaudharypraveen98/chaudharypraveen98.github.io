@@ -10823,3 +10823,7 @@ code {
   display: block;
   white-space: pre-wrap   
 }
+.preview-image{
+  width: 100%;
+  height: auto;
+}
