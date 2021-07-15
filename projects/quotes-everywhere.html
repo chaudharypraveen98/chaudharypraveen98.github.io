@@ -3,9 +3,8 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Quotes-Everywhere</title><meta name="description" content="This contains all the projects made by Praveen chaudhary">
+        <title>Quotes-Everywhere</title>
+        <meta name="description" content="A NextJS project that will show a collection of 60 quotes in initial release. It is bootstrapped with create-next-app.">
         <meta name="keywords" content="chaudharypraveen98,Praveen Chaudhary,devilunknown, Praveen Chaudhary projects, quotes-everywhere">
         <meta name="robots" content="index, follow">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -56,11 +55,11 @@
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="post-heading">
                             <h1>Quotes-Everywhere</h1>
-                            <h2 class="subheading">A basic todo app built on react native with the help of expo client. It uses the concept of components and useState in react.</h2>
+                            <h2 class="subheading">A NextJS project that will show a collection of 60 quotes in initial release. It is bootstrapped with create-next-app.</h2>
                             <span class="meta">
                                 Posted by
                                 <a href="https://github.com/chaudharypraveen98">Praveen Chaudhary</a>
-                                on 30 January 2021
+                                on 26 February 2021
                             </span>
                         </div>
                     </div>
@@ -72,431 +71,262 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <h3>Topics -> react-native, appdevelopment, expo-client, quotes-everywhere</h3>
+                        <h3>Topics -> nextjs, api, webdevelopment</h3>
                         <h5>Preview Link -> <u><a href="https://chaudharypraveen98.github.io/quotes-everywhere/">quotes-everywhere</a></u></h5>
                         <h5>Source Code Link -> <u><a href="https://github.com/chaudharypraveen98/quotes-everywhere">GitHub</a></u></h5>
-                        <iframe src="https://drive.google.com/file/d/1yYAOwB1qbShHGhZyHlQJMeaHhYjtaIfD/preview" width="640" height="480" allow="autoplay"></iframe>
+                        <img src="https://raw.githubusercontent.com/chaudharypraveen98/quotes-everywhere/master/QuotesEverywhere.png" alt="Quotes Everywhere" class="preview-image">
                         <p><strong>What We are going to do?</strong></p>
                         <ol>
-                            <li>Creating a basic structure.</li>
-                            <li>Adding event handler/functions to add and delete task.</li>
-                            <li>Adding Some stylings.</li>
+                            <li>Creating a basic components.</li>
+                            <li>Building our own api endpoints</li>
+                            <li>Making Page using the above Components using the API</li>
                         </ol>
-                        <h2 class="section-heading">Installation of React Native Project using Expo-client</h2>
-                        <p>Assuming that you have Node 12 LTS or greater installed, you can use npm to install the Expo CLI command line utility:</p>
-                        <pre>npm install -g expo-cli</pre>
-                        <p>Then run the following commands to create a new React Native project called "quotes-everywhere":</p>
-                        <pre>expo init AwesomeProject
 
-cd AwesomeProject
-npm start # you can also use: expo start</pre>
-                        
-                        <h2 class="section-heading">Components</h2>
-                        <p>Create a Component folder and add these components to it.</p>
-                        <p><strong>Header (header.js)</strong></p>
-                        <p>It will shows the navbar/header of the app.</p>
-                        <pre>import React, { Component } from "react";
-import {
-    StyleSheet,
-    Text,
-    View,
-} from "react-native";
-
-export default class header extends Component {
-    render() {
-        return (
-            &lt;View style={styles.header}&gt;
-            &lt;Text style={styles.headerText}&gt;Todo List&lt;/Text&gt;
-            &lt;/View&gt;
-        );
-    }
-}
-</pre>
-                        <p><b>Stylings used in Header Component</b></p>
+                        <p><strong>Before moving ahead, We must be aware of what actually NextJS is ?</strong></p>
+                        <p><b>Next.js</b> is an open-source development framework build on top of Node.js enabling React based web applications functionalities such as server-side rendering and generating static websites.</p>
+                        <h2 class="section-heading">Step 1 -> Creating a basic components.</h2>
+                        <p>A <b>Component</b> is one of the core building blocks of React. </p>
+                        <p><strong>Quote Component</strong></p>
+                        <p>It will take quote item as a prop and render the single quote</p>
                         <pre>
-const styles = StyleSheet.create({
-    header: {
-    height: 80,
-    backgroundColor: "#574b90",
-    paddingTop:40,
-    },
-    headerText:{
-    textAlign:'center',
-    fontSize:24,
-    color:'white'
-    }
-});
-</pre>                  
-                        <p><strong>Form Component (form.js)</strong></p>
-                        <p>This component will take the input from the user and add the task in TODO list.</p>
-                        <pre>import React, { Component } from "react";
-import {
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
-    Button,
-} from "react-native";
+import Link from "next/link";
+import styles from "../styles/Quotes.module.css";
 
-export default class form extends Component {
-    constructor(props) {
-    super(props);
-    this.state = { todo: "" };
-    }
-    todoTextHandler = (val) =&gt; {
-    this.setState({ todo: val });
-    };
-    render() {
-        return (
-            &lt;View&gt;
-            &lt;TextInput
-                multiline
-                placeholder="write a todo"
-                style={styles.todoInput}
-                onChangeText={this.todoTextHandler}
-            /&gt;
-            &lt;View style={styles.btn}&gt;
-                &lt;Button
-                title="Add todo"
-                color="#574b90"
-                onPress={() =&gt; {
-                    console.log("todo", this.state.todo);
-                    this.props.todoHandler(this.state.todo);
-                }}
-                /&gt;
-            &lt;/View&gt;
-            &lt;/View&gt;
-        );
-    }
-}</pre>                 
-                        <p><b>Stylings used in Form Component</b></p>
-                        <pre>
-const styles = StyleSheet.create({
-    todoInput: {
-    borderColor: "#9e579d",
-    backgroundColor:'#fc85ae',
-    color:'#574b90',
-    borderWidth: 3,
-    height: 80,
-    marginHorizontal: 20,
-    marginTop: 10,
-    textAlign: "center",
-    fontSize: 18,
-    fontWeight: "bold",
-    },
-    btn: {
-    marginTop: 20,
-    paddingHorizontal: 20,
-    },
-});   
-</pre>
-                        <p><strong>TodoItem (todoItem.js)</strong></p>
-                        <p>This component will show all the tasks in TODO list and provide a delete button to delete them.</p>
-                        <pre>import React, { Component } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { MaterialIcons } from "@expo/vector-icons";
-
-export default class todoItem extends Component {
-    constructor(props) {
-    super(props);
-    }
-    render() {
+const QuotesItem = ({ quote }) =&gt; {
     return (
-        &lt;View style={styles.singleTodoContainer}&gt;
-        &lt;MaterialIcons
-            name="delete"
-            size={25}
-            onPress={() =&gt; this.props.todoRemoveHandler(this.props.item.key)}
-        /&gt;
-        &lt;Text style={styles.todoText}&gt;{this.props.item.text}&lt;/Text&gt;
-        &lt;/View&gt;
+    &lt;Link href={`/quotes/${quote.id}`}&gt;
+        &lt;div className={styles.singleQuote}&gt;
+        &lt;h1 className={styles.quoteNumber}&gt;{quote.id}&lt;/h1&gt;
+        &lt;h4 className={styles.quote}&gt;
+            {quote.quote.substring(0, 30) + "....."}
+        &lt;/h4&gt;
+        &lt;h5 className={styles.author}&gt;{quote.author.split(",", 1)[0]}&lt;/h5&gt;
+        &lt;/div&gt;
+    &lt;/Link&gt;
     );
-    }
-}</pre>
-                        <p><b>Stylings used in Todo Component</b></p>
+};
+
+export default QuotesItem;</pre>
+                        <p><strong>QuoteList Component</strong></p>
+                        <p>It will contains all the quotes(i.e Quote Component) by looping through the Quote Component.</p>
                         <pre>
-const styles = StyleSheet.create({
-    todoText: {
-    flex:1,
-    color: "#cabbe9",
-    fontSize: 18,
-    flexWrap: "wrap",
-    },
-    singleTodoContainer: {
-    backgroundColor: "#9e579d",
-    borderRadius:25,
-    flexDirection: "row",
-    marginVertical: 10,
-    paddingVertical: 10,
-    textAlign: "center",    
-    },
-});
+import styles from "../styles/Quotes.module.css";
+import QuotesItem from './QuotesItem';
+
+const QuotesList = ({ quotes }) =&gt; {
+  return (
+    &lt;div className={styles.quotesContainer}&gt;
+      {quotes.map((quote) =&gt; (
+        &lt;QuotesItem quote={quote} key={quote.id}/&gt;
+      ))}
+    &lt;/div&gt;
+  );
+};
+
+export default QuotesList
                         </pre>
-                        <h2 class="section-heading">Editing the main App Component (App.js)</h2>
-                        <p><b>We will be adding event handlers to delete the tasks which are done</b></p>   
-                        <p><strong>Importing required libraries</strong></p>
+                        <p><strong>Navbar Component</strong></p>
+                        <p>It will contains the Header of the page with title and other options.</p>
                         <pre>
-                            import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
-import {
-  Button,
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  ScrollView,
-  FlatList,
-  TouchableOpacity,
-  Alert,
-  Touchable,
-  ImageBackground,
-  Keyboard,
-  TouchableWithoutFeedback,
-} from "react-native";
-import Header from "./components/header";
-import TodoItem from "./components/todoItem";
-import Form from "./components/form";
-</pre>
-<p><strong>Adding dummy tasks</strong></p>                        
-<pre>
-export default function App() {
-  const [todo, setTodo] = useState([
-    { text: "make readme.md", key: "1" },
-    { text: "update readme.md", key: "2" },
-    { text: "modify readme.md", key: "3" },
-    { text: "delete readme.md", key: "4" },
-  ]);
-</pre>
-<p><strong>Adding conditionals to validate that the length of task must be 3.</strong></p>
-<pre>
-  const todoHandler = (task) =&gt; {
-    if (task.length &gt; 3) {
-      setTodo((prevTodo) =&gt; {
-        return [{ text: task, key: Math.random().toString() }, ...prevTodo];
-      });
-    } else {
-      Alert.alert("OOPS!", "Todo must be 3 chars long", [
-        { text: "UNDERSTOOD", onPress: () =&gt; console.log("alert closed") },
-      ]);
-    }
-  };
-</pre>
-<p><strong>Event Handlers for deleting Task</strong></p>
-<pre>
-  const todoRemoveHandler = (key) =&gt; {
-    setTodo((prevTodo) =&gt; {
-      return prevTodo.filter((todoitem) =&gt; todoitem.key != key);
-    });
-  };
-</pre>
-<p><strong>Aligning the all components</strong></p>
-<pre>
+import Link from "next/link";
+import styles from '../styles/Navbar.module.css'
+
+const Navbar = () =&gt; {
   return (
-    &lt;TouchableWithoutFeedback
-      onPress={() =&gt; {
-        Keyboard.dismiss();
-      }}
-    &gt;
-      &lt;View style={styles.container}&gt;
-        {/* header */}
-        &lt;Header /&gt;
-        &lt;ImageBackground source={require('./assets/backTodo.jpg')} style={styles.image}&gt;
-          {/* form */}
-          &lt;View&gt;
-            &lt;Form todoHandler={todoHandler} /&gt;
-          &lt;/View&gt;
-
-          {/* container */}
-          &lt;View style={styles.todoContainer}&gt;
-            &lt;FlatList
-              data={todo}
-              keyExtractor={(item) =&gt; {
-                return item.key;
-              }}
-              renderItem={({ item }) =&gt; (
-                &lt;TodoItem item={item} todoRemoveHandler={todoRemoveHandler} /&gt;
-              )}
-            /&gt;
-          &lt;/View&gt;
-          
-          {/* credits */}
-          &lt;View style={styles.introduction}&gt;
-            &lt;Text style={styles.centerText}&gt;
-              This app is created by Praveen Chaudhary
-            &lt;/Text&gt;
-          &lt;/View&gt;
-        &lt;/ImageBackground&gt;
-      &lt;/View&gt;
-    &lt;/TouchableWithoutFeedback&gt;
-  );
-}</pre>
-<p><strong>Adding styles</strong></p>
-<pre>
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // backgroundColor: "#303a52",
-  },
-  todoContainer: {
-    paddingHorizontal: 20,
-  },
-  introduction: {
-    position: "absolute",
-    bottom: 0,
-    textAlign: "center",
-    left: 0,
-    right: 0,
-    paddingBottom: 10,
-    backgroundColor: "#574b90",
-    alignSelf: "stretch",
-  },
-  centerText: {
-    textAlign: "center",
-    fontSize: 16,
-    color: "#fc85ae",
-  },
-  image: {
-    flex: 1,
-    resizeMode: "cover",
-  },
-  btn: {
-    marginTop: 20,
-    paddingHorizontal: 20,
-  },
-  singleTodoContainer: {
-    flexDirection: "row",
-  },
-});
-</pre>
-                        <h2 class="section-heading">All App Component together</h2>
-                        <pre>
-import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
-import {
-  Button,
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  ScrollView,
-  FlatList,
-  TouchableOpacity,
-  Alert,
-  Touchable,
-  ImageBackground,
-  Keyboard,
-  TouchableWithoutFeedback,
-} from "react-native";
-import Header from "./components/header";
-import TodoItem from "./components/todoItem";
-import Form from "./components/form";
-export default function App() {
-  const [todo, setTodo] = useState([
-    { text: "make readme.md", key: "1" },
-    { text: "update readme.md", key: "2" },
-    { text: "modify readme.md", key: "3" },
-    { text: "delete readme.md", key: "4" },
-  ]);
-
-  const todoHandler = (task) =&gt; {
-    if (task.length &gt; 3) {
-      setTodo((prevTodo) =&gt; {
-        return [{ text: task, key: Math.random().toString() }, ...prevTodo];
-      });
-    } else {
-      Alert.alert("OOPS!", "Todo must be 3 chars long", [
-        { text: "UNDERSTOOD", onPress: () =&gt; console.log("alert closed") },
-      ]);
-    }
-  };
-
-  const todoRemoveHandler = (key) =&gt; {
-    setTodo((prevTodo) =&gt; {
-      return prevTodo.filter((todoitem) =&gt; todoitem.key != key);
-    });
-  };
-
-  return (
-    &lt;TouchableWithoutFeedback
-      onPress={() =&gt; {
-        Keyboard.dismiss();
-      }}
-    &gt;
-      &lt;View style={styles.container}&gt;
-        {/* header */}
-        &lt;Header /&gt;
-        &lt;ImageBackground source={require('./assets/backTodo.jpg')} style={styles.image}&gt;
-          {/* form */}
-          &lt;View&gt;
-            &lt;Form todoHandler={todoHandler} /&gt;
-          &lt;/View&gt;
-
-          {/* container */}
-          &lt;View style={styles.todoContainer}&gt;
-            &lt;FlatList
-              data={todo}
-              keyExtractor={(item) =&gt; {
-                return item.key;
-              }}
-              renderItem={({ item }) =&gt; (
-                &lt;TodoItem item={item} todoRemoveHandler={todoRemoveHandler} /&gt;
-              )}
-            /&gt;
-          &lt;/View&gt;
-          
-          {/* credits */}
-          &lt;View style={styles.introduction}&gt;
-            &lt;Text style={styles.centerText}&gt;
-              This app is created by Praveen Chaudhary
-            &lt;/Text&gt;
-          &lt;/View&gt;
-        &lt;/ImageBackground&gt;
-      &lt;/View&gt;
-    &lt;/TouchableWithoutFeedback&gt;
-  );
+    &lt;nav className={styles.navbarContainer}&gt;
+      &lt;ul className={styles.navUl}&gt;
+        &lt;li className={styles.navBrand}&gt;
+          &lt;Link href='/'&gt;QuotesEverywhere&lt;/Link&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;Link href='/'&gt;Home&lt;/Link&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;Link href='/about'&gt;About&lt;/Link&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // backgroundColor: "#303a52",
-  },
-  todoContainer: {
-    paddingHorizontal: 20,
-  },
-  introduction: {
-    position: "absolute",
-    bottom: 0,
-    textAlign: "center",
-    left: 0,
-    right: 0,
-    paddingBottom: 10,
-    backgroundColor: "#574b90",
-    alignSelf: "stretch",
-  },
-  centerText: {
-    textAlign: "center",
-    fontSize: 16,
-    color: "#fc85ae",
-  },
-  image: {
-    flex: 1,
-    resizeMode: "cover",
-  },
-  btn: {
-    marginTop: 20,
-    paddingHorizontal: 20,
-  },
-  singleTodoContainer: {
-    flexDirection: "row",
-  },
-});
+
+export default Navbar
                         </pre>
+                        <p><strong>Meta Component</strong></p>
+                        <p>Meta Component contains all the meta tags for the SEO performance</p>
+                        <pre>
+import Head from 'next/head'
+
+const Meta = ({ title, keywords, description }) =&gt; {
+  return (
+    &lt;Head&gt;
+      &lt;meta name='viewport' content='width=device-width, initial-scale=1' /&gt;
+      &lt;meta name='keywords' content={keywords} /&gt;
+      &lt;meta name='description' content={description} /&gt;
+      &lt;meta charSet='utf-8' /&gt;
+      &lt;link rel='icon' href='/favicon.ico' /&gt;
+      &lt;title&gt;{title}&lt;/title&gt;
+    &lt;/Head&gt;
+  )
+}
+
+Meta.defaultProps = {
+  title: 'Quotes',
+  keywords: 'quotes, daily motivation, life',
+  description: 'Get the latest quotes on life. love , happiness and much more',
+}
+
+export default Meta
+                        </pre>
+                        <p><strong>Layout Component</strong></p>
+                        <p>It will contain the basic layout of the structure</p>
+                        <pre>
+import styles from "../styles/Home.module.css";
+import Navbar from "../Components/Navbar";
+import Meta from '../Components/Meta';
+
+const Layout = ({ children }) =&gt; {
+  return (
+    &lt;&gt;
+      &lt;Meta/&gt;
+      &lt;Navbar /&gt;
+      &lt;div className={styles.container}&gt;
+        &lt;main className={styles.main}&gt;{children}&lt;/main&gt;
+      &lt;/div&gt;
+    &lt;/&gt;
+  );
+};
+
+export default Layout;
+                        </pre>
+                        <h2 class="section-heading">Step 2 -> Making Api to fetch data and to server</h2>
+                        <p>We will load the data then server to the frontend. Create a api folder inside the Page folder , then a file. The name of file is serve as the route name by default.</p>
+                        <pre>                       
+import {quotes} from '../../../quotes'
+
+export default function handler(req,res) {
+    res.status(200).json(quotes)
+}
+                        </pre>
+                        <p>This endpoint will provide all the quotes.</p>
+                        <p>For specific search we need to search by parameter. Create a file with parameter like <code>[id].js</code></p>
+                        <pre>
+import {quotes} from '../../../quotes';
+
+export default function handler({query : {id}}, res) {
+    const filteredQuote = quotes.filter(quote=>quote.id==parseInt(id));
+    if (filteredQuote.length>0){
+        res.status(200).json(filteredQuote[0])
+    } else{
+        res.status(404).json({message:`Quote not found with id ${id}`})
+    }
+    
+}
+ 
+                        </pre>
+                        <p><b>Hurray! Our API is live now</b></p>
+                        <h2 class="section-heading">Step 3 -> Making Page using the above Components using the API</h2>
+                        <p>We will use the components and api which we had created above</p>
+                        <p><strong>Build the home page.</strong></p>
+                        <p>We will first fetch the data using our own api then render using the Components.</p>
+                        <pre>
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+
+import content from "../quotes.content.json";
+import QuotesList from "./../Components/QuotesList";
+import { server } from './../config/index';
+
+export default function Home({ quotes }) {
+  return (
+    &lt;&gt;
+      &lt;div className={styles.container}&gt;
+        &lt;Head&gt;
+          &lt;title&gt;QuotesEverywhere&lt;/title&gt;
+          &lt;meta name="keywords" content="quotes, daily quotes, motivation" /&gt;
+          &lt;link rel="icon" href="/favicon.ico" /&gt;
+        &lt;/Head&gt;
+        &lt;h1 className="main-title"&gt;QuotesEverywhere&lt;/h1&gt;
+        {/* using styled Components */}
+        &lt;style jsx&gt;{`
+          .main-title {
+            color: #43dde6;
+          }
+        `}&lt;/style&gt;
+        &lt;QuotesList quotes={quotes} /&gt;
+      &lt;/div&gt;
+    &lt;/&gt;
+  );
+}
+export const getStaticProps = async () =&gt; {
+  const res = await fetch(`${server}/api/quotes`)
+  const quotes = await res.json();
+  return {
+    props: {
+      quotes,
+    },
+  };
+};
+                        </pre>
+
+                        <p><strong>Single Quote page</strong></p>
+                        <p>It will show the single quote page using the component</p>
+                        <pre>
+import { useRouter } from "next/router";
+import content from "../../../quotes.content.json";
+import Link from "next/link";
+import Image from "next/image";
+import styles from '../../../styles/Quotes.module.css'
+import { server } from './../../../config/index';
+import { quotes } from './../../../quotes';
+
+const quote = ({ filteredQuote }) =&gt; {
+  return (
+    &lt;div className={styles.singleQuoteContainer}&gt;
+      &lt;Image src="/1.jpg" width={480} height={320} /&gt;
+      &lt;h1 className={styles.singleQuoteNumber}&gt;Quote no {filteredQuote.id + 1}&lt;/h1&gt;
+      &lt;h2 className={styles.quote1}&gt;{filteredQuote.quote}&lt;/h2&gt;
+      &lt;h3 className={styles.author}&gt;Author - {filteredQuote.author}&lt;/h3&gt;
+      &lt;Link href="/" className={styles.button}&gt;Go Back&lt;/Link&gt;
+    &lt;/div&gt;
+  );
+};
+
+
+// we are using our own api endpoints. We can also use serverSideProps to load data at run time
+
+// getStaticProps will fetch the particular quote data and fetch data at build time
+export const getStaticProps = async (context) =&gt; {
+  const quoteId = context.params.id;
+  const res = await fetch(`${server}/api/quotes/${quoteId}`);
+  const filteredQuote = await res.json();
+  return {
+    props: {
+      filteredQuote,
+    },
+  };
+};
+
+// getStaticPaths will contains all the possible id for dynamic routing
+export const getStaticPaths = async () =&gt; {
+  const res = await fetch(`${server}/api/quotes`);
+  const quotes = await res.json();
+  const quotesID = quotes.map((quote) =&gt; quote.id);
+  const quotesPaths = quotesID.map((id) =&gt; ({ params: { id: id.toString() } }));
+  return {
+    paths: quotesPaths,
+    fallback: false,
+  };
+};
+
+
+export default quote;
+                        </pre>
+                        <p>Here we are using the nextjs router for url configuration</p>
                         <h2 class="section-heading">Deployment</h2>
-                        <p>For deployment, We are using the <strong>Expo</strong>.  <span><a href="https://expo.io/">For More Info</a></span></p>
+                        <p>For deployment, We are using the <strong>Vercl</strong>.  <span><a href="https://vercel.com/">For More Info</a></span></p>
                         <h2 class="section-heading">Web Preview / Output</h2>
-                        <a href="https://raw.githubusercontent.com/chaudharypraveen98/quotes-everywhere/main/assets/ss.jpeg"><img class="img-fluid" src="https://raw.githubusercontent.com/chaudharypraveen98/quotes-everywhere/main/assets/ss.jpeg" alt="web preview" /></a>
+                        <iframe src="https://drive.google.com/file/d/1nJMhuVZ2e_Z-XBzeFNz6olszqCvQRhfW/preview" width="640" height="480" allow="autoplay"></iframe>
                         <span class="caption text-muted">Web preview on deployment</span>
                         <p>
                             Placeholder text by
