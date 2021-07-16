@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="A Rest API built on the top of the Gorm and Fiber using Golang. It uses the json library for parsing the data from file and with the help of gorm it initialize the database." />
+        <title>Go Profile API</title>
+        <meta name="keywords" content="chaudharypraveen98,Praveen Chaudhary,devilunknown, Praveen Chaudhary projects, Go Profile API">
+        <meta name="robots" content="index, follow">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="language" content="English">
+        <meta name="revisit-after" content="2 days">
+        <meta name="author" content="@chaudharypraveen98">
+        <meta name="twitter:title" content="Praveen Chaudhary">
+        <meta name="twitter:description" content=" Personal Projects Section">
+        <meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1366311960468332546/EidYygUt_400x400.jpg">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="og:title" content="Praveen Chaudhary - a Full Stack Developer" />
+        <meta property="og:url" content="https://www.linkedin.com/in/chaudharypraveen98/" />
+        <meta property="og:description" content="This is the personal portfolio page which contains all the projects. I am a Full Stack Developer, Rest Api Developer, Data Analsyt" />
+        <meta property="og:image" content="https://media-exp1.licdn.com/dms/image/C5603AQHRamUaMrdA9g/profile-displayphoto-shrink_400_400/0/1597315489941?e=1629936000&v=beta&t=GjvQu_r0n3F2EtGkaRYSF6pH8vRdgx5lsD1-w8dc8gY" />
+        <meta property="og:type" content="Portfolio.Projects" />
+        <link rel="shortcut icon" href="./../favicon.ico" type="image/x-icon">
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="index.html">Go Profile API</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://chaudharypraveen98.github.io/about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://chaudharypraveen98.github.io/project-preview/">Latest Works</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://chaudharypraveen98.github.io/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/img/post-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>Go Profile API</h1>
+                            <h2 class="subheading">A Rest API built on the top of the Gorm and Fiber using Golang. It uses the json library for parsing the data from file and with the help of gorm it initialize the database.</h2>
+                            <span class="meta">
+                                Posted by
+                                <a href="https://github.com/chaudharypraveen98">Praveen Chaudhary</a>
+                                on 14 April 2021
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <h3>Topics -> go, gorm, fiber, webdevelopment, api</h3>
+                        <h5>Source Code Link -> <u><a href="https://github.com/chaudharypraveen98/GoProfileAPI">GitHub</a></u></h5>
+                        <p><strong>What We are going to do?</strong></p>
+                        <ol>
+                          <li>Creating a struct for projects</li>
+                          <li>Fetching File from the JSON file</li>
+                          <li>Managing Database</li>
+                          <li>Making Api handlers</li>
+                          <li>Creating API route</li>
+                          <li>Running our App</li>
+                        </ol>
+                        <p><h3>Understanding Some Important Concepts</h3></p>
+                        <p><strong>What is Fiber and Gorm?</strong></p>
+                        <p><b>Fiber</b></p>
+                        <p>Fiber is an Express inspired web framework built on top of Fasthttp, the fastest HTTP engine for Go. Designed to ease things up for fast development with zero memory allocation and performance in mind.</p>
+                        <p><b>Gorm</b></p>
+                        <p>The GORM is fantastic ORM library for Golang, aims to be developer friendly. It is an ORM library for dealing with relational databases. This gorm library is developed on the top of database/sql package.</p>
+                        <p><b>Top Features of Fiber Framework</b></p>
+                        <ul>
+                            <li>Routing</li>
+                            <li>Middleware Support</li>
+                            <li>Low on memory footprint</li>
+                            <li>Highly performant</li>
+                        </ul>
+
+                        <h2 class="section-heading">Step 1 => Creating a struct for projects</h2>
+                        <p>We will create the struct for projects and their types.</p>
+                        <pre>
+package projects
+
+import (
+	"errors"
+	"fmt"
+
+	"github.com/chaudharypraveen98/GoProfileAPI/database"
+	"github.com/gofiber/fiber/v2"
+	"gorm.io/datatypes"
+	"gorm.io/gorm"
+)
+
+type Projects struct {
+	gorm.Model
+	Projects datatypes.JSON `json:"projects" gorm:"foreignKey:ID"`
+}
+
+// all projects serializer
+type SerialProject struct {
+	Projects []SingleProject `json:"projects" gorm:"foreignKey:ID"`
+}
+
+type SingleProject struct {
+	gorm.Model
+	ID                  int32  `gorm:"primaryKey;autoIncrement:True;" json:"id"`
+	Title               string `json:"title"`
+	Desciption          string `json:"desc"`
+	ProgrammingLanguage string `json:"programming_language"`
+	Stars               int32  `gorm:"default:null" json:"stars"`
+	Forks               int32  `gorm:"default:null" json:"forks"`
+	LastUpdated         string `json:"last_updated"`
+	Link                string `json:"link"`
+}
+.....
+...
+                        </pre>
+                        <h2 class="section-heading">Step 2 => Fetching File from the JSON file</h2>
+                        <p>We will fetch data from the json file</p>
+                        <pre>
+func loadData() {
+    ....
+
+    // Open our jsonFile
+    jsonFile, err := os.Open("data/projects.json")
+    
+    ....
+}
+</pre>
+                        <h2 class="section-heading">Step 3 => Managing Database</h2>
+                        <p>We will first create a database then save the data into it. We can perform Crud operation</p>
+                        <p><b>Initializing the database</b></p>
+                        <p>It will make a connection between the database and our program.</p>
+                        <pre>
+                            func initDatabase() {
+                                var err error
+                                database.DBConn, err = gorm.Open(sqlite.Open("projects.db"), &gorm.Config{})
+                                if err != nil {
+                                    panic("Failed to connect to database")
+                                }
+                                fmt.Println("Database successfully opened")
+                            }
+                        </pre>
+
+                        <p><b>Loading the data into the database</b></p>
+                        <p>It will first check the table. If, it exists then it will first drop it then recreate a new one.</p>
+                        <pre>
+func loadData() {
+    // initiate the database connection
+    db := database.DBConn
+
+    // Open our jsonFile
+    jsonFile, err := os.Open("data/projects.json")
+
+    // if we os.Open returns an error then handle while opening
+    if err != nil {
+        panic(err)
+    }
+    fmt.Println("Successfully Opened Projects.json")
+    byteValue, _ := ioutil.ReadAll(jsonFile)
+    var SerialProjectData projects.SerialProject
+    json.Unmarshal(byteValue, &SerialProjectData)
+
+    // delete tables if they exit already
+    db.Migrator().DropTable(&projects.Projects{})
+    db.Migrator().DropTable(&projects.SingleProject{})
+
+    // create table using struct
+    db.Migrator().CreateTable(&projects.Projects{})
+    db.Migrator().CreateTable(&projects.SingleProject{})
+
+    var allProjects projects.Projects
+    json.Unmarshal(byteValue, &allProjects)
+
+    // creating collections of all projects
+    db.Create(&allProjects)
+
+    // creating single project
+    for _, project := range SerialProjectData.Projects {
+        var singleProject projects.SingleProject
+        singleProject.ID = project.ID
+        singleProject.Title = project.Title
+        singleProject.Desciption = project.Desciption
+        singleProject.Forks = project.Forks
+        singleProject.LastUpdated = project.LastUpdated
+        singleProject.Link = project.Link
+        singleProject.ProgrammingLanguage = project.ProgrammingLanguage
+        db.Create(&singleProject)
+    }
+    defer jsonFile.Close()
+}
+                        </pre>
+                        <h2 class="section-heading">Step 4 => Making Api handlers</h2>
+                        <p>We will make the CRUD (Create Read Update and Delete) operation.</p>
+                        
+                        <p><strong>Get all the Projects</strong></p>
+                        <p>This function will provide all the projects on get request.</p>
+                        <pre>
+func GetProjects(c *fiber.Ctx) error {
+    db := database.DBConn
+    var projects []Projects
+    err := db.Find(&projects).Error
+    if errors.Is(err, gorm.ErrRecordNotFound) {
+        return c.SendStatus(404)
+    }
+    return c.JSON(projects)
+}
+                        </pre>
+
+                        <p><strong>Get Single Prpject</strong></p>
+                        <p>We can get a single project using the project id.</p>
+                        <pre>
+func GetSingleProject(c *fiber.Ctx) error {
+    db := database.DBConn
+    id := c.Params("id")
+    var SingleProject SingleProject
+    err := db.First(&SingleProject, id).Error
+    if errors.Is(err, gorm.ErrRecordNotFound) {
+        return c.SendStatus(404)
+    }
+    return c.JSON(SingleProject)
+}
+                        </pre>
+
+                        <p><strong>Create a Project</strong></p>
+                        <p>This function will create a new project on Post request.</p>
+                        <pre>
+// It will create a project with incremented id.
+func CreateSingleProject(c *fiber.Ctx) error {
+	db := database.DBConn
+	inputData := SingleProject{}
+	if err := c.BodyParser(&inputData); err != nil {
+		fmt.Println("error = ", err)
+		return c.SendStatus(500)
+	}
+	lastProject := SingleProject{}
+	db.Last(&lastProject)
+	inputData.ID = lastProject.ID + 1
+	db.Create(&inputData)
+	return c.SendStatus(201)
+}
+                        </pre>
+
+                        <p><strong>Update a project</strong></p>
+                        <p>It will update the previous project.</p>
+                        <pre>
+func UpdateSingleProject(c *fiber.Ctx) error {
+    db := database.DBConn
+    id := c.Params("id")
+    var SingleProject SingleProject
+    db.First(&SingleProject, id)
+    inputData := SingleProject
+    if err := c.BodyParser(&inputData); err != nil {
+        fmt.Println("error = ", err)
+        return c.SendStatus(200)
+    }
+    fmt.Println("--------")
+    fmt.Println(inputData)
+    db.Save(inputData)
+    return c.SendStatus(204)
+}
+                        </pre>
+
+                        <p><strong>Delete a Project</strong></p>
+                        <p>Delete a previous project with a given id</p>
+                        <pre>
+func DeleteProject(c *fiber.Ctx) error {
+    db := database.DBConn
+    id := c.Params("id")
+    var SingleProject SingleProject
+    err := db.Delete(&SingleProject, id).Error
+    if errors.Is(err, gorm.ErrRecordNotFound) {
+        return c.SendStatus(404)
+    }
+    return c.SendStatus(202)
+}
+                        </pre>
+
+                        <h2 class="section-heading">Step 5 => Creating API route</h2>
+                        <p>We will make api routes which will call the respective function handlers.</p>
+                        <pre>
+// router to handles url endpoints
+func setRoutes(app *fiber.App) {
+	app.Get("/api/v1/projects", projects.GetProjects)
+	app.Get("/api/v1/projects/:id", projects.GetSingleProject)
+	app.Post("/api/v1/projects/:id/update", projects.UpdateSingleProject)
+	app.Post("/api/v1/projects/create", projects.CreateSingleProject)
+	app.Post("/api/v1/projects/:id/delete", projects.DeleteProject)
+}
+                        </pre>
+
+                        <h2 class="section-heading">Running our App</h2>
+                        <p>First we need to install the required libraries.</p>
+                        <pre>
+go get -u gorm.io/gorm
+go get -u gorm.io/driver/sqlite
+go get github.com/gofiber/fiber/v2
+                        </pre>
+
+                        <p><strong>Declaring the Main function</strong></p>
+                        <p>It will manage all the functions.</p>
+                        <pre>
+func main() {
+    app := fiber.New()
+    initDatabase()
+    loadData()
+    database.DBConn.AutoMigrate(&projects.SingleProject{}, &projects.Projects{})
+    fmt.Println("Database migrated successfully")
+    fmt.Println("---------------------------")
+    setRoutes(app)
+    app.Listen(":3000")
+}
+                        </pre>
+
+                        <p><b>Running the project</b></p>
+                        <p>Now to run our server, open terminal and in our root directory run :</p>
+                        <pre>
+go run main.go
+                        </pre>
+                        <p>It will show something like this</p>
+                        <pre>
+                    
+ ┌──────────────────────────────────���────────────────┐ 
+ │                    Fiber v2.7.1                   │ 
+ │               http://127.0.0.1:3000               │ 
+ │       (bound on host 0.0.0.0 and port 3000)       │ 
+ │                                                   │ 
+ │ Handlers ............. 7  Processes ........... 1 │ 
+ │ Prefork ....... Disabled  PID .............. 6392 │ 
+ └��──────────────────────────────�����──��───────────────┘ 
+ </pre>
+                        <p>On startup , It will insert data from the file to the database</p>
+                        <p><strong>API Endpoints : -</strong></p>
+                        <ol>
+                            <li>Get <code>/api/v1/projects</code> --> Fetch all the projects</li>
+                            <li>Get <code>/api/v1/projects/:id</code> --> Fetch a single project with id as a parameter</li>
+                            <li>Post <code>/api/v1/projects/:id/update</code> --> Update the existing project with the help of id. Pass the body as a JSON.	
+                                <ul>
+                                    <li>Endpoint <code>http://127.0.0.1:3000/api/v1/projects/1/update</code></li>
+                                    <li>JSON Body  <code>{"title":"admin"}</code></li>
+                                </ul>
+                            </li>
+                            <li>Post <code>/api/v1/projects/create</code>
+                                <ul>
+                                    <li>Endpoint <code>http://127.0.0.1:3000/api/v1/projects/create</code></li>
+                                    <li>Example</li>
+                                    <li><pre>
+{
+
+    "title": "praveen",
+
+    "desc": "This project will shows the quotes. It has a collection of 60 quotes in initial release. It is bootstrapped with create-next-app.",
+
+    "programming_language": "JavaScript",
+
+    "stars": 0,
+
+    "forks": 0,
+
+    "last_updated": "21 hours ago",
+
+    "link": "https://github.com/chaudharypraveen98/quotes-everywhere"
+
+    }
+                                    </pre></li>
+                                </ul>
+                            </li>
+                            <li>Post <code>/api/v1/projects/:id/delete</code>
+                                <ul>
+                                    <li>Endpoint <code>http://127.0.0.1:3000/api/v1/projects/1/delete</code></li>
+                                    <li>It doesn't require json body</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <h2 class="section-heading">Web Preview / Output</h2>
+                        <a href="https://raw.githubusercontent.com/chaudharypraveen98/GoProfileAPI/master/go-output-fiber.JPG"><img class="img-fluid" src="https://raw.githubusercontent.com/chaudharypraveen98/GoProfileAPI/master/go-output-fiber.JPG" alt="web preview" /></a>
+                        <span class="caption text-muted">Web preview on deployment</span>
+                        <p>
+                            Placeholder text by
+                            <a href="https://chaudharypraveen98.github.io/">Praveen Chaudhary</a>
+                            &middot; Images by
+                            <a href="hhttps://chaudharypraveen98.github.io/binarybeast/">Binary Beast</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <!-- Footer-->
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="https://twitter.com/chaudhpraveen98">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.linkedin.com/in/chaudharypraveen98/">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://github.com/chaudharypraveen98">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="small text-center text-muted fst-italic">Copyright &copy; Praveen Chaudhary 2021</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
