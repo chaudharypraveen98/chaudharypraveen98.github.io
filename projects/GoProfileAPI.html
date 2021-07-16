@@ -152,14 +152,14 @@ func loadData() {
                         <p><b>Initializing the database</b></p>
                         <p>It will make a connection between the database and our program.</p>
                         <pre>
-                            func initDatabase() {
-                                var err error
-                                database.DBConn, err = gorm.Open(sqlite.Open("projects.db"), &gorm.Config{})
-                                if err != nil {
-                                    panic("Failed to connect to database")
-                                }
-                                fmt.Println("Database successfully opened")
-                            }
+func initDatabase() {
+    var err error
+    database.DBConn, err = gorm.Open(sqlite.Open("projects.db"), &gorm.Config{})
+    if err != nil {
+        panic("Failed to connect to database")
+    }
+    fmt.Println("Database successfully opened")
+}
                         </pre>
 
                         <p><b>Loading the data into the database</b></p>
