@@ -181,6 +181,15 @@ class Song(models.Model):
                             <li>Foreign Key</li>
                         </ol>
                         <p>A <b>primary key</b> is used to ensure data in the specific column is unique. A <b>foreign key</b> is a column or group of columns in a relational database table that provides a link between data in two tables. </p>
+                        
+                        <p><strong>Making migrations</strong></p>
+                        <p>Once the model is defined, the django will automatically take schemas and table according to the fields supplied in the django model.</p>
+                        <pre>
+python manage.py makemigrations
+python manage.py migrate
+                        </pre>
+                        
+                        
                         <h2 class="section-heading">Creating a view for handling the request made from the client.</h2>
                         <pre>
 class DetailView(generic.DetailView):

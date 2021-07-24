@@ -78,7 +78,7 @@
                         <p><strong>What We are going to do?</strong></p>
                         <ol>
                             <li>Starting the Django Project</li>
-                            <li>Creating a music app within the PokedexWithGraphene Project</li>
+                            <li>Creating a pokemon app within the PokedexWithGraphene Project</li>
                             <li>Create a Album and Song model in pokemon/models.py</li>
                             <li>Importing pokemon data from json file using  Django Extensions</li>
                             <li>Writing GraphQL queries and schema</li>
@@ -93,7 +93,7 @@
                         <p><b>Top Features of Django Framework</b></p>
                         <ul>
                             <li>Excellent Documentation</li>
-                            <li>SEO Optimised</li>
+                            <li>SEO Optimized</li>
                             <li>High Scalability</li>
                             <li>Versatile in Nature</li>
                             <li>Offers High Security</li>
@@ -118,13 +118,13 @@ django-admin startproject PokedexWithGraphene
                         <p>You get the project structure like this</p>
                         <pre>
 PokedexWithGraphene/
-manage.py
-PokedexWithGraphene/
-    __init__.py
-    settings.py
-    urls.py
-    asgi.py
-    wsgi.py
+    manage.py
+    PokedexWithGraphene/
+        __init__.py
+        settings.py
+        urls.py
+        asgi.py
+        wsgi.py
                         </pre>
 
 
@@ -168,6 +168,13 @@ INSTALLED_APPS = [
     # graphql library
     'graphene_django'
 ]
+                        </pre>
+
+                        <p><strong>Making migrations</strong></p>
+                        <p>Once the model is defined, the django will automatically take schemas and table according to the fields supplied in the django model.</p>
+                        <pre>
+python manage.py makemigrations
+python manage.py migrate
                         </pre>
 
 
