@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="A google API based client based on two API: GEO CODING AND PLACES API which can used installed in your google platform project." />
+        <title>Google Api Client</title>
+        <meta name="keywords" content="chaudharypraveen98,Praveen Chaudhary,devilunknown, Praveen Chaudhary projects, Google Api Client">
+        <meta name="robots" content="index, follow">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="language" content="English">
+        <meta name="revisit-after" content="2 days">
+        <meta name="author" content="@chaudharypraveen98">
+        <meta name="twitter:title" content="Praveen Chaudhary">
+        <meta name="twitter:description" content=" Personal Projects Section">
+        <meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1366311960468332546/EidYygUt_400x400.jpg">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="og:title" content="Praveen Chaudhary - a Full Stack Developer" />
+        <meta property="og:url" content="https://www.linkedin.com/in/chaudharypraveen98/" />
+        <meta property="og:description" content="This is the personal portfolio page which contains all the projects. I am a Full Stack Developer, Rest Api Developer, Data Analsyt" />
+        <meta property="og:image" content="https://media-exp1.licdn.com/dms/image/C5603AQHRamUaMrdA9g/profile-displayphoto-shrink_400_400/0/1597315489941?e=1629936000&v=beta&t=GjvQu_r0n3F2EtGkaRYSF6pH8vRdgx5lsD1-w8dc8gY" />
+        <meta property="og:type" content="Portfolio.Projects" />
+        <link rel="shortcut icon" href="./../favicon.ico" type="image/x-icon">
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="index.html">Google Api Client</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://chaudharypraveen98.github.io/about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://chaudharypraveen98.github.io/project-preview/">Latest Works</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://chaudharypraveen98.github.io/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/img/post-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>Google Api Client</h1>
+                            <h2 class="subheading">A google API based client based on two API: GEO CODING AND PLACES API which can used installed in your google platform project.</h2>
+                            <span class="meta">
+                                Posted by
+                                <a href="https://github.com/chaudharypraveen98">Praveen Chaudhary</a>
+                                on 15 June 2020
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <h3>Topics -> googleapiclient, geocoding, placesapi, programming, scripting</h3>
+                        <h5>Source Code Link -> <u><a href="https://github.com/chaudharypraveen98/GoogleApiClient">GitHub</a></u></h5>
+                        
+                        <p><strong>What We are going to do?</strong></p>
+                        <ol>
+                            <li>Installing required libraries and setting client</li>
+                            <li>Getting longitude and latitude by  city or state name</li>
+                            <li>Finding things/places around a location within some radius</li>
+                            <li>Getting place details using the google place id</li>
+                       </ol>
+                        <h2 class="section-heading">Step 1 -> Writing GoogleApiClient and exporting data (GoogleApiClient.py)</h2>
+                        <p><h3>Writing GoogleApiClient</h3></p>
+                        <p><strong>Installing required libraries</strong></p>
+                        <pre>
+pip install requests
+pip install requests
+                        </pre>
+
+                        <p><strong>Importing libraries and setting API key</strong></p>
+                        <pre>
+import requests
+from urllib.parse import urlencode
+
+GOOGLE_API_KEY = "ENTER YOUR OWN API KEY"
+                        </pre>
+                        <p><b>Be sure to enter your key.</b></p>
+
+                        <p><strong>Initiating the client</strong></p>
+                        <pre>
+class GoogleMapsClient(object):
+    lat = None
+    lng = None
+    data_type = "json"
+    default_address = None
+    api_key = None
+                        </pre>
+
+                        <p><strong>setting default_address and key in client</strong></p>
+                        <pre>
+class GoogleMapsClient(object):
+    lat = None
+    lng = None
+    data_type = "json"
+    default_address = None
+    api_key = None
+
+    def __init__(self, api_key=None, default_address=None, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if api_key is None:
+            raise Exception("Api key not found")
+        self.api_key = api_key
+        self.default_address = default_address
+        if default_address is not None:
+            self.get_url_and_log_lat()
+        else:
+            raise Exception("default address not set")
+        </pre>
+
+                        <h2 class="section-heading">Step 2 -> Getting longitude and latitude by  city or state name.</h2>
+                        <p><strong>What happening in the below code?</strong></p>
+                        <ol>
+                            <li>IF location is not given, it will set the location to default location</li>
+                            <li>Else location is set to given input.</li>
+                            <li>Once location is defined, we frame url with the help of default type i.e JSON</li>
+                            <li>We pass the key and the location as query parameter.</li>
+                            <li>Used the requests library to get request.</li>
+                            <li>Then, extract the lat and long and return it.</li>
+                        </ol>
+                        <p><strong>Code</strong></p>
+                        <pre>
+def get_url_and_log_lat(self, location=None):
+    loc_query = self.default_address
+    if location is not None:
+        loc_query = location
+    base_url = f"https://maps.googleapis.com/maps/api/geocode/{self.data_type}"
+    paramaters = {
+        "address": loc_query,
+        "key": self.api_key
+    }
+    url_params = urlencode(paramaters)
+    endpoint = f"{base_url}?{url_params}"
+    r = requests.get(endpoint)
+    if r.status_code not in range(200, 299):
+        return {}
+    log_lat = {}
+    try:
+        log_lat = r.json()['results'][0]['geometry']['location']
+        print(log_lat)
+    except:
+        pass
+    self.lat = log_lat.get("lat")
+    self.lng = log_lat.get("lng")
+    return self.lat, self.lng
+                        </pre>
+
+                        <h2 class="section-heading">Step 3 -> Finding things/places around a location within some radius.</h2>
+                        <p><strong>Oops, I am lost, what this code does?</strong></p>
+                        <ol>
+                            <li>IF location is not given, it will set the coordinates of previous location</li>
+                            <li>Else location is set to given input.</li>
+                            <li>Once location is defined, we frame url with the help of default type i.e JSON</li>
+                            <li>We pass the key ,location, keyword and radius as query parameter.</li>
+                            <li>Used the requests library to get request.</li>
+                            <li>Then,return the response.</li>
+                        </ol>
+
+                        <p><strong>Now, Lets write code</strong></p>
+                        <pre>
+def search(self, keyword="Mexican Food", location="Faridabad", radius=1000):
+    if location is not None:
+        self.get_url_and_log_lat(location)
+    endpoint = f"https://maps.googleapis.com/maps/api/place/nearbysearch/{self.data_type}"
+    search_param = {
+        "key": self.api_key,
+        "location": f"{self.lat},{self.lng}",
+        "radius": radius,
+        "keyword": keyword,
+    }
+    search_param_encode = urlencode(search_param)
+    place_url = f"{endpoint}?{search_param_encode}"
+    r = requests.get(place_url)
+    if r.status_code not in range(200, 299):
+        return {}
+    return r.json()
+                        </pre>
+                        
+                        <h2 class="section-heading">Step 4 -> Getting place details using the google place id</h2>
+                        <p>Wow! this time , I know the code. Let me start..</p>
+                        <ol>
+                            <li>If we have google place id, we can do the search</li>
+                            <li>Default response is set to json in line 2</li>
+                            <li>We pass the place id ,fields, and key as query parameter.</li>
+                            <li>Used the requests library to get request.</li>
+                            <li>Then,return the response.</li>
+                        </ol>
+
+                        <p><b>It's time to change thinking into code</b></p>
+                        <pre>
+def detail(self, place_id="ChIJqW9BqQe6j4AR0il4CC315_s", fields=["name", "rating", "formatted_phone_number"]):
+    detail_base_url = "https://maps.googleapis.com/maps/api/place/details/json"
+    detail_param = {
+        "place_id": place_id,
+        "fields": ",".join(fields),
+        "key": self.api_key,
+    }
+    detail_param_encode = urlencode(detail_param)
+    detail_url = f"{detail_base_url}?{detail_param_encode}"
+    r = requests.get(detail_url)
+    if r.status_code not in range(200, 299):
+        return {}
+    return r.json()
+                        </pre>
+                        
+                        <p><strong>Hurray! I made it finally.</strong></p>
+                        
+                        <h2 class="section-heading">Deployment</h2>
+                        <p>For deployment,  We are using the <strong>Repl</strong> or <strong>Heroku</strong> to deploy our localhost to web.<span><a href="https://replit.com/">For More Info</a></span></p>
+
+                        <h2 class="section-heading">Web Preview / Output</h2>
+                        <a href="https://raw.githubusercontent.com/chaudharypraveen98/GoogleApiClient/master/GOOGLE%20API%20CLIENT%20Frame.png"><img class="img-fluid" src="https://raw.githubusercontent.com/chaudharypraveen98/GoogleApiClient/master/GOOGLE%20API%20CLIENT%20Frame.png" alt="web preview" /></a>
+                        <span class="caption text-muted">Web preview on deployment</span>
+                        <p>
+                            Placeholder text by
+                            <a href="https://chaudharypraveen98.github.io/">Praveen Chaudhary</a>
+                            &middot; Images by
+                            <a href="hhttps://chaudharypraveen98.github.io/binarybeast/">Binary Beast</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <!-- Footer-->
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="https://twitter.com/chaudhpraveen98">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.linkedin.com/in/chaudharypraveen98/">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://github.com/chaudharypraveen98">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="small text-center text-muted fst-italic">Copyright &copy; Praveen Chaudhary 2021</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
