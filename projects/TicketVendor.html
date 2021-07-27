@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="A rest API for realtime stock management built on the top of the Django Rest Framework with token authentication." />
-        <title>Stock Rest API</title>
-        <meta name="keywords" content="chaudharypraveen98,Praveen Chaudhary,devilunknown, Praveen Chaudhary projects, stock_rest_api, stock rest api">
+        <meta name="description" content="A Rest api that will manages all the tickets for the shows, movies and concerts. This API is built on the top of the django rest framework." />
+        <title>Ticket Vendor</title>
+        <meta name="keywords" content="chaudharypraveen98,Praveen Chaudhary,devilunknown, Praveen Chaudhary projects, TicketVendor, Ticket Vendor">
         <meta name="robots" content="index, follow">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="language" content="English">
@@ -33,7 +33,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="index.html">stock_rest_api</a>
+                <a class="navbar-brand" href="index.html">TicketVendor</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -54,12 +54,12 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="post-heading">
-                            <h1>Stock Rest API</h1>
-                            <h2 class="subheading">A rest API for realtime stock management built on the top of the Django Rest Framework with token authentication.</h2>
+                            <h1>Ticket Vendor</h1>
+                            <h2 class="subheading">A Rest api that will manages all the tickets for the shows, movies and concerts. This API is built on the top of the django rest framework.</h2>
                             <span class="meta">
                                 Posted by
                                 <a href="https://github.com/chaudharypraveen98">Praveen Chaudhary</a>
-                                on 29 August 2020
+                                on 10 February 2021
                             </span>
                         </div>
                     </div>
@@ -71,14 +71,14 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <h3>Topics -> djangorestframework, python, webdevelopment, API</h3>
-                        <h5>Source Code Link -> <u><a href="https://github.com/chaudharypraveen98/stock_rest_api">GitHub</a></u></h5>
+                        <h3>Topics -> python, django, django-rest-framework, webdevelopment, api</h3>
+                        <h5>Source Code Link -> <u><a href="https://github.com/chaudharypraveen98/TicketVendor">GitHub</a></u></h5>
                         <p><strong>What We are going to do?</strong></p>
                         <ol>
-                            <li>Starting the stock_rest_api django Project</li>
-                            <li>Creating a companies app within the stock_rest_api Project</li>
-                            <li>Create a Stock in companies/models.py</li>
-                            <li>Writing serializers for companies model data</li>
+                            <li>Starting the TicketVendor django Project</li>
+                            <li>Creating a booking app within the TicketVendor Project</li>
+                            <li>Create a Order and Seat in booking/models.py</li>
+                            <li>Writing serializers for booking model data</li>
                             <li>Creating a view for handling the request made from the client</li>
                             <li>Adding function handlers to routes</li>
                         </ol>
@@ -104,7 +104,7 @@
                             <li><a href="api-guide/serializers/">Serialization</a> that supports both <a href="api-guide/serializers#modelserializer">ORM</a> and <a href="api-guide/serializers#serializers">non-ORM</a> data sources.</li>
                             <li>Customizable all the way down - just use <a href="api-guide/views#function-based-views">regular function-based views</a> if you don't need the <a href="api-guide/generic-views/">more</a> <a href="api-guide/viewsets/">powerful</a> <a href="api-guide/routers/">features</a>.</li>
                             <li>Extensive documentation, and <a href="https://groups.google.com/forum/?fromgroups#!forum/django-rest-framework">great community support</a>.</li>
-                            <li>Used and trusted by internationally recognised companies including <a href="https://www.mozilla.org/en-US/about/">Mozilla</a>, <a href="https://www.redhat.com/">Red Hat</a>, <a href="https://www.heroku.com/">Heroku</a>, and <a href="https://www.eventbrite.co.uk/about/">Eventbrite</a>.</li>
+                            <li>Used and trusted by internationally recognised booking including <a href="https://www.mozilla.org/en-US/about/">Mozilla</a>, <a href="https://www.redhat.com/">Red Hat</a>, <a href="https://www.heroku.com/">Heroku</a>, and <a href="https://www.eventbrite.co.uk/about/">Eventbrite</a>.</li>
                         </ul>
 
 
@@ -113,6 +113,7 @@
                         <p>Initialize a Django project by following command. <b>Python</b> must be installed on your system.</p>
                         <pre>
 pip install Django
+pip install djangorestframework
 </pre>
                         <p>You can confirm the installation by checking the django version by following command</p>
                         <pre>
@@ -120,13 +121,13 @@ python -m django --version
                         </pre>
                         <p><b>Starting the Project</b></p>
                         <pre>
-django-admin startproject stock_rest_api
+django-admin startproject TicketVendor
                         </pre>
                         <p>You get the project structure like this</p>
                         <pre>
-stock_rest_api/
+TicketVendor/
     manage.py
-    stock_rest_api/
+    TicketVendor/
         __init__.py
         settings.py
         urls.py
@@ -136,17 +137,17 @@ stock_rest_api/
 
 
 
-                        <h2 class="section-heading">Step 2 -> Creating a companies app within the stock_rest_api Project</h2>
+                        <h2 class="section-heading">Step 2 -> Creating a booking app within the TicketVendor Project</h2>
                         <h3>What is a Django App?</h3>
                         <p>An app is a Web application that does something – e.g., a Weblog system, a database of public records or a small poll app.</p> 
                         <p>A project is a collection of configuration and apps for a particular website. A project can contain multiple apps. An app can be in multiple projects.</p>
-                        <p>Creating the companies app</p>
+                        <p>Creating the booking app</p>
                         <pre>
-python manage.py startapp companies
+python manage.py startapp booking
                         </pre>
-                        <p>That’ll create a directory companies, which is laid out like this:</p>
+                        <p>That’ll create a directory booking, which is laid out like this:</p>
                         <pre>
-companies/
+booking/
     __init__.py
     admin.py
     apps.py
@@ -170,43 +171,58 @@ INSTALLED_APPS = [
     'rest_framework',
 
     # our main reusable components
-    'companies.apps.CompaniesConfig',
-
-    # authentication
-    'rest_framework.authtoken',
+    'booking.apps.BookingConfig'
 ]
                         </pre>
 
 
 
-                        <h2 class="section-heading">Step 3 -> Create a Stock model in companies/models.py</h2>
+                        <h2 class="section-heading">Step 3 -> Create a Order and Seat model in booking/models.py</h2>
                         <h3>What is a Django Model?</h3>
                         <p>A model is the single, definitive source of truth about your data. It contains the essential fields and behaviors of the data you’re storing. Django follows the DRY Principle.</p> 
                         <p>The goal is to define your data model in one place and automatically derive things from it.</p>
                         <p>Let's create a Django Model.</p>
                         <p>A database contains a number of variable which are represented by fields in django model.Each field is represented by an instance of a Field class – e.g., CharField for character fields and DateTimeField for datetimes. This tells Django what type of data each field holds.</p>
                         <pre>
+import uuid
+
 from django.db import models
 
 
-class Stock(models.Model):
-    company_name = models.CharField(max_length=10)
-    open_price = models.FloatField()
-    close_price = models.FloatField()
-    transaction = models.IntegerField()
+class Seat(models.Model):
+    SEATNUM = models.CharField(max_length=8)
+    status = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.company_name
+        return f"{self.SEATNUM} {str(self.status)}"
+
+
+class Orders(models.Model):
+    seat = models.ForeignKey(Seat, on_delete=models.CASCADE, related_name='ticket_orders', null=True, blank=True)
+    ticket_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=True)
+    person_name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.person_name
                         </pre>
-                        
+                        <p>Here, Two concepts are used</p>
+                        <ol>
+                            <li>Primary Key</li>
+                            <li>Foreign Key</li>
+                        </ol>
+                        <p>A <b>primary key</b> is used to ensure data in the specific column is unique. A <b>foreign key</b> is a column or group of columns in a relational database table that provides a link between data in two tables. </p>
+                        <p>Here, We have used the one to many relationship between the Orders and Seats as there can be many orders for Seat.</p>
+
                         <p><strong>Adding models to admin panel</strong></p>
                         <p>Django provides built-in admin panel to manage the data into model</p>
                         <pre>
 from django.contrib import admin
-from .models import Stock
 
 # Register your models here.
-admin.site.register(Stock)
+from booking.models import Seat, Orders
+
+admin.site.register(Seat)
+admin.site.register(Orders)
                         </pre>
 
                         <p><strong>Making migrations</strong></p>
@@ -218,7 +234,7 @@ python manage.py migrate
 
 
 
-                        <h2 class="section-heading">Step 4 -> Writing serializers for companies model data</h2>
+                        <h2 class="section-heading">Step 4 -> Writing serializers for booking model data</h2>
                         <h3>What are Serializers?</h3>
                         <p>Serializers allow complex data such as querysets and model instances to be converted to native Python datatypes that can then be easily rendered into JSON, XML or other content types. Serializers also provide deserialization, allowing parsed data to be converted back into complex types, after first validating the incoming data.</p>
                         <p><strong>We are using Model Serializer. But Why?</strong></p>
@@ -227,52 +243,27 @@ python manage.py migrate
                         <ul>
                             <li>It will automatically generate a set of fields for you, based on the model.</li>
                             <li>It will automatically generate validators for the serializer, such as unique_together validators.</li>
-                            <li>It includes simple default implementations of <tt>.create()</tt> and <tt>.update()</tt>.</li>
                         </ul>
                         <pre>
 from rest_framework import serializers
-from rest_framework.serializers import Serializer
-from .models import Stock
-from rest_framework import exceptions
-from django.contrib.auth import authenticate
-from django.contrib.auth.models import User
+
+from booking.models import Orders, Seat
 
 
-class StockSerializer(serializers.ModelSerializer):
+class OrderSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Stock
-        # for some specific fields = ('companies','open_price')
+        model = Orders
         fields = '__all__'
 
 
-class LoginSerializer(serializers.Serializer):
-    username = serializers.CharField()
-    password = serializers.CharField()
+class SeatSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Seat
+        fields = '__all__'
 
-    def validate(self, data):
-        username = data.get("username", "")
-        password = data.get("password", "")
-
-        if username and password:
-            user = authenticate(username=username, password=password)
-            if user:
-                if user.is_active:
-                    data["user"] = user
-                else:
-                    msg = "user is inactive"
-                    raise exceptions.ValidationError(msg)
-            else:
-                msg = "Wrong credentials"
-                raise exceptions.ValidationError(msg)
-        else:
-            msg = "Must provide username and password both"
-            raise exceptions.ValidationError(msg)
-        return data
                         </pre>
 
-                        <p>Here we are using <b>ModelSerializer</b> for Stock model and <b>Default Serializer</b> for user authentication</p>
-
-                        <p><b>Default Serializer</b> has a built-in validate function for validating the data entered</p>
+                        <p>Here we are using <b>ModelSerializer</b> for Order and Seat model</p>
 
 
                         <h2 class="section-heading">Step 5 -> Creating a view for handling the request made from the client.</h2>
@@ -323,79 +314,121 @@ class LoginSerializer(serializers.Serializer):
                             </tbody>
                         </table>
 
-                        <p><b>companies/views.py</b></p>
+                        <p><strong>booking/views.py</strong></p>
+                        <p><b>Importing libraries, models and serializers</b></p>
                         <pre>
-from django.contrib.auth import login, logout
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
-from rest_framework.authtoken.models import Token
-from rest_framework.permissions import IsAuthenticated, IsAdminUser
+from uuid import UUID
+
+from django.db.models import Q
+from rest_framework import status, exceptions
+from rest_framework.exceptions import NotFound
+from rest_framework.generics import GenericAPIView, ListCreateAPIView
+from rest_framework.mixins import CreateModelMixin
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import Stock
-from .serializers import StockSerializer, LoginSerializer
+from TicketVendor.settings import MAX_OCCUPANCY
+from booking.models import Orders, Seat
+from booking.serializers import OrderSerializer, SeatSerializer
+</pre>
 
-class StockApiView(APIView):
-    def get(self, request):
-        stocks = Stock.objects.all()
-        serializer = StockSerializer(stocks, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+<p><b>Vacating the Seat if occupied</b></p>
+<pre>
+class VacateApi(APIView):
+    """
+    This class will update the status of seats
+    """
 
-    def post(self, request):
-        data = request.data
-        serializer = StockSerializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    def post(self, request, *args, **kwargs):
+        seat_objects = Seat.objects.filter(SEATNUM=request.data['SEATNUM'])
+        if seat_objects.exists() and seat_objects[0].status is True:
+            seat = Seat.objects.get(pk=seat_objects[0].pk)
+            seat.status = False
+            seat.save()
+            return Response("updated status", status=status.HTTP_200_OK)
+        return Response("Seat not Found or Already vacant", status=status.HTTP_404_NOT_FOUND)
+</pre>
 
-class StockApiViewDetail(APIView):
-    authentication_classes = [BasicAuthentication, TokenAuthentication]
-    permission_classes = [IsAuthenticated, IsAdminUser]
+<p><b>Booking / Occupying seat</b></p>
+<pre>
+class OccupyApi(ListCreateAPIView):
+    serializer_class = OrderSerializer
+    queryset = Orders.objects.all()
 
-    def get_object(self, pk):
+    def get(self, request, **kwargs):
+        return self.list(request)
+
+    def perform_create(self, serializer):
+        # It will check the free seats
+        all_seats = Seat.objects.filter(status=False)
+        if all_seats.exists():
+            seat = Seat.objects.get(pk=all_seats[0].pk)
+            seat.status = True
+            seat.save()
+        else:
+            # if free slot not present raise exception
+            raise NotFound(detail="All seats Resereved", code=404)
+        serializer.save(seat=seat)
+
+    def post(self, request, **kwargs):
+        return self.create(request)
+</pre>
+
+<p><b>Getting ticket info</b></p>
+<pre>
+class GetInfoApi(GenericAPIView):
+
+    def validate_uuid4(self, uuid_string):
+        # This function checks the valid UUID
         try:
-            return Stock.objects.get(pk=pk)
-        except Stock.DoesNotExist as e:
-            return Response({e: "given company stock not found."}, status=404)
+            val = UUID(uuid_string, version=4)
+        except ValueError:
+            return False
 
-    def get(self, request, pk=None):
-        instance = self.get_object(pk)
-        serializer = StockSerializer(instance)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        return True
 
-    def put(self, request, pk=None):
-        instance = self.get_object(pk)
-        data = request.data
-        serializer = StockSerializer(instance, data=data)
-        if serializer.is_valid():
-            serializer.save()
+    def get_object(self, **kwargs):
+        # Here key refers to the request data , it can be ticket id , person name or seat number
+        key = kwargs['key']
+
+        # First it tries to find the ticket using seat no and person name
+        ticket = Orders.objects.filter(Q(seat__SEATNUM=key) | Q(person_name=key))
+        if ticket.exists():
+            return ticket[0]
+
+        # It check if uuid is valid or not
+        valid_uuid = self.validate_uuid4(key)
+        if valid_uuid:
+            ticket = Orders.objects.filter(ticket_id=key)
+            if ticket.exists:
+                return ticket[0]
+        raise exceptions.NotFound(detail="No Result Found", code=404)
+
+    def get(self, request, *args, **kwargs):
+        ticket = self.get_object(**kwargs)
+        serializer = OrderSerializer(instance=ticket)
+        if serializer.is_valid:
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+</pre>
 
-    def delete(self, request, pk):
-        instance = self.get_object(pk)
-        instance.delete()
-        return HttpResponse(status=status.HTTP_204_NO_CONTENT)
+<p><b>Adding seat to Hall</b></p>
+<pre>
+class AddSeatApi(CreateModelMixin):
+    serializer_class = SeatSerializer
 
-class LoginApiView(APIView):
-
-    def post(self, request):
-        print(request.user)
-        serializer = LoginSerializer(data=request.data)
+    # this function will overwrite the default create Model mixin, We can even use the APIview class too.
+    def create(self, request, *args, **kwargs):
+        total_seat = Seat.objects.count()
+        if total_seat > MAX_OCCUPANCY-1:
+            return Response("Seat exceeds the MAX_OCCUPANCY", status=status.HTTP_400_BAD_REQUEST)
+        serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
-        user = serializer.validated_data["user"]
-        login(request, user)
-        token, created = Token.objects.get_or_create(user=user)
-        return Response({"token": token.key}, status=200)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
-
-class LogoutApiView(APIView):
-    authentication_classes = (SessionAuthentication,)
-
-    def post(self, request):
-        logout(request)
-        return Response(status=204)
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
                         </pre>
 
                         <p>We are using Django <tt>Response</tt> in-built function.</p>
@@ -410,41 +443,81 @@ class LogoutApiView(APIView):
 
 
 
-                        <h2 class="section-heading">Step 6 -> Adding function handlers to routes.(companies/urls.py)</h2>
+                        <h2 class="section-heading">Step 6 -> Adding function handlers to routes.(booking/urls.py)</h2>
                         <p>Whenever user visit the user, a function is called in view which takes care of response.</p>
-                        <p><b>stock_rest_api/urls.py</b></p>
+                        <p><b>TicketVendor/urls.py</b></p>
                         <pre>
-from django.conf.urls import url, include
 from django.contrib import admin
-from rest_framework.urlpatterns import format_suffix_patterns
-from companies import views
+from django.urls import path, include
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^companies/', include('companies.urls')),
+    path('admin/', admin.site.urls),
+    path('api/', include('booking.urls'))
 ]
-
                         </pre>
 
-                        <p><b>Adding sub path for companies app(companies/urls.py)</b></p>
-                        <p>It defines the particular path for companies app</p>
+                        <p><b>Adding sub path for booking app(booking/urls.py)</b></p>
+                        <p>It defines the particular path for booking app</p>
                         <pre>
 from django.urls import path
 
-from . import views
+from booking import views
 
-app_name = 'companies'
 urlpatterns = [
-    # IT IS FOR JSON RESPONSE SERIALIZER
-    # path('', views.stock, name='list'),
-    # path('', views.StockApiView.as_view(), name='list'),
-    path('', views.GenericStockView.as_view(), name='list'),
-    path('&lt;int:pk&gt;/', views.StockApiViewDetail.as_view(), name='detail'),
-    # path('&lt;int:pk&gt;/', views.stock_details, name='detail'),
-    path('login/', views.LoginApiView.as_view(), name="login"),
-    path('logout/', views.LogoutApiView.as_view(), name="logout")
+    path('vacate/', views.VacateApi.as_view()),
+    path('occupy/', views.OccupyApi.as_view()),
+    path('get_info/<str:key>', views.GetInfoApi.as_view()),
+    path('add_seat', views.AddSeatApi.as_view())
 ]
                         </pre>
+
+                        <h2 class="section-heading">How to run our django app ?</h2>
+                        <ol>
+                            <li>Create a virtual env with <tt>python3 -m venv env</tt></li>
+                            <li>Activate virtual env with <tt>.env/bin/activate</tt></li>
+                            <li>Install requirements using <tt>pip install -r requirements.txt</tt></li>
+                            <li>Run the server locally using <tt>python3 manage.py runserver</tt></li>
+                        </ol>
+                        <p><b>Hurray! Our server is running.</b></p>
+                        <p>Go to <tt>http://127.0.0.1:8000/</tt></p>
+
+                        <p><strong>Endpoints</strong></p>
+                        <ol>
+                            <li>
+                                /api/vacate : This endpoint takes the person name and the seat number to vacate that particular seat. Make a post request to this endpoint with content type="application/json" <br>
+                                Example :-
+                                <b>Endpoint :-</b> <tt>http://127.0.0.1:8000/api/vacate/</tt> <br>
+                                <b>Data :-</b> <tt>{ "SEATNUM":"A1" }</tt> <br>
+                            </li>
+
+                            <li>
+                                <b>/api/get_info/[ticket_id or Person name or Seat no] :-</b> This endpoint will provide you all the information about your ticket. Simple add the ticket_id or Person name or Seat no in the url and it will give a response in json format. <br>
+                                <b>Example : -</b> Direct url <tt>http://127.0.0.1:8000/api/get_info/A1</tt>
+                            </li>
+
+                            <li>
+                                <b>api/occupy :-</b> This endpoint will search all the seat. If it finds one then it will book that for you and provide details in response but if it unable to find one then it will raise 404 status code with All seats reserved. <br>
+                                <b>Example : -</b><br>
+                                <b>Endpoint</b> <tt>http://127.0.0.1:8000/api/occupy</tt> <br>
+                                Data <br>
+                                <pre>
+{ 
+    "ticket_id": "2edc7cc5-f436-4104-b799-64ca94cd3e2e",
+    "person_name": "Praveen Chaudhary" 
+}
+                                </pre>
+                            </li>
+
+                            <li>
+                                <b>/api/add_seat :-</b> This endpoint will add seat to the database and checks that the number of seat will not exceed the MAX_OCCUPANCY <br>
+                                <b>Example : -</b> <br>
+                                Endpoint <tt>http://127.0.0.1:8000/api/add_seat</tt>
+                                Data 
+                                <pre>
+{ "SEATNUM": "A2" }
+                                </pre>
+                            </li>
+                        </ol>
 
                         <p><strong>Add Some styles to make it attractive</strong></p>
 
@@ -452,11 +525,10 @@ urlpatterns = [
                         <h2 class="section-heading">Deployment</h2>
                         <p>You can easily deploy on <a href="https://www.heroku.com/">Heroku</a></p>
                         <p>You can read more about on <a href="https://www.analyticsvidhya.com/blog/2020/10/step-by-step-guide-for-deploying-a-django-application-using-heroku-for-free/">Analytics Vidhya Blog</a></p>
-                        
-                        
+
                         <h2 class="section-heading">Web Preview / Output</h2>
-                        <a href="https://raw.githubusercontent.com/chaudharypraveen98/stock_rest_api/master/rest.png"><img class="img-fluid" src="https://raw.githubusercontent.com/chaudharypraveen98/stock_rest_api/master/rest.png" alt="web preview" /></a>
-                        <span class="caption text-muted">Web preview on deployment</span>
+                        <a href="https://raw.githubusercontent.com/chaudharypraveen98/TicketVendor/master/Ticket%20Vendor.png"><img class="img-fluid" src="https://raw.githubusercontent.com/chaudharypraveen98/TicketVendor/master/Ticket%20Vendor.png" alt="web preview" /></a>
+                        <span class="caption text-muted">Ticket Vendor</span>
                         <p>
                             Placeholder text by
                             <a href="https://chaudharypraveen98.github.io/">Praveen Chaudhary</a>
