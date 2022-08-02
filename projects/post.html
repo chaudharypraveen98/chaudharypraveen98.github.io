@@ -3,10 +3,9 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Calculator</title><meta name="description" content="A calculator based on react JS with some custom  styling.">
-        <meta name="keywords" content="chaudharypraveen98,Praveen Chaudhary,devilunknown, Praveen Chaudhary projects, calculator">
+        <meta name="description" content="Music website based on the top on Django framework. It is a dynamic website with responsive behaviour. It has a login feature and CRUD (create,read,update and the delete) features" />
+        <title>Shoty - A new era of music</title>
+        <meta name="keywords" content="chaudharypraveen98,Praveen Chaudhary,devilunknown, Praveen Chaudhary projects, Shoty - A new era of music">
         <meta name="robots" content="index, follow">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="language" content="English">
@@ -34,7 +33,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="index.html">Calculator</a>
+                <a class="navbar-brand" href="index.html">Shoty - A new era of music</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -55,12 +54,12 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="post-heading">
-                            <h1>Calculator</h1>
-                            <h2 class="subheading">It is a calculator based on react JS with some custom  styling.</h2>
+                            <h1>Shoty - A new era of music</h1>
+                            <h2 class="subheading">Music website based on the top on Django framework. It is a dynamic website with responsive behaviour. It has a login feature and CRUD (create,read,update and the delete) features.</h2>
                             <span class="meta">
                                 Posted by
                                 <a href="https://github.com/chaudharypraveen98">Praveen Chaudhary</a>
-                                on 31 March 2020
+                                on 02 October 2019
                             </span>
                         </div>
                     </div>
@@ -72,90 +71,43 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <h3>Topics -> ReactJS, HTML, CSS, Web development</h3>
-                        <h4>Preview Link -> <u><a href="https://chaudharypraveen98.github.io/calculator/">Calculator</a></u></h4>
-                        <h4>Source Code Link -> <u><a href="https://github.com/chaudharypraveen98/calculator">GitHub</a></u></h4>
+                        <h3>Topics -> </h3>
+                        <h5>Preview Link -> <u><a href=""></a></u></h5>
+                        <h5>Source Code Link -> <u><a href="">GitHub</a></u></h5>
+                        <iframe src="https://drive.google.com/file/d/1gh09T8UOu3S6JHCmrlvg36oqsSvx-XrM/preview" width="640" height="480" allow="autoplay"></iframe>
                         <p><strong>What We are going to do?</strong></p>
                         <ol>
-                            <li>Creating a react component</li>
-                            <li>Adding keypads</li>
-                            <li>Adding event listeners to respond on click</li>
-                            <li>Functions to perform operations</li>
+                          <li></li>
+                          <li>Creating a music app within the Shoty Project</li>
+                          <li>Create a Album and Song model in music/models.py</li>
+                          <li>Creating a view for handling the request made from the client</li>
+                          <li>Creating a Template for displaying the song data on the page</li>
                         </ol>
-                        <h2 class="section-heading">Intialising the class</h2>
-                        <p><b>Extend a react component class.</b></p>
-                        <pre>class Calculator extends React.Component{
-    constructor(props){
-        super(props);
-        this.state={
-            display:0,
-            equation:'',
-        };
-    }
-    ...
-}
-</pre>
-                        <h2 class="section-heading">Basic structure of Front-end</h2>
-                        <pre>render () {
-    return (&lt;div className="commentContainer"&gt;
-                &lt;div className="head"&gt;
-                    &lt;div&gt;Calculator&lt;/div&gt;
-                &lt;/div&gt;
-            &lt;div className="displayScreen"&gt;
-                &lt;div className="eq"&gt;{this.state.equation}&lt;/div&gt;
-                &lt;div className="disp"&gt;{this.state.display}&lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div className="number1 keypad" onClick={()=&gt;this.inputNo("1")} value="1"&gt;1&lt;/div&gt;
-            &lt;div className="number2 keypad" onClick={()=&gt;this.inputNo("2")} value="2"&gt;2&lt;/div&gt;
-            &lt;div className="number3 keypad" onClick={()=&gt;this.inputNo("3")} value="3"&gt;3&lt;/div&gt;
-            &lt;div className="number4 keypad" onClick={()=&gt;this.inputNo("4")} value="4"&gt;4&lt;/div&gt;
-            &lt;div className="number5 keypad" onClick={()=&gt;this.inputNo("5")} value="5"&gt;5&lt;/div&gt;
-            &lt;div className="number6 keypad" onClick={()=&gt;this.inputNo("6")} value="6"&gt;6&lt;/div&gt;
-            &lt;div className="number7 keypad" onClick={()=&gt;this.inputNo("7")} value="7"&gt;7&lt;/div&gt;
-            &lt;div className="number8 keypad" onClick={()=&gt;this.inputNo("8")} value="8"&gt;8&lt;/div&gt;
-            &lt;div className="number9 keypad" onClick={()=&gt;this.inputNo("9")} value="9"&gt;9&lt;/div&gt;
-            &lt;div className="number0 keypad" onClick={()=&gt;this.inputNo("0")} value="0"&gt;0&lt;/div&gt;
-            &lt;div className="decimal keypad" onClick={()=&gt;this.inputNo(".")} value="."&gt;.&lt;/div&gt;
-            &lt;div className="add keypad" onClick={()=&gt;this.operator("+")} value="+"&gt;+&lt;/div&gt;
-            &lt;div className="sub keypad" onClick={()=&gt;this.operator("-")} value="-"&gt;-&lt;/div&gt;
-            &lt;div className="mul keypad" onClick={()=&gt;this.operator("*")}  value="*"&gt;*&lt;/div&gt;
-            &lt;div className="div keypad" onClick={()=&gt;this.operator("/")} value="/"&gt;/&lt;/div&gt;
-            &lt;div className="aC keypad" onClick={this.reset}&gt;AC&lt;/div&gt;
-            &lt;div className="equal keypad" onClick={this.result}&gt;=&lt;/div&gt;
-        &lt;/div&gt;
-    );
-    }
-}</pre>
-                        
-                        <h2 class="section-heading">Adding Function/Event Handlers</h2>
-                        <p><strong>What happens when a person click a keyword?</strong></p>
-                        <p>A event is fired and it will do the arithmetic operation and update the page.</p>
+                        <p><h3>Understanding Some Important Concepts</h3></p>
+                        <p><strong>What is Django Framework?</strong></p>
+                        <p></p>
+                        <p><b>Top Features of Django Framework</b></p>
+                        <ol>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ol>
+
+                        <h2 class="section-heading">Step 1 => </div>h2>
+                        <p></p>
                         <pre>
-operator(value){
-    let b = value;
-    b=this.state.equation+b;
-    this.setState({equation:b});
-}
-result=()=>{
-    let b = eval(this.state.equation);
-    this.setState({display:b,equation:''});
-}
-inputNo(value){
-    let b = value ;
-    this.setState({display:b});
-    b=this.state.equation+b;
-    this.setState({equation:b});
-}
-reset=()=>{
-    this.setState({display:0,equation:''});
-}
                         </pre>
-                        <blockquote class="blockquote">Fun Fact - Calculators were originally gear driven wheels, but now they use a chip</blockquote>
-                        <p><strong>Add some stylings to make it look impressive.</strong></p>
-                        <h2 class="section-heading">Deployment</h2>
-                        <p>For deployment, We are using the <strong>GitHub Pages</strong>.  <span><a href="https://pages.github.com/">For More Info</a></span></p>
+                        <h2 class="section-heading">Step 2 => </h2>
+                        <p></p>
+                        <pre>
+                        </pre>
+                        <h2 class="section-heading">Step 3 => </h2>
+                        <p></p>
+                        <pre>
+                        </pre>
                         <h2 class="section-heading">Web Preview / Output</h2>
-                        <a href="#!"><img class="img-fluid" src="https://raw.githubusercontent.com/chaudharypraveen98/calculator/master/calculator.webp" alt="web preview" /></a>
+                        <!-- <a href="https://raw.githubusercontent.com/chaudharypraveen98/Shoty/master/result.webp"><img class="img-fluid" src="https://raw.githubusercontent.com/chaudharypraveen98/RpaChallenge/master/result.webp" alt="web preview" /></a> -->
                         <span class="caption text-muted">Web preview on deployment</span>
                         <p>
                             Placeholder text by
