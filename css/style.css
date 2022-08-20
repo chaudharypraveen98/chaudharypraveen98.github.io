@@ -8894,12 +8894,17 @@ textarea.form-control {
   line-height: 1.0;
   font-family: "Poppins", Arial, sans-serif;
   text-transform: uppercase;
-  text-align: left; }
-  .heading-section h2 span {
-    font-family: "Lora", serif;
-    font-weight: 400;
-    display: block;
-    text-align: right; }
+  text-align: left; 
+}
+.heading-section h2>a{
+  color: rgba(0, 0, 0, 0.8)!important;
+}
+.heading-section h2 span {
+  font-family: "Lora", serif;
+  font-weight: 400;
+  display: block;
+  text-align: right; 
+}
 
 .heading-section.heading-section-white .subheading {
   color: rgba(255, 255, 255, 0.9); }
