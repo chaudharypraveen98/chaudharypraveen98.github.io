@@ -8137,7 +8137,7 @@ body {
   background: #fff;
   font-size: 16px;
   line-height: 1.8;
-  font-weight: 400;
+  font-weight: 500;
   color: #4d4d4d; }
   body.menu-show {
     overflow: hidden;
@@ -8337,7 +8337,7 @@ h1, h2, h3, h4, h5,
   position: relative;
   z-index: 0; }
   .hero h1.vr {
-    font-family: "Barlow Condensed", Arial, sans-serif;
+    font-family: "Poppins", Arial, sans-serif;
     position: absolute;
     top: 50%;
     left: 0;
@@ -8345,7 +8345,7 @@ h1, h2, h3, h4, h5,
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    font-size: 28vw;
+    font-size: 22vw;
     text-transform: uppercase;
     z-index: 1;
     color: #fff;
@@ -9386,6 +9386,27 @@ textarea.form-control {
 
 .contact-section .contact-form {
   width: 100%; }
+.profile-map-container{
+  justify-content: center;
+  align-items: center;
+}
+.mapouter{
+  position:relative;
+  text-align:right;
+  height:100%;
+  width:100%;
+  padding: 3rem 2rem 3rem 2rem;
+}
+.gmap_canvas {
+  overflow:hidden;
+  background:none!important;
+  height:100%;
+}
+.gmap_canvas iframe{
+  height:100%;
+  width:100%;
+  min-height: 350px;
+}
 
 .block-9 .form-control {
   outline: none !important;
@@ -9594,3 +9615,7 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+.word-wrap-break{
+  word-break: break-all
+}
