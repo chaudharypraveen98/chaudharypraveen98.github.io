@@ -9619,3 +9619,12 @@ textarea.form-control {
 .word-wrap-break{
   word-break: break-all
 }
+.view-more{
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+.view-more>a{
+  color: black!important;
+  font-weight: 700;
+}
