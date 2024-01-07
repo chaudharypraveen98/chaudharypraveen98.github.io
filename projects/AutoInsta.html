@@ -110,59 +110,8 @@ pip install selenium
 
                         
                         <p><strong>Before moving ahead, We must be aware of Css selectors</strong></p>
-                        <p><strong>What are selectors/locators?</strong></p>
-                        <p>A <b>CSS Selector</b> is a combination of an element selector and a value which identifies the web element within a web page.</p>
-                        <p><b>The choice of locator depends largely on your Application Under Test</b></p>
-                        <b>Id</b>
-                        <p>An element’s id in XPATH is defined using: “[@id='example']” and in CSS using: “#” - ID's must be unique within the DOM.</p>
-                        <p>Examples:</p>
-                        <pre>
-XPath: //div[@id='example']
-CSS: #example
-                      </pre>
-                      <p><b>Element Type</b></p>
-                       <p>The previous example showed //div in the xpath. That is the element type, which could be input for a text box or button, img for an image, or "a" for a link. </p>
-                        
-                        <pre>
-Xpath: //input or
-Css: =input
-                      </pre>
-                      <p><b>Direct Child</b></p>
-                        <p>HTML pages are structured like XML, with children nested inside of parents. If you can locate, for example, the first link within a div, you can construct a string to reach it. A direct child in XPATH is defined by the use of a “/“, while on CSS, it’s defined using “>”. </p>
-                        <p>Examples:</p>
-                        <pre>                        
-XPath: //div/a
-CSS: div > a
-                      </pre>
-                      <p><b>Child or Sub-Child</b></p>
-                        <p>Writing nested divs can get tiring - and result in code that is brittle. Sometimes you expect the code to change, or want to skip layers. If an element could be inside another or one of its children, it’s defined in XPATH using “//” and in CSS just by a whitespace.</p>
-                        <p>Examples:</p>
-                        <pre>
-XPath: //div//a
-CSS: div a
-                      </pre>
-                      <p><b>Class</b></p>
-                        <p>For classes, things are pretty similar in XPATH: “[@class='example']” while in CSS it’s just “.” </p>
-                        <p>Examples:</p>
-                        <pre>
-XPath: //div[@class='example']
-CSS: .example
-                        </pre>
 
-                        <p><strong>For complex elements, We will use Xpath selectors</strong></p>
-                        <p><b>Xpath</b> in Selenium is an XML path used for navigation through the HTML structure of the page. It is a syntax or language for finding any element on a web page using XML path expression. XPath can be used for both HTML and XML documents to find the location of any element on a webpage using HTML DOM structure.</p>
-                        <p><b>Syntax for XPath selenium:</b></p>
-                        <p>XPath contains the path of the element situated at the web page. Standard XPath syntax for creating XPath is.</p>
-                        <pre>Xpath=//tagname[@attribute='value']</pre>
-                        <img class="img-fluid" title="XPath in Selenium: Complete Guide" alt="Basic Format of XPath" src="https://www.guru99.com/images/3-2016/032816_0758_XPathinSele1.png">
-                        <ul>
-                            <li><strong>// :</strong> Select current node. </li>
-                            <li><strong>Tagname: </strong>Tagname of the particular node. </li>
-                            <li><strong>@:</strong> Select attribute. </li>
-                            <li><strong>Attribute:</strong> Attribute name of the node. </li>
-                            <li><strong>Value:</strong> Value of the attribute. </li>
-                        </ul>
-                        <p>For More Info. You can visit <a href="https://www.guru99.com/xpath-selenium.html">Here</a></p>
+                        <p>You can visit <a href="https://www.guru99.com/xpath-selenium.html">Here</a></p>
                         
                         <h2 class="section-heading">Step 1 -> Making a Login Script</h2>
                         <p>We will make a script which will take the username and password from the config file and login to the user account so that we can perform other activites</p>
