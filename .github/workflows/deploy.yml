@@ -6,8 +6,13 @@ on:
     paths:
       - 'src/**'
       - 'public/**'
+      - 'projects/**'
+      - '*.html'
       - 'astro.config.mjs'
       - 'package.json'
+      - 'package-lock.json'
+      - 'robots.txt'
+      - '.github/workflows/**'
   workflow_dispatch: # Allows manual 1-click trigger from GitHub Actions UI
 
 permissions:

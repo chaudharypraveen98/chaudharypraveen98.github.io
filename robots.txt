@@ -1,4 +1,3 @@
 User-Agent: *
-Disallow: /candy/
 Disallow: /fonts/
 Sitemap: https://www.praveenchaudhary.in/sitemap.xml

@@ -52,7 +52,6 @@ function syncStaticAssets() {
           'index.html',
           'single.html',
           'service-worker.js',
-          'candy',
           'binarybeast',
           'playlist',
           'project-preview',
