@@ -1,0 +1,20 @@
+{
+  "name": "chaudharypraveen98.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "service-worker.js",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "bugs": {
+    "url": "https://github.com/chaudharypraveen98/chaudharypraveen98.github.io/issues"
+  },
+  "homepage": "https://github.com/chaudharypraveen98/chaudharypraveen98.github.io#readme",
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.5",
+    "astro": "^7.4.12"
+  }
+}

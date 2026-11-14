@@ -1,0 +1,202 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  author?: string;
+  tags?: string[];
+  previewUrl?: string;
+  repoUrl?: string;
+  image?: string;
+  headerImage?: string;
+  slug: string;
+}
+
+const {
+  title,
+  description,
+  date,
+  author = 'Praveen Chaudhary',
+  tags = [],
+  previewUrl,
+  repoUrl,
+  image = 'https://media-exp1.licdn.com/dms/image/C5603AQHRamUaMrdA9g/profile-displayphoto-shrink_400_400/0/1597315489941?e=1629936000&v=beta&t=GjvQu_r0n3F2EtGkaRYSF6pH8vRdgx5lsD1-w8dc8gY',
+  headerImage = '/projects/assets/img/post-bg.webp',
+  slug,
+} = Astro.props;
+
+const siteUrl = 'https://www.praveenchaudhary.in';
+const canonicalUrl = `${siteUrl}/projects/${slug}.html`;
+const formattedDate = new Intl.DateTimeFormat('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+}).format(date);
+
+const schemaOrgArticle = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: `${title} — Project | Praveen Chaudhary`,
+  description,
+  image: image.startsWith('http') ? image : `${siteUrl}${image}`,
+  author: {
+    '@type': 'Person',
+    name: author,
+    url: siteUrl,
+  },
+  datePublished: date.toISOString(),
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': canonicalUrl,
+  },
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>{title} — Project | Praveen Chaudhary</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={`chaudharypraveen98,Praveen Chaudhary,devilunknown, Praveen Chaudhary projects, ${tags.join(', ')}`} />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content={author} />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} — Project | Praveen Chaudhary`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={`${title} — Project | Praveen Chaudhary`} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:type" content="article" />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaOrgArticle)} />
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+    <!-- Font Awesome -->
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+
+    <!-- Core Theme CSS (includes Bootstrap) -->
+    <link href="/projects/css/styles.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+      <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="/projects/index.html">{title}</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto py-4 py-lg-0">
+            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://www.praveenchaudhary.in/about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://www.praveenchaudhary.in/project-preview/">Latest Works</a></li>
+            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://www.praveenchaudhary.in/contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header / Masthead -->
+    <header class="masthead" style={`background-image: url('${headerImage}')`}>
+      <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-md-10 col-lg-8 col-xl-7">
+            <div class="post-heading">
+              <h1>{title}</h1>
+              <h2 class="subheading">{description}</h2>
+              <span class="meta">
+                Posted by
+                <a href="https://github.com/chaudharypraveen98">{author}</a>
+                on {formattedDate}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <article class="mb-4">
+      <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-md-10 col-lg-8 col-xl-7">
+            {tags.length > 0 && <h3>Topics -&gt; {tags.join(', ')}</h3>}
+            {previewUrl && <h4>Preview Link -&gt; <u><a href={previewUrl} target="_blank" rel="noopener">{title}</a></u></h4>}
+            {repoUrl && <h4>Source Code Link -&gt; <u><a href={repoUrl} target="_blank" rel="noopener">GitHub</a></u></h4>}
+
+            <slot />
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="border-top">
+      <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-md-10 col-lg-8 col-xl-7">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="https://twitter.com/chaudhpraveen98" aria-label="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/chaudharypraveen98/" aria-label="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://github.com/chaudharypraveen98" aria-label="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <div class="small text-center text-muted fst-italic">Copyright &copy; Praveen Chaudhary {new Date().getFullYear()}</div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS -->
+    <script src="/projects/js/scripts.js"></script>
+  </body>
+</html>

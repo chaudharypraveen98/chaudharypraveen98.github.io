@@ -1,0 +1,170 @@
+---
+import { getCollection } from 'astro:content';
+
+const allProjects = await getCollection('projects');
+allProjects.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const title = 'Praveen Chaudhary - All Projects';
+const description = 'Collection of all projects including industry ready projects with modern tools and frameworks.';
+const canonicalUrl = 'https://www.praveenchaudhary.in/projects/index.html';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="chaudharypraveen98,Praveen Chaudhary,devilunknown, Praveen Chaudhary projects" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Praveen Chaudhary" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Praveen Chaudhary - Projects" />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1366311960468332546/EidYygUt_400x400.jpg" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:url" content="https://www.praveenchaudhary.in/projects/" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://media-exp1.licdn.com/dms/image/C5603AQHRamUaMrdA9g/profile-displayphoto-shrink_400_400/0/1597315489941?e=1629936000&v=beta&t=GjvQu_r0n3F2EtGkaRYSF6pH8vRdgx5lsD1-w8dc8gY" />
+    <meta property="og:type" content="Portfolio.Projects" />
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+    <!-- Font Awesome -->
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+
+    <!-- Core Theme CSS (includes Bootstrap) -->
+    <link href="/projects/css/styles.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+      <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="/index.html">Praveen Chaudhary</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto py-4 py-lg-0">
+            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://www.praveenchaudhary.in/about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://www.praveenchaudhary.in/project-preview/">Latest Works</a></li>
+            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://www.praveenchaudhary.in/contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('/projects/assets/img/home-bg.webp')">
+      <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-md-10 col-lg-8 col-xl-7">
+            <div class="site-heading">
+              <h1>Projects</h1>
+              <span class="subheading">Collection of all projects including industry ready projects with modern tools and frameworks</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+          {
+            allProjects.map((project) => {
+              const slug = project.data.slug || project.id.replace(/\.md$/, '');
+              const formattedDate = new Intl.DateTimeFormat('en-GB', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric',
+              }).format(project.data.date);
+
+              return (
+                <div class="post-preview">
+                  <a href={`/projects/${slug}.html`}>
+                    <h2 class="post-title">{project.data.title}</h2>
+                    <h3 class="post-subtitle">{project.data.description}</h3>
+                  </a>
+                  {project.data.tags.length > 0 && (
+                    <div class="topics">Topics -&gt; {project.data.tags.join(', ')}</div>
+                  )}
+                  <p class="post-meta">
+                    Posted by <a href="https://github.com/chaudharypraveen98">{project.data.author}</a> on {formattedDate}
+                  </p>
+                  <hr class="my-4" />
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-top">
+      <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-md-10 col-lg-8 col-xl-7">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="https://twitter.com/chaudhpraveen98" aria-label="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/chaudharypraveen98/" aria-label="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://github.com/chaudharypraveen98" aria-label="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <div class="small text-center text-muted fst-italic">Copyright &copy; Praveen Chaudhary {new Date().getFullYear()}</div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS -->
+    <script src="/projects/js/scripts.js"></script>
+  </body>
+</html>
