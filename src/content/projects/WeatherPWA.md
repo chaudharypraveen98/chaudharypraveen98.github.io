@@ -13,59 +13,31 @@ headerImage: "/projects/assets/img/post-bg.webp"
 
 **What we are going to develop?**
 
-                        
-
 1. Writing the service worker
 2. Integrating with webpage
 3. Fetching data from the API
 
-                        
-
 **Before moving ahead, we must aware of some concepts**
-
-                        
-                        
 
 **Some Important Concepts**
 
-                        
-                        
-
 **What is a PWA?**
-
-                        
 
 A progressive web application is a type of application software delivered through the web, built using common web technologies including HTML, CSS and JavaScript.
 
-                        
-
 **What is a Workbox?**
-
-                        
 
 Workbox is a library that bakes in a set of best practices and removes the boilerplate every developer writes when working with service workers.
 
-                        
-
 **What is a Service Worker**
-
-                        
 
 Service workers are scripts that run in the background in the user's browser, enabling such features as push notifications and background synchronization.
 
-                        
-                        
 ## Step 1 -> Writing the service worker
-
-                        
 
 We will use the workbox library from google i.e a ready to plug service server.
 
-                        
-
 Make a **service-worker.js** file.
-
-                        
 
 ```
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.1.1/workbox-sw.js');
@@ -76,14 +48,9 @@ workbox.routing.registerRoute(
 );
 ```
 
-                        
 ## Step 2 -> Integrating with webpage.
 
-                        
-
 It will run the service worker on load of website.
-
-                        
 
 ```
 <script>
@@ -93,11 +60,7 @@ It will run the service worker on load of website.
 </script>
 ```
 
-                        
-
 We will be using the OpenWeatherAPI to get the weather data of a city or state. Get your free API key [here](https://openweathermap.org/api)
-
-                        
 
 ```javascript
 const APIkey = "Enter your key";
@@ -117,16 +80,12 @@ $.get(
 });
 ```
 
-                        
 ## Deployment
-
-                        
 
 You can only deploy on personal website or [deploy on github pages.](https://pages.github.com/).
 
-                        
-                        
 ## Web Preview / Output
 
-                        ![WeatherPWA project screenshot](https://raw.githubusercontent.com/chaudharypraveen98/WeatherPWA/master/pwa.JPG)
-                        Web preview on deployment
+![WeatherPWA project screenshot](https://raw.githubusercontent.com/chaudharypraveen98/WeatherPWA/master/pwa.JPG)
+
+*Web preview on deployment*

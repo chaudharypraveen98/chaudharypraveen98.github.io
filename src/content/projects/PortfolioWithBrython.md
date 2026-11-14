@@ -13,20 +13,13 @@ headerImage: "/projects/assets/img/post-bg.webp"
 
 **What We are going to do?**
 
-                        
-
 1. Creating a basic template using HTML
 2. Request the profile data using ajax request and loads it into json serailizer.
 3. Then inject that data into html using python snippets.
 
-                        
 ## Intialising the variables then loading the required libraries
 
-                        
-
 ****
-
-                        
 
 ```python
 from browser import document,ajax,console,window,html
@@ -48,18 +41,11 @@ footer_element = document.select('.profile-footer')[0]
 profile_endpoint = "https://raw.githubusercontent.com/chaudharypraveen98/PortfolioWithGatsby/master/src/data/GithubProfile.json"
 ```
 
-                        
 ## Requesting data through Ajax
-
-                        
 
 **From where data is loaded ?**
 
-                        
-
 You can load data from anywhere from the web,but tries to maintain the structure like [Sample Data](#)
-
-                        
 
 ```python
 def get_project():
@@ -70,15 +56,9 @@ def get_project():
     req.send()
 ```
 
-                        
-                        
 ## Loading in Json Serializer
 
-                        
-
 It will take the response text as input and gives JSON data.
-
-                        
 
 ```python
 def on_complete(req):
@@ -87,18 +67,11 @@ def on_complete(req):
     add_project(project_list)
 ```
 
-                        
 ## Adding Data into HTML
-
-                        
 
 **How the data is loaded in frontend?**
 
-                        
-
 Brython has sepcial methods to put data into html tags , see how it works
-
-                        
 
 ```python
 def add_project(project_list):
@@ -117,23 +90,16 @@ def add_project(project_list):
         project_container <= html.DIV(title+projectNumber+project_desc+programming_language,Class="singleProject")
 ```
 
-                        
-
 > Fun Fact - Brython is designed to replace Javascript as the scripting language for the Web.
-
-                        
 
 **Add some stylings to make it look impressive.**
 
-                        
 ## Deployment
-
-                        
 
 For deployment, We are using the **GitHub Pages**.  [For More Info](https://pages.github.com/)
 
-                        
 ## Web Preview / Output
 
-                        ![PortfolioWithBrython project screenshot](https://raw.githubusercontent.com/chaudharypraveen98/PortfolioWithBrython/master/brython.JPG)
-                        Web preview on deployment
+![PortfolioWithBrython project screenshot](https://raw.githubusercontent.com/chaudharypraveen98/PortfolioWithBrython/master/brython.JPG)
+
+*Web preview on deployment*

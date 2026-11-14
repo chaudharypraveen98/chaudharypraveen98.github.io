@@ -13,52 +13,29 @@ headerImage: "/projects/assets/img/post-bg.webp"
 
 ![AutoInsta](https://raw.githubusercontent.com/chaudharypraveen98/AutoInsta/master/AutoInsta.png)
 
-                        
-                        
-                        
-
 **What We are going to do?**
-
-                        
 
 1. Making a Login Script
 2. Accessing the timeline feeds and downloading the media files
 3. Managing the followers and followings
 4. How to run our code
 
-                        
-
 **Libraries/Tools required : -**
-
-                        
 
 1. Chrome webdriver(same version as chrome browser)
 2. Requests library
 3. Selenium library
 4. Urllib3
 
-                        
-
 **Installing Libraries/Tools**
-
-                        
 
 **For Chrome Web driver**
 
-                        
-
 You can download it from [here](https://chromedriver.chromium.org/downloads)
-
-                        
 
 If you are unable to install then you can follow this link [Youtube](https://www.youtube.com/watch?v=dz59GsdvUF8)
 
-                        
-                        
-
 **Installing libraries**
-
-                        
 
 ```
 pip install requests
@@ -66,43 +43,24 @@ pip install urllib3
 pip install selenium
 ```
 
-                        
-                        
-
 **Before moving ahead, We must be aware of Css selectors**
-
-                        
 
 You can visit [Here](https://www.guru99.com/xpath-selenium.html)
 
-                        
-                        
 ## Step 1 -> Making a Login Script
-
-                        
 
 We will make a script which will take the username and password from the config file and login to the user account so that we can perform other activites
 
-                        
-
 First make a **config** file containing username and password.
-
-                        
 
 ```
 USERNAME = ""
 PASSWORD = ""
 ```
 
-                        
-
 **Writing script**
 
-                        
-
 First initiate the Chrome webdriver, base path and user url
-
-                        
 
 ```
 BASE_DIR = os.path.dirname(__file__)
@@ -110,15 +68,9 @@ browser = webdriver.Chrome()
 user_url = f"https://www.instagram.com/{USERNAME}"
 ```
 
-                        
-
 **Login Function**
 
-                        
-
 We will use the css selectors to locating the username field and password field. After entering the username and password at correct places, we click the submit button by location it by <tt>button[type='submit']</tt>
-
-                        
 
 ```python
 # login in the instagram account
@@ -134,32 +86,21 @@ def login(browser=browser, username=USERNAME, password=PASSWORD):
     btn.click()
 ```
 
-                        
 ## Step 2 -> Accessing the timeline feeds and downloading the media files
 
-                        
-
 It will open the user timeline and downloads media files depending upon the input passed.
-
-                        
 
 ```python
 def get_media(username=USERNAME, media_type=None, count=3, browser=browser)
     .....
 ```
 
-                        
-
 It will take 4 keyword argument.
-
-                        
 
 1. count : It refers to the number of post it should search to download.
 2. username : Don't pass any username parameter if you want to download the self account post otherwise mention the username of other people.
 3. media_type : It can be anyone either img or video but you need to pass the parameter in lower case. Don't pass any parameter to download both media  type.
 4. browser : It is just an instance of web driver
-
-                        
 
 ```python
 def get_media(username=USERNAME, media_type=None, count=3, browser=browser):
@@ -178,33 +119,18 @@ def get_media(username=USERNAME, media_type=None, count=3, browser=browser):
     ...
 ```
 
-                        
-
 It will first fetch the url. Then initiate the base dir for downloading media files.
-
-                        
 
 Then It will call the <tt>getting_all_post</tt> function to retrieve all the media urls.
 
-                        
-                        
-
 **<tt>getting_all_post</tt> Function**
 
-                        
-
 It will take two arguments
-
-                        
 
 1. media_type : It can be anyone either img or video but you need to pass the parameter in lower case. Don't pass any parameter to download both media  type.
 2. count : It refers to the number of post it should search to download.
 
-                        
-
 media nested array is intialized. The **zero index** will contains all the images in the post while the **first** index will contains all the video links
-
-                        
 
 ```python
 # returning src url from all post
@@ -238,19 +164,11 @@ def getting_all_post(media_type, count):
         return (media[0] + media[1])
 ```
 
-                        
-
 It will get the src url of video and img using the <tt>get_src_from_post</tt> function so that we can download later.
-
-                        
 
 **<tt>get_src_from_post</tt> Function**
 
-                        
-
 It will take the source url from a particular post
-
-                        
 
 ```python
 # returning src of a particular post
@@ -265,15 +183,9 @@ def get_src_from_post(post_type="img"):
     return links
 ```
 
-                        
-
 Once we get all the urls, we will now download all the media files required
 
-                        
-
 Continuing with the <tt>get_media</tt> function
-
-                        
 
 ```python
 def get_media(username=USERNAME, media_type=None, count=3, browser=browser):
@@ -315,47 +227,26 @@ def get_media(username=USERNAME, media_type=None, count=3, browser=browser):
     print("-----------Done--------")
 ```
 
-                        
-
 We will now iterate over the list of all media urls.
-
-                        
 
 We will be using the **urlparse** from the **urllib3** library to name our particular media file.
 
-                        
-
 Now we will request that url using the **Requests** library to download it. If the status_code is 200 (or response is ok) then we will write that file in the disk at the preferred location.
 
-                        
-                        
 ## Step 3 -> Managing the followers and followings
-
-                        
 
 We can follow other suggested users or unfollow the ones that are not following us.
 
-                        
-                        
-
 **Following Management**
-
-                        
 
 It will remove a particular no of following
 
-                        
-
 **HHow does code work ?**
-
-                        
 
 1. Gets the user profile/timeline page
 2. Open the following section
 3. Then checks if count of following is greater then 12 then it will scroll and find others following as first page only contains 12 followings
 4. It will remove following until input no of followings are not removed
-
-                        
 
 ```python
 # removing a particular no of following
@@ -388,15 +279,9 @@ def remove_following(remove=0, browser=browser):
     close_btn()
 ```
 
-                        
-
 It will use a <tt>open_following_section</tt> Function to follow the following section
 
-                        
-
 **<tt>open_following_section</tt> Function**
-
-                        
 
 ```python
 def open_following_section():
@@ -405,11 +290,7 @@ def open_following_section():
     follow_section.click()
 ```
 
-                        
-
 For scrolling bottom , we have used the <tt>scroll_to_bottom</tt> Function using the execute javascript function
-
-                        
 
 ```python
 # it scrolls a particular section of the site
@@ -426,11 +307,7 @@ def scroll_to_bottom(scroll_xpath):
         last_height = new_height
 ```
 
-                        
-
 We have also used the <tt>unfollow_btn</tt> function to click the unfollow button
-
-                        
 
 ```python
 # finds the unfollow btn and click it.
@@ -440,11 +317,7 @@ def unfollow_btn():
     un_follow.click()
 ```
 
-                        
-
 Once our task is achieved, we closed that section using the <tt>close_btn</tt>
-
-                        
 
 ```python
 def close_btn():
@@ -453,19 +326,11 @@ def close_btn():
     close.click()
 ```
 
-                        
-
 **Managing Followers**
-
-                        
 
 It will help us to unfollow the users that are not following us
 
-                        
-
 **How does this code works**
-
-                        
 
 1. Gets the following page
 2. Then opens the following section
@@ -473,8 +338,6 @@ It will help us to unfollow the users that are not following us
 4. Then open the followers page
 5. Gets all the followers and compare with the following
 6. Remove the ones which are not following us
-
-                        
 
 ```python
 # it removes the following that are not your follower
@@ -526,15 +389,9 @@ def remove_following_not_followers(count=None, browser=browser):
     close_btn()
 ```
 
-                        
-
 we have already discussed about the <tt>open_following_section</tt> , <tt>unfollow_btn</tt>, and <tt>close_btn</tt> Function. Lets discuss the other remained function used in this program.
 
-                        
-
 **<tt>open_follower_section</tt> Function**
-
-                        
 
 ```python
 def open_follower_section():
@@ -543,11 +400,7 @@ def open_follower_section():
     follow_section.click()
 ```
 
-                        
-
 **Lets merge all the codes together**
-
-                        
 
 ```python
 import os
@@ -769,86 +622,71 @@ if __name__ == '__main__':
     login(browser)
 ```
 
-                  
-                        
-
 Some Note : -
-
-                        
 
 1. The download files will be in same directory with the name of the user. The download media files function has a automatic function which will prevent the duplication of the downloaded files.
 2. Don't use the opened browser as it will hinder the working of the code.
 3. If you find that the download is not working. There might be two reason :-
-                                - Instagram might have changed the element position or element attribute
-                                
-                                    Your internet might be too slow
+- Instagram might have changed the element position or element attribute
+
+Your internet might be too slow
 4. While downloading the media file. If the media file is video then it will take some more time depending on the internet speed.
 
-                            </li>
-                        </ol>
-                        
+</li>
+</ol>
+
 ## Step 4 -> How to run and setup code ?
 
-                        
-
 How to setup :-
-
-                        
 
 1. First of all, install all the dependencies by `python3 install -r requirements.txt` in the cmd.
 2. Then you need to install the selenium web driver in your system. You can follow this link [Youtube](https://www.youtube.com/watch?v=dz59GsdvUF8)
 3. Now you need to change the username and password in the config.py folder or you can give it on later during the login.
 4. There are three features that our project provide :-
-                                
-                                    Remove Following anyone
+
+Remove Following anyone
 5. Remove Following that are not your follower
 6. Download Media
 
 </li>
-                            <li>First you need to login to your download. Run the program in interactive shell. If you have already made changes in the config file. Then you can login by simple command:- `login()` or If you have not entered the credentials then you can login by:- 
-                                
+<li>First you need to login to your download. Run the program in interactive shell. If you have already made changes in the config file. Then you can login by simple command:- `login()` or If you have not entered the credentials then you can login by:-
 
 ```
 login(username="ENTER YOUR USERNAME", password="ENTER YOUR SECRET KEY")
 ```
 
-                            </li>
-                            <li>**(A). Remove follower**
-                                Command:- 
-                                
+</li>
+<li>**(A). Remove follower**
+Command:-
 
 ```
 remove_following(remove=Enter the no of followers you want to unfollow)
 ```
 
-                                Sample :- 
-                                
+Sample :-
 
 ```
 remove_following(remove=6)
 ```
 
 </li>
-                            <li>**(B) : - Remove following that are not your follower.**
-                                Basic syntax :-
-                                
+<li>**(B) : - Remove following that are not your follower.**
+Basic syntax :-
 
 ```
 remove_following_not_followers(count=Enter the number of followers to remove)
 ```
 
-                                Sample code :- 
-                                
+Sample code :-
 
 ```
 remove_following_not_followers(count=5)
 ```
 
-                             </li>
-                            <li>**(C). Download Media** : - It can help you to download any media whether IGTV, Video Or Image.
-                                Basic Syntax :- get_media(username=USERNAME, media_type=img or video, count=3)
-                               Sample :- 
-                               
+</li>
+<li>**(C). Download Media** : - It can help you to download any media whether IGTV, Video Or Image.
+Basic Syntax :- get_media(username=USERNAME, media_type=img or video, count=3)
+Sample :-
 
 ```
 get_media(username="therock", media_type=img, count=3)
@@ -856,21 +694,17 @@ or
 get_media(count=3)
 ```
 
-                               </li>
-                        </ol>
-                        
-## Deployment
+</li>
+</ol>
 
-                        
+## Deployment
 
 You can easily deploy on [Heroku](https://www.heroku.com/)
 
-                        
-
 You can read more about on [Medium Blog](https://romik-kelesh.medium.com/how-to-deploy-a-python-web-scraper-with-selenium-on-heroku-1459cb3ac76c)
 
-                        
 ## Web Preview / Output
 
-                        [https://drive.google.com/file/d/1Op8PgiifKK3Mjus5lgdDpgWCndp0nFWS/preview](https://drive.google.com/file/d/1Op8PgiifKK3Mjus5lgdDpgWCndp0nFWS/preview)
-                        Web preview on deployment
+[https://drive.google.com/file/d/1Op8PgiifKK3Mjus5lgdDpgWCndp0nFWS/preview](https://drive.google.com/file/d/1Op8PgiifKK3Mjus5lgdDpgWCndp0nFWS/preview)
+
+*Web preview on deployment*

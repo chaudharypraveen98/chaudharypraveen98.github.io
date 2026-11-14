@@ -13,20 +13,13 @@ headerImage: "/projects/assets/img/post-bg.webp"
 
 **What We are going to do?**
 
-                        
-
 1. Creating a basic template using HTML
 2. Request the cryptocurrencies data using Jquery fetch request.
 3. Then inject that data into html body using JQuery Append.
 
-                        
 ## Fetching Data
 
-                        
-
 **We will fetch the data using JQuery fetch**
-
-                        
 
 ```javascript
 function rate(){
@@ -41,14 +34,9 @@ fetch('https://api.coinbase.com/v2/prices/INR/spot')
 }
 ```
 
-                        
 ## Formatting the data and Loading
 
-                        
-
 **We need to format the data and present more systematically.**
-
-                        
 
 ```javascript
 .then((data) => {
@@ -68,24 +56,16 @@ fetch('https://api.coinbase.com/v2/prices/INR/spot')
 }
 ```
 
-                        
-                        
-
 > Fun Fact - No one knows who created bitcoin.
-
-                        
 
 **Add some stylings to make it look impressive.**
 
-                        
 ## Deployment
-
-                        
 
 For deployment, We are using the **GitHub Pages**.  [For More Info](https://pages.github.com/)
 
-                        
 ## Web Preview / Output
 
-                        ![CryptoDis project screenshot](https://raw.githubusercontent.com/chaudharypraveen98/PortfolioWithBrython/master/brython.JPG)
-                        Web preview on deployment
+![CryptoDis project screenshot](https://raw.githubusercontent.com/chaudharypraveen98/PortfolioWithBrython/master/brython.JPG)
+
+*Web preview on deployment*

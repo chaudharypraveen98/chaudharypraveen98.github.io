@@ -13,38 +13,22 @@ headerImage: "/projects/assets/img/post-bg.webp"
 
 **What We are going to do?**
 
-                        
-
 1. Creating chart container
 2. Adding options to change the charts.
 3. Integrating the chartjs cdn
 4. Adding Event Handler
 
-                        
-
 **What is ChartJS?**
-
-                        
 
 Chart.js is a free open-source JavaScript library for data visualization, which supports 8 chart types: bar, line, area, pie, bubble, radar, polar, and scatter.
 
-                        
-                        
-
 **JQuery**
-
-                        
 
 jQuery is a JavaScript library designed to simplify HTML DOM tree traversal and manipulation, as well as event handling, CSS animation, and Ajax.
 
-                        
 ## Step 1 -> Creating chart container (index.html)
 
-                        
-
 It will hold the chart position
-
-                        
 
 ```html
 
@@ -52,14 +36,9 @@ It will hold the chart position
 
 ```
 
-                        
 ## Step 2 -> Adding options to change Chart Type.(index.html)
 
-                        
-
 We are using the option tag to change between the charts like bar, pie, line and etc
-
-                        
 
 ```html
 
@@ -73,14 +52,9 @@ We are using the option tag to change between the charts like bar, pie, line and
 
 ```
 
-                        
 ## Step 3 -> Adding options to change Chart Type.(index.html)
 
-                        
-
 First we need to import the both the libraries using cdn.
-
-                        
 
 ```javascript
 $(function () {
@@ -129,18 +103,11 @@ $(function () {
 });
 ```
 
-                        
-
 **Hurray! we are almost done**
 
-                        
 ## Step 4 -> Adding Event Handler
 
-                        
-
 We will use the onchange event handler to configure our chart.
-
-                        
 
 ```javascript
 $(function () {
@@ -156,11 +123,7 @@ $(function () {
                             });
 ```
 
-                        
-
 **Whole js code at once**
-
-                        
 
 ```javascript
 $(function () {
@@ -214,19 +177,14 @@ $(function () {
 });
 ```
 
-                        
-
 **Superb, We have done it.**
 
-                        
 ## Deployment
-
-                        
 
 For deployment, We are using the **GitHub Pages**.  [For More Info](https://pages.github.com/)
 
-                        
 ## Web Preview / Output
 
-                        ![DataVisualisation project screenshot](https://raw.githubusercontent.com/chaudharypraveen98/DataVisualisation/master/datavisual.JPG)
-                        Web preview on deployment
+![DataVisualisation project screenshot](https://raw.githubusercontent.com/chaudharypraveen98/DataVisualisation/master/datavisual.JPG)
+
+*Web preview on deployment*

@@ -11,29 +11,17 @@ headerImage: "/projects/assets/img/post-bg.webp"
 
 **What We are going to do?**
 
-                        
-
 1. Extracting the Opportunities from Internshala and Freelancer.
 2. Initializing the Discord client.
 3. Making commands, caching it for further use and providing response in real time to users
 
-                        
-
 **Some Important Concept**
-
-                        
 
 We will be using the requests-html for scraping.
 
-                        
-
 **But, What is requests-html?**
 
-                        
-
 This library intends to make parsing HTML (e.g. scraping the web) as simple and intuitive as possible.
-
-                        
 
 - Full JavaScript support!
 - CSS Selectors (a.k.a jQuery-style, thanks to PyQuery).
@@ -44,27 +32,15 @@ This library intends to make parsing HTML (e.g. scraping the web) as simple and 
 - The Requests experience you know and love, with magical parsing abilities.
 - Async Support
 
-                        
-
 **Requests ?**
-
-                        
 
 Requests is a Python HTTP library, released under the Apache License 2.0. The goal of the project is to make HTTP requests simpler and more human-friendly.
 
-                        
-
 **Dicord Python**
-
-                        
 
 A modern, easy to use, feature-rich, and async ready API wrapper for Discord written in Python.
 
-                        
-
 **Installing Required libraries :-**
-
-                        
 
 ```
 pip install requests
@@ -72,22 +48,13 @@ pip install requests_html
 pip install discord
 ```
 
-                        
 ## Step 1 => Extracting the Opportunities from Internshala and Freelancer
-
-                        
 
 We will requests-html to extract the opportunities from Freelancer and Internshala. We will use the css selectors to loacte the element.
 
-                        
-
 We must have url depending on the input tag. We can frame url using our custom function.
 
-                        
-
 **For Internshala Url**
-
-                        
 
 ```python
 # It will start the scraper. If It has a keyword then url will be based upon that.
@@ -99,11 +66,7 @@ def start_scraper(keyword=None):
     return get_internship(url)
 ```
 
-                        
-
 **For Freelancer Url**
-
-                        
 
 ```python
 # Starter function for freelancing function
@@ -119,12 +82,7 @@ def get_freelance(keyword=None):
     return freelance_works
 ```
 
-                        
-                        
-
 **Fetching the data from the url using Request-html**
-
-                        
 
 ```python
 def url_to_text(url):
@@ -134,15 +92,9 @@ def url_to_text(url):
         return html_text
 ```
 
-                        
-
 **r.status_code** will check the response status code. If it is valid then proceed to other part.
 
-                        
-
 **Parsing the Html code using HTML from requests-HTML**
-
-                        
 
 ```python
 # It will parse the html data into structure way
@@ -154,15 +106,9 @@ def pharse_and_extract(url, name=2020):
     return r_html
 ```
 
-                        
-
 **Getting internship from Internshala**
 
-                        
-
 It will find all the post using the css class. Then it will loop through all the posts and get all the required details like stipend, duration, organisation name and so on.
-
-                        
 
 ```python
 # it will loop through all the internship and extract valuable data
@@ -196,15 +142,9 @@ def get_internship(url):
     return internships
 ```
 
-                        
-
 **Getting Jobs using Freelancer Work**
 
-                        
-
 Same like above, First it will all post using the common class and then loop through it ie. <code>(.JobSearchCard-item)</code> class.
-
-                        
 
 ```python
 # It will extract the freelancing opportunities
@@ -231,18 +171,11 @@ def extract_from_freelancer(res_html):
     return freelance_works
 ```
 
-                        
 ## Step 2 => Initializing the Discord client
-
-                        
 
 It will initialize the client so that we can use later when needed.
 
-                        
-
 **Please make sure to put the channel ID**
-
-                        
 
 ```
 
@@ -250,36 +183,23 @@ It will initialize the client so that we can use later when needed.
 
 @client.event
 async def on_ready():
-    channel = client.get_channel(<>)
-    print("We have logged in as", client.user)
+channel = client.get_channel(<>)
+print("We have logged in as", client.user)
 
-                        
 ## Step 3 => Making commands, caching it for further use and providing response in real time to users
-
-                        
 
 **What is Repl Database?**
 
-                        
-
 Replit Database is a simple, user-friendly key-value store inside of every repl. No configuration is required; you can get started right away!
 
-                        
-
 What we are going to do in the step?
-
-                        
 
 1. Make commands, so that we may know what the user want depending on the input supplied
 2. Checking is the data is present in database or not.
 3. If present, then provide the response using our custom formatter
 4. If not, Scrape then provide response using formatter
 
-                        
-
 **1. Initializing the commands**
-
-                        
 
 ```python
 @client.event
@@ -309,11 +229,7 @@ async def on_message(message):
         ....
 ```
 
-                        
-
 **2. Checking Repl Database**
-
-                        
 
 ```
 ....
@@ -332,11 +248,7 @@ if message.content.startswith('$freelance'):
 ....
 ```
 
-                        
-
 **If data is found in database**
-
-                        
 
 ```
 ....
@@ -345,11 +257,7 @@ await message.channel.send(result_message)
 ....
 ```
 
-                        
-
 **If not, scrape then response**
-
-                        
 
 ```
 ...
@@ -363,11 +271,7 @@ await message.channel.send(result_message)
 ...
 ```
 
-                        
-
 **Whole Code at Once**
-
-                        
 
 ```python
 @client.event
@@ -448,16 +352,12 @@ async def on_message(message):
             await message.channel.send(result_message)
 ```
 
-                        
 ## Deployment
-
-                        
 
 You can only deploy on [Repl](https://replit.com/) as we are using the Repl Database.
 
-                        
-                        
 ## Web Preview / Output
 
-                        ![OpportunitiesBotDiscord project screenshot](https://raw.githubusercontent.com/chaudharypraveen98/OpportunitiesBotDiscord/master/opportunities.JPG)
-                        Web preview on deployment
+![OpportunitiesBotDiscord project screenshot](https://raw.githubusercontent.com/chaudharypraveen98/OpportunitiesBotDiscord/master/opportunities.JPG)
+
+*Web preview on deployment*

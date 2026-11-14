@@ -10,72 +10,45 @@ headerImage: "/projects/assets/img/post-bg.webp"
 ---
 
 <iframe src="https://drive.google.com/file/d/1gh09T8UOu3S6JHCmrlvg36oqsSvx-XrM/preview" width="640" height="480" allow="autoplay"></iframe>
-                        
 
 **What We are going to do?**
 
-                        
-
-1. 
+1.
 2. Creating a music app within the Shoty Project
 3. Create a Album and Song model in music/models.py
 4. Creating a view for handling the request made from the client
 5. Creating a Template for displaying the song data on the page
 
-                        
-
 ### Understanding Some Important Concepts
-
-                        
 
 **What is Django Framework?**
 
-                        
-
-                        
-
 **Top Features of Django Framework**
 
-                        
+1.
+2.
+3.
+4.
 
-1. 
-2. 
-3. 
-4. 
-
-                        <h2 class="section-heading">Step 1 => h2>
-                        
-
-                        
+<h2 class="section-heading">Step 1 => h2>
 
 ```
 
 ```
 
-                        
 ## Step 2 =>
 
-                        
-
-                        
-
 ```
 
 ```
 
-                        
 ## Step 3 =>
 
-                        
-
-                        
-
 ```
 
 ```
 
-                        
 ## Web Preview / Output
 
-                        <!-- ![web preview](https://raw.githubusercontent.com/chaudharypraveen98/RpaChallenge/master/result.webp) -->
-                        Web preview on deployment
+<!-- ![web preview](https://raw.githubusercontent.com/chaudharypraveen98/RpaChallenge/master/result.webp) -->
+*Web preview on deployment*

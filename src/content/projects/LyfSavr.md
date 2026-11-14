@@ -12,24 +12,16 @@ headerImage: "/projects/assets/img/post-bg.webp"
 
 **What We are going to do?**
 
-                        
-
 1. Ingesting data into elastic search
 2. Data Visualisation using kibana
 3. Connecting react frontend to elastic search
 
-                       
 ## Deployment
-
-                        
 
 For deployment, We are using the **GitHub Pages**.  [For More Info](https://github.com/gitname/react-gh-pages)
 
-                        
 ## Web Preview / Output
-
-                        
 
 ![LyfSavr screenshot](https://raw.githubusercontent.com/chaudharypraveen98/LyfSavr/main/LYF-SAVER.png)
 
-                        Web preview on deployment
+*Web preview on deployment*

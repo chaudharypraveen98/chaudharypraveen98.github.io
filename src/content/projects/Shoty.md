@@ -12,11 +12,8 @@ headerImage: "/projects/assets/img/post-bg.webp"
 ---
 
 <iframe src="https://drive.google.com/file/d/1gh09T8UOu3S6JHCmrlvg36oqsSvx-XrM/preview" width="640" height="480" allow="autoplay"></iframe>
-                        
 
 **What We are going to do?**
-
-                        
 
 1. Starting the Django Project
 2. Creating a music app within the Shoty Project
@@ -24,23 +21,13 @@ headerImage: "/projects/assets/img/post-bg.webp"
 4. Creating a view for handling the request made from the client
 5. Creating a Template for displaying the song data on the page
 
-                        
-
 ### Understanding Some Important Concepts
-
-                        
 
 **What is Django Framework?**
 
-                        
-
 Django is a Python-based free and open-source web framework that follows the model–template–views architectural pattern.
 
-                        
-
 **Top Features of Django Framework**
-
-                        
 
 - Excellent Documentation
 - SEO Optimised
@@ -49,44 +36,27 @@ Django is a Python-based free and open-source web framework that follows the mod
 - Offers High Security
 - Provides Rapid Development
 
-                        
 ## Step 1 => Starting the Django Project
 
-                        
-
 Initialize a Django project by following command. **Python** must be installed on your system.
-
-                        
 
 ```
 pip install Django
 ```
 
-                        
-
 You can confirm the installation by checking the django version by following command
-
-                        
 
 ```
 python -m django --version
 ```
 
-                        
-
 **Starting the Project**
-
-                        
 
 ```
 django-admin startproject shoty
 ```
 
-                        
-
 You get the project structure like this
-
-                        
 
 ```
 shoty/
@@ -99,37 +69,21 @@ shoty/
     wsgi.py
 ```
 
-                        
 ## Step 2 -> Creating a music app within the Shoty Project
-
-                        
 
 **What is a Django App?**
 
-                        
-
 An app is a Web application that does something – e.g., a Weblog system, a database of public records or a small poll app.
-
- 
-                        
 
 A project is a collection of configuration and apps for a particular website. A project can contain multiple apps. An app can be in multiple projects.
 
-                        
-
 Creating the music app
-
-                        
 
 ```
 python manage.py startapp music
 ```
 
-                        
-
 That’ll create a directory music, which is laid out like this:
-
-                        
 
 ```
 music/
@@ -143,31 +97,17 @@ music/
     views.py
 ```
 
-                        
 ## Step 3 -> Create a Album and Song model in music/models.py
-
-                        
 
 **What is a Django Model?**
 
-                        
-
 A model is the single, definitive source of truth about your data. It contains the essential fields and behaviors of the data you’re storing. Django follows the DRY Principle.
-
- 
-                        
 
 The goal is to define your data model in one place and automatically derive things from it.
 
-                        
-
 Let's create a Django Model.
 
-                        
-
 A database contains a number of variable which are represented by fields in django model.Each field is represented by an instance of a Field class – e.g., CharField for character fields and DateTimeField for datetimes. This tells Django what type of data each field holds.
-
-                        
 
 ```python
 from django.db import models
@@ -196,41 +136,23 @@ class Song(models.Model):
         return (self.song_title)
 ```
 
-                        
-
 Here, Two concepts are used
-
-                        
 
 1. Primary Key
 2. Foreign Key
 
-                        
-
 A **primary key** is used to ensure data in the specific column is unique. A **foreign key** is a column or group of columns in a relational database table that provides a link between data in two tables.
-
-                        
-                        
 
 **Making migrations**
 
-                        
-
 Once the model is defined, the django will automatically take schemas and table according to the fields supplied in the django model.
-
-                        
 
 ```
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-                        
-                        
-                        
 ## Creating a view for handling the request made from the client.
-
-                        
 
 ```python
 class DetailView(generic.DetailView):
@@ -255,8 +177,7 @@ class AlbumDelete(DeleteView):
     success_url = reverse_lazy('music:index')
 ```
 
-                        
 ## Web Preview / Output
 
-                        <!-- ![web preview](https://raw.githubusercontent.com/chaudharypraveen98/RpaChallenge/master/result.JPG) -->
-                        Web preview on deployment
+<!-- ![web preview](https://raw.githubusercontent.com/chaudharypraveen98/RpaChallenge/master/result.JPG) -->
+*Web preview on deployment*

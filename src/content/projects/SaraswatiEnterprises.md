@@ -12,20 +12,12 @@ headerImage: "/projects/assets/img/post-bg.webp"
 
 ## Deployment
 
-                       
-
 1. Designing basic structure
-
- 
-                       
 
 For deployment, We are using the **GitHub Pages**.  [For More Info](https://github.com/gitname/react-gh-pages)
 
-                        
 ## Web Preview / Output
 
-                        
+![SaraswatiEnterprises screenshot](https://raw.githubusercontent.com/chaudharypraveen98/LyfSavr/main/LYF-SAVER.png)
 
-![SaraswatiEnterprises screenshot](https://raw.githubusercontent.com/chaudharypraveen98/SaraEnter/main/LYF-SAVER.png)
-
-                        Web preview on deployment
+*Web preview on deployment*

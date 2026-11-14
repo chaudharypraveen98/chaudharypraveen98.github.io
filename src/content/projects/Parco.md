@@ -11,12 +11,9 @@ image: "https://raw.githubusercontent.com/chaudharypraveen98/Parco/master/output
 headerImage: "/projects/assets/img/post-bg.webp"
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/NqRwAwJOrfs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                        
-                        
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NqRwAwJOrfs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 **What We are going to do?**
-
-                        
 
 1. Starting the Django Project
 2. Creating a booking app within the smart_parking Project
@@ -28,23 +25,13 @@ headerImage: "/projects/assets/img/post-bg.webp"
 8. Creating a Template for displaying the song data on the page
 9. Fetching data using ajax into templates
 
-                        
-
 ### Understanding Some Important Concepts
-
-                        
 
 **What is Django Framework?**
 
-                        
-
 Django is a Python-based free and open-source web framework that follows the model–template–views architectural pattern.
 
-                        
-
 **Top Features of Django Framework**
-
-                        
 
 - Excellent Documentation
 - SEO Optimized
@@ -53,45 +40,27 @@ Django is a Python-based free and open-source web framework that follows the mod
 - Offers High Security
 - Provides Rapid Development
 
-                        
-                        
 ## Step 1 => Starting the Django Project
 
-                        
-
 Initialize a Django project by following command. **Python** must be installed on your system.
-
-                        
 
 ```
 pip install Django
 ```
 
-                        
-
 You can confirm the installation by checking the django version by following command
-
-                        
 
 ```
 python -m django --version
 ```
 
-                        
-
 **Starting the Project**
-
-                        
 
 ```
 django-admin startproject smart_parking
 ```
 
-                        
-
 You get the project structure like this
-
-                        
 
 ```
 smart_parking/
@@ -104,37 +73,21 @@ smart_parking/
         wsgi.py
 ```
 
-                        
 ## Step 2 -> Creating a booking app within the smart_parking Project
-
-                        
 
 **What is a Django App?**
 
-                        
-
 An app is a Web application that does something – e.g., a Weblog system, a database of public records or a small poll app.
-
- 
-                        
 
 A project is a collection of configuration and apps for a particular website. A project can contain multiple apps. An app can be in multiple projects.
 
-                        
-
 Creating the booking app
-
-                        
 
 ```
 python manage.py startapp booking
 ```
 
-                        
-
 That’ll create a directory booking, which is laid out like this:
-
-                        
 
 ```
 booking/
@@ -148,11 +101,7 @@ booking/
     views.py
 ```
 
-                        
-
 **Including your app and libraries in project**
-
-                        
 
 ```
 INSTALLED_APPS = [
@@ -171,46 +120,26 @@ INSTALLED_APPS = [
 ]
 ```
 
-                        
-
 **Making migrations**
 
-                        
-
 Once the model is defined, the django will automatically take schemas and table according to the fields supplied in the django model.
-
-                        
 
 ```
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-                        
 ## Step 3 -> Create a Booking and Slot model in booking/models.py
-
-                        
 
 **What is a Django Model?**
 
-                        
-
 A model is the single, definitive source of truth about your data. It contains the essential fields and behaviors of the data you’re storing. Django follows the DRY Principle.
-
- 
-                        
 
 The goal is to define your data model in one place and automatically derive things from it.
 
-                        
-
 Let's create a Django Model.
 
-                        
-
 A database contains a number of variable which are represented by fields in django model.Each field is represented by an instance of a Field class – e.g., CharField for character fields and DateTimeField for datetimes. This tells Django what type of data each field holds.
-
-                        
 
 ```python
 from django.db import models
@@ -239,20 +168,11 @@ class Booking(models.Model):
         return self.slot_no.slot_id + str(self.duration) + "hours"
 ```
 
-                        
-
 Here, We have used the one to many relationship between the booking and Slot as there can be many booking for Slot.
-
-                        
-                        
 
 **Adding models to admin panel**
 
-                        
-
 Django provides built-in admin panel to manage the data into model
-
-                        
 
 ```python
 from django.contrib import admin
@@ -265,35 +185,21 @@ admin.site.register(Slot),
 admin.site.register(Booking)
 ```
 
-                        
 ## Step 4 -> Writing serializers for companies model data
 
-                        
 ### What are Serializers?
-
-                        
 
 Serializers allow complex data such as querysets and model instances to be converted to native Python datatypes that can then be easily rendered into JSON, XML or other content types. Serializers also provide deserialization, allowing parsed data to be converted back into complex types, after first validating the incoming data.
 
-                        
-
 **We are using Model Serializer. But Why?**
-
-                        
 
 The <tt>ModelSerializer</tt> class provides a shortcut that lets you automatically create a <tt>Serializer</tt> class with fields that correspond to the Model fields.
 
-                        
-
 **The <tt>ModelSerializer</tt> class is the same as a regular <tt>Serializer</tt> class, except that**:
-
-                        
 
 - It will automatically generate a set of fields for you, based on the model.
 - It will automatically generate validators for the serializer, such as unique_together validators.
 - It includes simple default implementations of .create() and .update().
-
-                        
 
 ```python
 from django.contrib.admin import widgets
@@ -347,18 +253,11 @@ class BookingForm(ModelForm):
         exclude =('end_timing',)
 ```
 
-                        
-
 Here we are using **ModelSerializer** for User model and BookingForm and **Default Serializer** for Login authentication
-
-                        
 
 **Default Serializer** has a built-in validate function for validating the data entered
 
-                        
 ## Step 5 -> Building form to authenticate the user.
-
-                        
 
 ```python
 from django import forms
@@ -368,23 +267,13 @@ class LoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput)
 ```
 
-                        
 ## Step 6 -> Creating a view for handling the request made from the client.
-
-                        
 
 **What is a Django View?**
 
-                        
-
 A view function, or view for short, is a Python function that takes a Web request and returns a Web response.
 
-                        
-                        
-
 **Importing required models,functions and libraries**
-
-                        
 
 ```python
 from datetime import timedelta
@@ -493,24 +382,13 @@ class LoginView(FormView):
         return render(request, self.template_name, {"form": form})
 ```
 
-                        
-
 We are using Django <tt>render</tt> in-built function.
-
-                        
 
 The <tt>render()</tt>  function takes the request object as its first argument, a template name as its second argument and a dictionary as its optional third argument. It returns an <tt>HttpResponse</tt> object of the given template rendered with the given context.
 
-                        
-
-                        
 ## Step 7 -> Adding function handlers to routes.(smart_parking/urls.py)
 
-                        
-
 Whenever user visit the user, a function is called in view which takes care of response.
-
-                        
 
 ```python
 from django.contrib import admin
@@ -522,15 +400,9 @@ urlpatterns = [
 ]
 ```
 
-                        
-
 **Adding sub path for booking app**
 
-                        
-
 It defines the particular path for booking app
-
-                        
 
 ```python
 from django.conf.urls import url
@@ -550,14 +422,9 @@ urlpatterns = [
 ]
 ```
 
-                        
 ## Step 8 -> Managing the state of Slots.(smart_parking/booking/static/booking/js/firebase.js)
 
-                        
-
 We are using the Firebase database to store the status of the slots in the parking area.
-
-                        
 
 ```javascript
 var firebaseConfig = {
@@ -632,14 +499,9 @@ var firebaseConfig = {
     });
 ```
 
-                        
 ## Step 9 -> Creating a Template for displaying the song data on the page
 
-                        
-
 We are using the jinja templating engine for displaying the data.
-
-                        
 
 ```html
 {% extends "booking/base.html" %}
@@ -790,14 +652,10 @@ User Dashboard
 {% endblock %}
 ```
 
-                        
-
 **Add Some styles to make it attractive**
 
-                        
-
-                        
 ## Web Preview / Output
 
-                        ![Parco project screenshot](https://raw.githubusercontent.com/chaudharypraveen98/Parco/master/output.JPG)
-                        Web preview on deployment
+![Parco project screenshot](https://raw.githubusercontent.com/chaudharypraveen98/Parco/master/output.JPG)
+
+*Web preview on deployment*

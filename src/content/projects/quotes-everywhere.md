@@ -13,40 +13,23 @@ headerImage: "/projects/assets/img/post-bg.webp"
 
 ![Quotes Everywhere](https://raw.githubusercontent.com/chaudharypraveen98/quotes-everywhere/master/QuotesEverywhere.png)
 
-                        
-
 **What We are going to do?**
-
-                        
 
 1. Creating a basic components.
 2. Building our own api endpoints
 3. Making Page using the above Components using the API
 
-                        
-
 **Before moving ahead, We must be aware of what actually NextJS is ?**
-
-                        
 
 **Next.js** is an open-source development framework build on top of Node.js enabling React based web applications functionalities such as server-side rendering and generating static websites.
 
-                        
 ## Step 1 -> Creating a basic components.
-
-                        
 
 A **Component** is one of the core building blocks of React.
 
-                        
-
 **Quote Component**
 
-                        
-
 It will take quote item as a prop and render the single quote
-
-                        
 
 ```python
 import Link from "next/link";
@@ -73,15 +56,9 @@ const QuotesItem = ({ quote }) => {
 export default QuotesItem;
 ```
 
-                        
-
 **QuoteList Component**
 
-                        
-
 It will contains all the quotes(i.e Quote Component) by looping through the Quote Component.
-
-                        
 
 ```python
 import styles from "../styles/Quotes.module.css";
@@ -100,15 +77,9 @@ const QuotesList = ({ quotes }) => {
 export default QuotesList
 ```
 
-                        
-
 **Navbar Component**
 
-                        
-
 It will contains the Header of the page with title and other options.
-
-                        
 
 ```python
 import Link from "next/link";
@@ -130,15 +101,9 @@ const Navbar = () => {
 export default Navbar
 ```
 
-                        
-
 **Meta Component**
 
-                        
-
 Meta Component contains all the meta tags for the SEO performance
-
-                        
 
 ```python
 import Head from 'next/head'
@@ -165,15 +130,9 @@ Meta.defaultProps = {
 export default Meta
 ```
 
-                        
-
 **Layout Component**
 
-                        
-
 It will contain the basic layout of the structure
-
-                        
 
 ```python
 import styles from "../styles/Home.module.css";
@@ -195,14 +154,9 @@ const Layout = ({ children }) => {
 export default Layout;
 ```
 
-                        
 ## Step 2 -> Making Api to fetch data and to server
 
-                        
-
 We will load the data then server to the frontend. Create a api folder inside the Page folder , then a file. The name of file is serve as the route name by default.
-
-                        
 
 ```python
 import {quotes} from '../../../quotes'
@@ -212,15 +166,9 @@ export default function handler(req,res) {
 }
 ```
 
-                        
-
 This endpoint will provide all the quotes.
 
-                        
-
 For specific search we need to search by parameter. Create a file with parameter like <code>[id].js</code>
-
-                        
 
 ```python
 import {quotes} from '../../../quotes';
@@ -236,26 +184,15 @@ export default function handler({query : {id}}, res) {
 }
 ```
 
-                        
-
 **Hurray! Our API is live now**
 
-                        
 ## Step 3 -> Making Page using the above Components using the API
-
-                        
 
 We will use the components and api which we had created above
 
-                        
-
 **Build the home page.**
 
-                        
-
 We will first fetch the data using our own api then render using the Components.
-
-                        
 
 ```python
 import Head from "next/head";
@@ -299,15 +236,9 @@ export const getStaticProps = async () => {
 };
 ```
 
-                        
-
 **Single Quote page**
 
-                        
-
 It will show the single quote page using the component
-
-                        
 
 ```python
 import { useRouter } from "next/router";
@@ -365,19 +296,13 @@ export const getStaticPaths = async () => {
 export default quote;
 ```
 
-                        
-
 Here we are using the nextjs router for url configuration
 
-                        
 ## Deployment
-
-                        
 
 For deployment, We are using the **Vercl**.  [For More Info](https://vercel.com/)
 
-                        
 ## Web Preview / Output
 
-                        <iframe src="https://drive.google.com/file/d/1nJMhuVZ2e_Z-XBzeFNz6olszqCvQRhfW/preview" width="640" height="480" allow="autoplay"></iframe>
-                        Web preview on deployment
+<iframe src="https://drive.google.com/file/d/1nJMhuVZ2e_Z-XBzeFNz6olszqCvQRhfW/preview" width="640" height="480" allow="autoplay"></iframe>
+*Web preview on deployment*

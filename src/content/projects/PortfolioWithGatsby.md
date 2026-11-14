@@ -12,11 +12,8 @@ headerImage: "/projects/assets/img/post-bg.webp"
 ---
 
 <iframe src="https://drive.google.com/file/d/1OI6cmqhhgOYn7ZAJW_F3DxvOAPk3sFBp/preview" width="640" height="480" allow="autoplay"></iframe>
-                        
 
 **What we are going to develop?**
-
-                        
 
 1. Initializing a Gatsby project
 2. Loading data from JSON file
@@ -24,90 +21,49 @@ headerImage: "/projects/assets/img/post-bg.webp"
 4. Configuring the Meta tags using gatsby-helmet
 5. Querying the loaded data
 
-                        
-
 **Before moving ahead, we must aware of some concepts**
-
-                        
-                        
 
 **Some Important Concepts**
 
-                        
-                        
-
 **What is Gatsby?**
-
-                        
 
 Gatsby is an open-source static website generator (SSG) that is based on the frontend development framework React and makes use of Webpack and GraphQL technology. It can be used to build static sites that are progressive web apps, follow the latest web standards, and optimized for speed and security.
 
-                        
-
 **What is GraphQL?**
-
-                        
 
 GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
 
-                        
-                        
 ## Step 1 -> Initializing a Gatsby project
-
-                        
 
 We will start a GraphQL project then start working on it. It's a easy process.
 
-                        
-
 First install the [Gatsby Cli](https://www.gatsbyjs.com/docs/reference/gatsby-cli/) by following command : -
-
-                        
 
 ```
 npm install -g gatsby-cli
 ```
 
-                        
-
 Then
-
-                        
 
 ```
 gatsby new
 ```
 
-                        
-
 For more info, Checkout [Gatsby official website](https://www.gatsbyjs.com/docs/tutorial/part-1/)
 
-                        
 ## Step 2 -> Loading data from JSON file
-
-                        
 
 We will be using the [gatsby-json-transformer](https://www.gatsbyjs.com/plugins/gatsby-transformer-json/) for loading data.
 
-                        
-
 Install the library by following command
-
-                        
 
 ```
 npm install gatsby-transformer-json
 ```
 
-                        
-
 **Configuring the gatsby config to load the data from particular file**
 
-                        
-
 Open the gatsby configuration file (gatsby_config.js)
-
-                        
 
 ```
 module.exports = {
@@ -131,18 +87,11 @@ module.exports = {
 }
 ```
 
-                        
 ## Steps 3 -> Building components
-
-                        
 
 **Layout component**
 
-                        
-
 This will initialize the basic structure of website.
-
-                        
 
 ```python
 import Navbar from "../Components/Navbar";
@@ -165,19 +114,11 @@ const Layout = ({ children }) => {
     export default Layout;
 ```
 
-                        
-
 It is using two more component **Navbar** and **DefaultHeader** Component.
-
-                        
 
 **Navbar Component**
 
-                        
-
 It will contain the basic styling of the Navbar.
-
-                        
 
 ```python
 import { Link } from "gatsby"
@@ -201,15 +142,9 @@ const Navbar = () => {
 export default Navbar;
 ```
 
-                        
-
 **Project List Component**
 
-                        
-
 It contains all the projects mentioned. This component will take all the projects and shows a certain number of post initially.
-
-                        
 
 ```python
 import React, { useEffect, useState } from "react"
@@ -259,17 +194,11 @@ const ProjectList = ({ projects }) => {
 export default ProjectList
 ```
 
-                        <p>We have used the useState hook to manage the number of projects displayed on the website
-
-                        
+<p>We have used the useState hook to manage the number of projects displayed on the website
 
 <b>Project Component**
 
-                        
-
 It contains the simple glassmorphism design to make it attractive.
-
-                        
 
 ```python
 import React from "react"
@@ -297,20 +226,11 @@ const Project = ({project}) => (
 export default Project
 ```
 
-                        
-
-                        
 ## Configuring the Meta tags using gatsby-helmet
-
-                        
 
 First install the [gatsby-plugin-react-helmet](https://www.gatsbyjs.com/plugins/gatsby-plugin-react-helmet/)
 
-                        
-
 Open the gatsby_config.js file and make the below changes.
-
-                        
 
 ```
 module.exports = {
@@ -335,14 +255,9 @@ module.exports = {
     }
 ```
 
-                        
 ## Querying the loaded data
 
-                        
-
 Open the DefaultHeader Component discussed above and write our first query.
-
-                        
 
 ```python
 import React from "react"
@@ -386,24 +301,16 @@ DefaultHelmet.defaultProps = {
 export default DefaultHelmet
 ```
 
-                        
-
 We have the GraphQL to extract only the required information. It saves a lot of time as we fetch only a filtered part.
-
-                        
 
 **There some other libraries used for displaying image. You can get to know the libraries by looking at the package.json file**
 
-                        
 ## Deployment
-
-                        
 
 You can only deploy on [Gatsby Cloud](https://www.gatsbyjs.com/dashboard/) or [build a static site and deploy on github pages.](https://pages.github.com/).
 
-                        
-                        
 ## Web Preview / Output
 
-                        ![PortfolioWithGatsby screenshot](https://raw.githubusercontent.com/chaudharypraveen98/PortfolioWithGatsby/master/gatsby.JPG)
-                        Web preview on deployment
+![PortfolioWithGatsby screenshot](https://raw.githubusercontent.com/chaudharypraveen98/PortfolioWithGatsby/master/gatsby.JPG)
+
+*Web preview on deployment*

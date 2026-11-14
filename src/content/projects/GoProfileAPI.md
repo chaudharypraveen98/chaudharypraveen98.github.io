@@ -12,8 +12,6 @@ headerImage: "/projects/assets/img/post-bg.webp"
 
 **What We are going to do?**
 
-                        
-
 1. Creating a struct for projects
 2. Fetching File from the JSON file
 3. Managing Database
@@ -21,49 +19,28 @@ headerImage: "/projects/assets/img/post-bg.webp"
 5. Creating API route
 6. Running our App
 
-                        
-
 ### Understanding Some Important Concepts
-
-                        
 
 **What is Fiber and Gorm?**
 
-                        
-
 **Fiber**
-
-                        
 
 Fiber is an Express inspired web framework built on top of Fasthttp, the fastest HTTP engine for Go. Designed to ease things up for fast development with zero memory allocation and performance in mind.
 
-                        
-
 **Gorm**
-
-                        
 
 The GORM is fantastic ORM library for Golang, aims to be developer friendly. It is an ORM library for dealing with relational databases. This gorm library is developed on the top of database/sql package.
 
-                        
-
 **Top Features of Fiber Framework**
-
-                        
 
 - Routing
 - Middleware Support
 - Low on memory footprint
 - Highly performant
 
-                        
 ## Step 1 => Creating a struct for projects
 
-                        
-
 We will create the struct for projects and their types.
-
-                        
 
 ```
 package projects
@@ -103,14 +80,9 @@ type SingleProject struct {
 ...
 ```
 
-                        
 ## Step 2 => Fetching File from the JSON file
 
-                        
-
 We will fetch data from the json file
-
-                        
 
 ```go
 func loadData() {
@@ -123,22 +95,13 @@ func loadData() {
 }
 ```
 
-                        
 ## Step 3 => Managing Database
-
-                        
 
 We will first create a database then save the data into it. We can perform Crud operation
 
-                        
-
 **Initializing the database**
 
-                        
-
 It will make a connection between the database and our program.
-
-                        
 
 ```go
 func initDatabase() {
@@ -151,15 +114,9 @@ func initDatabase() {
 }
 ```
 
-                        
-
 **Loading the data into the database**
 
-                        
-
 It will first check the table. If, it exists then it will first drop it then recreate a new one.
-
-                        
 
 ```go
 func loadData() {
@@ -208,23 +165,13 @@ func loadData() {
 }
 ```
 
-                        
 ## Step 4 => Making Api handlers
-
-                        
 
 We will make the CRUD (Create Read Update and Delete) operation.
 
-                        
-                        
-
 **Get all the Projects**
 
-                        
-
 This function will provide all the projects on get request.
-
-                        
 
 ```go
 func GetProjects(c *fiber.Ctx) error {
@@ -238,15 +185,9 @@ func GetProjects(c *fiber.Ctx) error {
 }
 ```
 
-                        
-
 **Get Single Prpject**
 
-                        
-
 We can get a single project using the project id.
-
-                        
 
 ```go
 func GetSingleProject(c *fiber.Ctx) error {
@@ -261,15 +202,9 @@ func GetSingleProject(c *fiber.Ctx) error {
 }
 ```
 
-                        
-
 **Create a Project**
 
-                        
-
 This function will create a new project on Post request.
-
-                        
 
 ```go
 // It will create a project with incremented id.
@@ -288,15 +223,9 @@ func CreateSingleProject(c *fiber.Ctx) error {
 }
 ```
 
-                        
-
 **Update a project**
 
-                        
-
 It will update the previous project.
-
-                        
 
 ```go
 func UpdateSingleProject(c *fiber.Ctx) error {
@@ -316,15 +245,9 @@ func UpdateSingleProject(c *fiber.Ctx) error {
 }
 ```
 
-                        
-
 **Delete a Project**
 
-                        
-
 Delete a previous project with a given id
-
-                        
 
 ```go
 func DeleteProject(c *fiber.Ctx) error {
@@ -339,14 +262,9 @@ func DeleteProject(c *fiber.Ctx) error {
 }
 ```
 
-                        
 ## Step 5 => Creating API route
 
-                        
-
 We will make api routes which will call the respective function handlers.
-
-                        
 
 ```go
 // router to handles url endpoints
@@ -359,14 +277,9 @@ func setRoutes(app *fiber.App) {
 }
 ```
 
-                        
 ## Running our App
 
-                        
-
 First we need to install the required libraries.
-
-                        
 
 ```
 go get -u gorm.io/gorm
@@ -374,15 +287,9 @@ go get -u gorm.io/driver/sqlite
 go get github.com/gofiber/fiber/v2
 ```
 
-                        
-
 **Declaring the Main function**
 
-                        
-
 It will manage all the functions.
-
-                        
 
 ```go
 func main() {
@@ -397,25 +304,15 @@ func main() {
 }
 ```
 
-                        
-
 **Running the project**
 
-                        
-
 Now to run our server, open terminal and in our root directory run :
-
-                        
 
 ```
 go run main.go
 ```
 
-                        
-
 It will show something like this
-
-                        
 
 ```
 ┌──────────────────────────────────���────────────────┐ 
@@ -428,44 +325,38 @@ It will show something like this
  └��──────────────────────────────�����──��───────────────┘
 ```
 
-                        
-
 On startup , It will insert data from the file to the database
-
-                        
 
 **API Endpoints : -**
 
-                        
-
 1. Get /api/v1/projects --> Fetch all the projects
 2. Get /api/v1/projects/:id --> Fetch a single project with id as a parameter
-3. Post /api/v1/projects/:id/update --> Update the existing project with the help of id. Pass the body as a JSON.	
-                                
-                                    Endpoint http://127.0.0.1:3000/api/v1/projects/1/update
+3. Post /api/v1/projects/:id/update --> Update the existing project with the help of id. Pass the body as a JSON.
+
+Endpoint http://127.0.0.1:3000/api/v1/projects/1/update
 4. JSON Body  {"title":"admin"}
 5. Post /api/v1/projects/create
-                                
-                                    Endpoint http://127.0.0.1:3000/api/v1/projects/create
+
+Endpoint http://127.0.0.1:3000/api/v1/projects/create
 6. Example
 7. ```
 {
 
-    "title": "praveen",
+"title": "praveen",
 
-    "desc": "This project will shows the quotes. It has a collection of 60 quotes in initial release. It is bootstrapped with create-next-app.",
+"desc": "This project will shows the quotes. It has a collection of 60 quotes in initial release. It is bootstrapped with create-next-app.",
 
-    "programming_language": "JavaScript",
+"programming_language": "JavaScript",
 
-    "stars": 0,
+"stars": 0,
 
-    "forks": 0,
+"forks": 0,
 
-    "last_updated": "21 hours ago",
+"last_updated": "21 hours ago",
 
-    "link": "https://github.com/chaudharypraveen98/quotes-everywhere"
+"link": "https://github.com/chaudharypraveen98/quotes-everywhere"
 
-    }
+}
 ```
 8. Post /api/v1/projects/:id/delete
                                 

@@ -11,11 +11,7 @@ headerImage: "/projects/assets/img/post-bg.webp"
 
 **How the code works :-**
 
-                        
-
 **Libraries required**
-
-                         
 
 ```python
 import base64
@@ -24,22 +20,14 @@ import datetime
 from urllib.parse import urlencode
 ```
 
-                        
-
 **Get your API credentials from Spotify developer account**
-
-                            
 
 ```
 client_id = ‘client id’
 client_key = “enter the key”
 ```
 
-                            
-
 **Initialize the client**
-
-                            
 
 ```
 class SpotifyApi(object):
@@ -51,10 +39,7 @@ class SpotifyApi(object):
     token_url = ‘https://accounts.spotify.com/api/token'
 ```
 
-                            
 ## Authentication
-
-                            
 
 ```python
 def __init__(self, client_id, client_key, *args, **kwargs):
@@ -121,24 +106,18 @@ def get_access_token(self):
     return token
 ```
 
-                        
-
 > Fun Fact - There are over 50 million tracks available to listen to on the app.
 
-                        
 ## How to setup the API :-
 
-                        
-
-1. First install requirements.txt by :- 
+1. First install requirements.txt by :-
 
 ```
 python3 install -r requirements.txt
 ```
 2. Enter the client id and secret key that you have to get from the Spotify developer account in the "spotify_api.py".
 3. Make an object of the class to use methods.
-                                Example:-
-                                
+Example:-
 
 ```
 spotify = SpotifyApi()
@@ -146,19 +125,15 @@ spotify = SpotifyApi()
 spotify.perform_auth()
 ```
 
-                        
-
 **How to use the API:**
-
-                        
 
 1. Now you can start using the methods or get requests as shown below :-
 spotify.search(query, operator=None, operator_query=None, search_type="type")
 Where :-
-                        query  = It can be anything, depending on the type of search. For search type like artist, it can be Neha Kakkar, Honey Singh, Raaftar etc.
-                        search_type = spotify provides different type of searches like by artists, albums or tracks.
-                        operator = Spotify provides two type of operators, i.e "OR" and "NOT". NOT operator means exclude it. OR operator means anyone of both.
-                        operator_query = means anything you want to exclude or to make an option. Example :-
+query  = It can be anything, depending on the type of search. For search type like artist, it can be Neha Kakkar, Honey Singh, Raaftar etc.
+search_type = spotify provides different type of searches like by artists, albums or tracks.
+operator = Spotify provides two type of operators, i.e "OR" and "NOT". NOT operator means exclude it. OR operator means anyone of both.
+operator_query = means anything you want to exclude or to make an option. Example :-
 
 ```
 songs=spotify.search("Tony", operator="not" , operator_query="Kakkar", search_type="artist")
@@ -171,6 +146,6 @@ The above code will search for tony, but it will neglect the results which conta
 spotify.search(Time, search_type="track")
 ```
 
-                        </p>Output<p>
-                        ![SpotifyApi project screenshot](https://miro.medium.com/max/875/1*ZMxBcjKeF6cHP6QJXx-rjg.jpeg)
-                        Api response we get from the server
+</p>Output<p>
+![SpotifyApi project screenshot](https://miro.medium.com/max/875/1*ZMxBcjKeF6cHP6QJXx-rjg.jpeg)
+Api response we get from the server

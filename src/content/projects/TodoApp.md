@@ -12,34 +12,22 @@ headerImage: "/projects/assets/img/post-bg.webp"
 ---
 
 <iframe src="https://drive.google.com/file/d/1yYAOwB1qbShHGhZyHlQJMeaHhYjtaIfD/preview" width="640" height="480" allow="autoplay"></iframe>
-                        
 
 **What We are going to do?**
-
-                        
 
 1. Creating a basic structure.
 2. Adding event handler/functions to add and delete task.
 3. Adding Some stylings.
 
-                        
 ## Installation of React Native Project using Expo-client
 
-                        
-
 Assuming that you have Node 12 LTS or greater installed, you can use npm to install the Expo CLI command line utility:
-
-                        
 
 ```
 npm install -g expo-cli
 ```
 
-                        
-
 Then run the following commands to create a new React Native project called "TodoApp":
-
-                        
 
 ```
 expo init AwesomeProject
@@ -48,23 +36,13 @@ cd AwesomeProject
 npm start # you can also use: expo start
 ```
 
-                        
-                        
 ## Components
-
-                        
 
 Create a Component folder and add these components to it.
 
-                        
-
 **Header (header.js)**
 
-                        
-
 It will shows the navbar/header of the app.
-
-                        
 
 ```python
 import React, { Component } from "react";
@@ -85,11 +63,7 @@ export default class header extends Component {
 }
 ```
 
-                        
-
 **Stylings used in Header Component**
-
-                        
 
 ```javascript
 const styles = StyleSheet.create({
@@ -106,16 +80,9 @@ const styles = StyleSheet.create({
 });
 ```
 
-                  
-                        
-
 **Form Component (form.js)**
 
-                        
-
 This component will take the input from the user and add the task in TODO list.
-
-                        
 
 ```python
 import React, { Component } from "react";
@@ -158,12 +125,7 @@ export default class form extends Component {
 }
 ```
 
-                 
-                        
-
 <b>Stylings used in Form Component**
-
-                        
 
 ```javascript
 const styles = StyleSheet.create({
@@ -186,15 +148,9 @@ const styles = StyleSheet.create({
 });
 ```
 
-                        
-
 **TodoItem (todoItem.js)**
 
-                        
-
 This component will show all the tasks in TODO list and provide a delete button to delete them.
-
-                        
 
 ```python
 import React, { Component } from "react";
@@ -220,11 +176,7 @@ export default class todoItem extends Component {
 }
 ```
 
-                        
-
 **Stylings used in Todo Component**
-
-                        
 
 ```javascript
 const styles = StyleSheet.create({
@@ -245,19 +197,11 @@ const styles = StyleSheet.create({
 });
 ```
 
-                        
 ## Editing the main App Component (App.js)
-
-                        
 
 **We will be adding event handlers to delete the tasks which are done**
 
-   
-                        
-
 **Importing required libraries**
-
-                        
 
 ```python
 import { StatusBar } from "expo-status-bar";
@@ -283,8 +227,6 @@ import Form from "./components/form";
 ```
 
 **Adding dummy tasks**
-
-                        
 
 ```javascript
 export default function App() {
@@ -406,10 +348,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-                        
 ## All App Component together
-
-                        
 
 ```python
 import { StatusBar } from "expo-status-bar";
@@ -535,15 +474,12 @@ const styles = StyleSheet.create({
 });
 ```
 
-                        
 ## Deployment
-
-                        
 
 For deployment, We are using the **Expo**.  [For More Info](https://expo.io/)
 
-                        
 ## Web Preview / Output
 
-                        ![TodoApp project screenshot](https://raw.githubusercontent.com/chaudharypraveen98/TodoApp/main/assets/ss.jpeg)
-                        Web preview on deployment
+![TodoApp project screenshot](https://raw.githubusercontent.com/chaudharypraveen98/TodoApp/main/assets/ss.jpeg)
+
+*Web preview on deployment*

@@ -12,36 +12,23 @@ headerImage: "/projects/assets/img/post-bg.webp"
 
 **What We are going to do?**
 
-                        
-
 1. Installing required libraries and setting client
 2. Getting longitude and latitude by  city or state name
 3. Finding things/places around a location within some radius
 4. Getting place details using the google place id
 
-                        
 ## Step 1 -> Writing GoogleApiClient and exporting data (GoogleApiClient.py)
-
-                        
 
 ### Writing GoogleApiClient
 
-                        
-
 **Installing required libraries**
 
-                        
-
 ```
 pip install requests
 pip install requests
 ```
-
-                        
 
 **Importing libraries and setting API key**
-
-                        
 
 ```python
 import requests
@@ -50,15 +37,9 @@ from urllib.parse import urlencode
 GOOGLE_API_KEY = "ENTER YOUR OWN API KEY"
 ```
 
-                        
-
 **Be sure to enter your key.**
 
-                        
-
 **Initiating the client**
-
-                        
 
 ```
 class GoogleMapsClient(object):
@@ -69,11 +50,7 @@ class GoogleMapsClient(object):
     api_key = None
 ```
 
-                        
-
 **setting default_address and key in client**
-
-                        
 
 ```python
 class GoogleMapsClient(object):
@@ -95,14 +72,9 @@ class GoogleMapsClient(object):
             raise Exception("default address not set")
 ```
 
-                        
 ## Step 2 -> Getting longitude and latitude by  city or state name.
 
-                        
-
 **What happening in the below code?**
-
-                        
 
 1. IF location is not given, it will set the location to default location
 2. Else location is set to given input.
@@ -111,11 +83,7 @@ class GoogleMapsClient(object):
 5. Used the requests library to get request.
 6. Then, extract the lat and long and return it.
 
-                        
-
 **Code**
-
-                        
 
 ```python
 def get_url_and_log_lat(self, location=None):
@@ -143,14 +111,9 @@ def get_url_and_log_lat(self, location=None):
     return self.lat, self.lng
 ```
 
-                        
 ## Step 3 -> Finding things/places around a location within some radius.
 
-                        
-
 **Oops, I am lost, what this code does?**
-
-                        
 
 1. IF location is not given, it will set the coordinates of previous location
 2. Else location is set to given input.
@@ -159,11 +122,7 @@ def get_url_and_log_lat(self, location=None):
 5. Used the requests library to get request.
 6. Then,return the response.
 
-                        
-
 **Now, Lets write code**
-
-                        
 
 ```python
 def search(self, keyword="Mexican Food", location="Faridabad", radius=1000):
@@ -184,15 +143,9 @@ def search(self, keyword="Mexican Food", location="Faridabad", radius=1000):
     return r.json()
 ```
 
-                        
-                        
 ## Step 4 -> Getting place details using the google place id
 
-                        
-
 Wow! this time , I know the code. Let me start..
-
-                        
 
 1. If we have google place id, we can do the search
 2. Default response is set to json in line 2
@@ -200,11 +153,7 @@ Wow! this time , I know the code. Let me start..
 4. Used the requests library to get request.
 5. Then,return the response.
 
-                        
-
 **It's time to change thinking into code**
-
-                        
 
 ```python
 def detail(self, place_id="ChIJqW9BqQe6j4AR0il4CC315_s", fields=["name", "rating", "formatted_phone_number"]):
@@ -222,21 +171,14 @@ def detail(self, place_id="ChIJqW9BqQe6j4AR0il4CC315_s", fields=["name", "rating
     return r.json()
 ```
 
-                        
-                        
-
 **Hurray! I made it finally.**
 
-                        
-                        
 ## Deployment
-
-                        
 
 For deployment,  We are using the **Repl** or **Heroku** to deploy our localhost to web.[For More Info](https://replit.com/)
 
-                        
 ## Web Preview / Output
 
-                        ![Google API Client project screenshot](https://raw.githubusercontent.com/chaudharypraveen98/GoogleApiClient/master/GOOGLE%20API%20CLIENT%20Frame.png)
-                        Web preview on deployment
+![Google API Client project screenshot](https://raw.githubusercontent.com/chaudharypraveen98/GoogleApiClient/master/GOOGLE%20API%20CLIENT%20Frame.png)
+
+*Web preview on deployment*

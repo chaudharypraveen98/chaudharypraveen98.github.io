@@ -13,23 +13,14 @@ headerImage: "/projects/assets/img/post-bg.webp"
 
 **<iframe src="https://drive.google.com/file/d/1nh2NLGOIrWHJ0Ehnitfqe3d05Df_22z7/preview" width="640" height="480" allow="autoplay"></iframe>**
 
-                        
-
 **What We are going to do?**
-
-                        
 
 1. Fetch the data from the json
 2. Displaying on the frontend using components with styling
 
-                        
 ## Fetching the data
 
-                        
-
 **Create and write a service(PokemonServices.js) which extracts the pokemon object from the json.**
-
-                        
 
 ```python
 import pokemon from './pokemon.json';
@@ -41,18 +32,11 @@ export default class PokemonServices{
 }
 ```
 
-                        
 ## Components
-
-                        
 
 **Pokemons(Pokemons.js)**
 
-                        
-
 It will contain how the whole webpage look like. It contains the header, footer and main body containing the PokemonApp(fetching the data on request)
-
-                        
 
 ```python
 import React, { Component } from "react";
@@ -80,13 +64,9 @@ export default class Pokemons extends Component{
 }
 ```
 
-                        <p>**PokemonApp(PokemonApp.js)**
-
-                        
+<p>**PokemonApp(PokemonApp.js)**
 
 This component is responsible of fetching the data on load and passing it as a prop to PokemonList Component
-
-                        
 
 ```python
 import React, {Component} from "react";
@@ -112,13 +92,9 @@ export default class PokemonApp extends Component {
 }
 ```
 
-                        <p>**PokemonList(PokemonList.js)**
-
-                        
+<p>**PokemonList(PokemonList.js)**
 
 The data fetched is unorgainsed, this component will orgainsed in a collection(list) of pokemon.
-
-                        
 
 ```python
 import React, {useEffect, useState} from "react";
@@ -184,13 +160,9 @@ PokemonList.propTypes={
 export default PokemonList;
 ```
 
-                        <p>**PokemonCard(PokemonCard.js)**
-
-                        
+<p>**PokemonCard(PokemonCard.js)**
 
 It contains the basic styling and structure of the pokemon card.
-
-                        
 
 ```python
 import React from "react";
@@ -230,23 +202,16 @@ PokemonCard.defaultProps={
 export default PokemonCard;
 ```
 
-                        
-
 > Fun Fact - Rhydon is the first Pokemon ever to be created
-
-                        
 
 **Add some stylings to make it look impressive.**
 
-                        
 ## Deployment
-
-                        
 
 For deployment, We are using the **GitHub Pages**.  [For More Info](https://github.com/gitname/react-gh-pages)
 
-                        
 ## Web Preview / Output
 
-                        ![PokeWorld project screenshot](https://raw.githubusercontent.com/chaudharypraveen98/PokeWorld/master/WebPreview.JPG)
-                        Web preview on deployment
+![PokeWorld project screenshot](https://raw.githubusercontent.com/chaudharypraveen98/PokeWorld/master/WebPreview.JPG)
+
+*Web preview on deployment*

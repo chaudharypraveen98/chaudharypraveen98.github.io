@@ -13,21 +13,14 @@ headerImage: "/projects/assets/img/post-bg.webp"
 
 **What We are going to do?**
 
-                        
-
 1. Creating a react component
 2. Adding keypads
 3. Adding event listeners to respond on click
 4. Functions to perform operations
 
-                        
 ## Intialising the class
 
-                        
-
 **Extend a react component class.**
-
-                        
 
 ```javascript
 class Calculator extends React.Component{
@@ -42,10 +35,7 @@ class Calculator extends React.Component{
 }
 ```
 
-                        
 ## Basic structure of Front-end
-
-                        
 
 ```html
 render () {
@@ -80,19 +70,11 @@ render () {
 }
 ```
 
-                        
-                        
 ## Adding Function/Event Handlers
-
-                        
 
 **What happens when a person click a keyword?**
 
-                        
-
 A event is fired and it will do the arithmetic operation and update the page.
-
-                        
 
 ```javascript
 operator(value){
@@ -115,23 +97,16 @@ reset=()=>{
 }
 ```
 
-                        
-
 > Fun Fact - Calculators were originally gear driven wheels, but now they use a chip
-
-                        
 
 **Add some stylings to make it look impressive.**
 
-                        
 ## Deployment
-
-                        
 
 For deployment, We are using the **GitHub Pages**.  [For More Info](https://pages.github.com/)
 
-                        
 ## Web Preview / Output
 
-                        ![Calculator project screenshot](https://raw.githubusercontent.com/chaudharypraveen98/calculator/master/calculator.JPG)
-                        Web preview on deployment
+![Calculator project screenshot](https://raw.githubusercontent.com/chaudharypraveen98/calculator/master/calculator.JPG)
+
+*Web preview on deployment*

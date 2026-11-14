@@ -13,8 +13,6 @@ headerImage: "/projects/assets/img/post-bg.webp"
 
 **What We are going to do?**
 
-                        
-
 1. Starting the Django Project
 2. Creating a pokemon app within the PokedexWithGraphene Project
 3. Create a Album and Song model in pokemon/models.py
@@ -25,23 +23,13 @@ headerImage: "/projects/assets/img/post-bg.webp"
 8. Creating a Template for displaying the song data on the page
 9. Fetching data using ajax into templates
 
-                        
-
 ### Understanding Some Important Concepts
-
-                        
 
 **What is Django Framework?**
 
-                        
-
 Django is a Python-based free and open-source web framework that follows the model–template–views architectural pattern.
 
-                        
-
 **Top Features of Django Framework**
-
-                        
 
 - Excellent Documentation
 - SEO Optimized
@@ -50,45 +38,27 @@ Django is a Python-based free and open-source web framework that follows the mod
 - Offers High Security
 - Provides Rapid Development
 
-                        
-                        
 ## Step 1 => Starting the Django Project
 
-                        
-
 Initialize a Django project by following command. **Python** must be installed on your system.
-
-                        
 
 ```
 pip install Django
 ```
 
-                        
-
 You can confirm the installation by checking the django version by following command
-
-                        
 
 ```
 python -m django --version
 ```
 
-                        
-
 **Starting the Project**
-
-                        
 
 ```
 django-admin startproject PokedexWithGraphene
 ```
 
-                        
-
 You get the project structure like this
-
-                        
 
 ```
 PokedexWithGraphene/
@@ -101,37 +71,21 @@ PokedexWithGraphene/
         wsgi.py
 ```
 
-                        
 ## Step 2 -> Creating a pokemon app within the PokedexWithGraphene Project
-
-                        
 
 **What is a Django App?**
 
-                        
-
 An app is a Web application that does something – e.g., a Weblog system, a database of public records or a small poll app.
-
- 
-                        
 
 A project is a collection of configuration and apps for a particular website. A project can contain multiple apps. An app can be in multiple projects.
 
-                        
-
 Creating the pokemon app
-
-                        
 
 ```
 python manage.py startapp pokemon
 ```
 
-                        
-
 That’ll create a directory pokemon, which is laid out like this:
-
-                        
 
 ```
 pokemon/
@@ -145,11 +99,7 @@ pokemon/
     views.py
 ```
 
-                        
-
 **Including your app and libraries in project**
-
-                        
 
 ```
 INSTALLED_APPS = [
@@ -171,46 +121,26 @@ INSTALLED_APPS = [
 ]
 ```
 
-                        
-
 **Making migrations**
 
-                        
-
 Once the model is defined, the django will automatically take schemas and table according to the fields supplied in the django model.
-
-                        
 
 ```
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-                        
 ## Step 3 -> Create a Pokemon and PokemonTag model in pokemon/models.py
-
-                        
 
 **What is a Django Model?**
 
-                        
-
 A model is the single, definitive source of truth about your data. It contains the essential fields and behaviors of the data you’re storing. Django follows the DRY Principle.
-
- 
-                        
 
 The goal is to define your data model in one place and automatically derive things from it.
 
-                        
-
 Let's create a Django Model.
 
-                        
-
 A database contains a number of variable which are represented by fields in django model.Each field is represented by an instance of a Field class – e.g., CharField for character fields and DateTimeField for datetimes. This tells Django what type of data each field holds.
-
-                        
 
 ```python
 from django.db import models
@@ -232,20 +162,11 @@ class Pokemon(models.Model):
         return f"{self.pokemon_id}  {self.pokemon_name}"
 ```
 
-                        
-
 Here, We have used the many to many relationship between the Pokemon and PokemonTag as there can be many tags for pokemon and vice versa.
-
-                        
-                        
 
 **Adding models to admin panel**
 
-                        
-
 Django provides built-in admin panel to manage the data into model
-
-                        
 
 ```python
 from django.contrib import admin
@@ -257,18 +178,11 @@ admin.site.register(Pokemon)
 admin.site.register(PokemonTag)
 ```
 
-                        
 ## Step 4 -> Importing pokemon data from json file using  Django Extensions(pokemon/script/load_pokemons.py)
-
-                        
 
 ### Django EXtension
 
-                        
-
 It will help us to load data seamlessly without much manual work. It uses the JSON library to do the task.
-
-                        
 
 ```python
 import json
@@ -293,10 +207,7 @@ def run(*args):
         print(pokemon_obj.pokemon_id)
 ```
 
-                        
 ## Step 5 -> Writing GraphQL queries and schema.
-
-                        
 
 ```python
 import graphene
@@ -329,24 +240,15 @@ class Query(graphene.ObjectType):
 schema = graphene.Schema(query=Query)
 ```
 
-                        
-
 We are using the GraghQl playground to get the right query to get the data.
 
-                        ![GraghQl-image](https://raw.githubusercontent.com/chaudharypraveen98/PokedexWithGraphene/master/graphql.JPG)
+![GraghQl-image](https://raw.githubusercontent.com/chaudharypraveen98/PokedexWithGraphene/master/graphql.JPG)
 
-                        
 ## Step 6 -> Creating a view for handling the request made from the client.
-
-                        
 
 **What is a Django View?**
 
-                        
-
 A view function, or view for short, is a Python function that takes a Web request and returns a Web response.
-
-                        
 
 ```python
 from django.shortcuts import render
@@ -356,24 +258,13 @@ def pokemon_home(request):
     return render(request, 'pokemon/pokemon_list.html')
 ```
 
-                        
-
 We are using Django <tt>render</tt> in-built function.
-
-                        
 
 The <tt>render()</tt>  function takes the request object as its first argument, a template name as its second argument and a dictionary as its optional third argument. It returns an <tt>HttpResponse</tt> object of the given template rendered with the given context.
 
-                        
-
-                        
 ## Step 7 -> Adding function handlers to routes.(PokedexWithGraphene/urls.py)
 
-                        
-
 Whenever user visit the user, a function is called in view which takes care of response.
-
-                        
 
 ```python
 """PokedexWithGraphene URL Configuration"""
@@ -400,15 +291,9 @@ if settings.DEBUG:
                           document_root=settings.MEDIA_ROOT)
 ```
 
-                        
-
 **Adding sub path for pokemon app**
 
-                        
-
 It defines the particular path for pokemon app
-
-                        
 
 ```python
 from django.urls import path
@@ -422,14 +307,9 @@ urlpatterns = [
                             ]
 ```
 
-                        
 ## Step 8 -> Creating a Template for displaying the song data on the page
 
-                        
-
 We are using the jinja templating engine for displaying the data.
-
-                        
 
 ```html
 <!DOCTYPE html>
@@ -450,23 +330,13 @@ We are using the jinja templating engine for displaying the data.
 </html>
 ```
 
-                        
-
 <tt><script> src="{% static 'pokemon/pokemon-list.js' %}"></script></tt> : - This script will fetch the data explained in next step
-
-                        
 
 ## Step 9 -> Fetching data using ajax into templates
 
-                        
-
 Fetching data using the ajax call to the pokemon route <tt>127.0.0.1:8000/pokemons/</tt>
 
-                        
-
 <b>pokemons/static/pokemon/pokemon-list.js**
-
-                        
 
 ```javascript
 $(function () {
@@ -483,26 +353,14 @@ $(function () {
             for (let i = 0; i < data['data']['allPokemons'].length; i++) {
                 const pokemon = data['data']['allPokemons'][i];
                 $(".pokemon-container").append(`
-                    
-                        
-
-![pokemon image](${pokemon[)
-
-                        
-                            
-##### ${pokemon['pokemonName']}
-
-                            
-### ${pokemon['pokemonId']}
-
-                            
-#### ${pokemon['pokemonTag'][0]['tag']}
-                        
-                        
-                            [More Details](${pokemon[)
-                        
-                        
-                        `
+                    <div class="pokemon-card">
+                        <img src="${pokemon['pokemonImageUrl']}" alt="pokemon image" />
+                        <h5>${pokemon['pokemonName']}</h5>
+                        <h3>${pokemon['pokemonId']}</h3>
+                        <h4>${pokemon['pokemonTag'][0]['tag']}</h4>
+                        <a href="${pokemon['pokemonUrl']}">More Details</a>
+                    </div>
+                `);
                 );
             }
         },
@@ -513,26 +371,16 @@ $(function () {
 });
 ```
 
-                        
-
 **Add Some styles to make it attractive**
 
-                        
 ## Deployment
-
-                        
 
 You can easily deploy on [Heroku](https://www.heroku.com/)
 
-                        
-
 You can read more about on [Analytics Vidhya Blog](https://www.analyticsvidhya.com/blog/2020/10/step-by-step-guide-for-deploying-a-django-application-using-heroku-for-free/)
 
-                        
-                        
-                        
 ## Web Preview / Output
 
-                        ![PokedexWithGraphene project screenshot](https://raw.githubusercontent.com/chaudharypraveen98/PokedexWithGraphene/master/graphql3.JPG)
+![PokedexWithGraphene project screenshot](https://raw.githubusercontent.com/chaudharypraveen98/PokedexWithGraphene/master/graphql3.JPG)
 
-                        Web preview on deployment
+*Web preview on deployment*
